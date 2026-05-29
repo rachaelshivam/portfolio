@@ -39,59 +39,61 @@ export default function Nav() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-[var(--max-width-content)] items-center justify-between px-[var(--space-4)] sm:px-[var(--space-6)]">
-        <Link
-          href="/"
-          className="nav-logo text-lg tracking-tight sm:text-xl"
-          onClick={() => setMenuOpen(false)}
-        >
-          Rachael Shivam
-        </Link>
+      <div className="px-[var(--space-4)] sm:px-[var(--space-6)]">
+        <div className="mx-auto flex h-16 w-full max-w-[var(--max-width-content)] items-center justify-between">
+          <Link
+            href="/"
+            className="nav-logo text-lg tracking-tight sm:text-xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            Rachael Shivam
+          </Link>
 
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-[var(--space-6)] md:flex"
-        >
-          {navLinks.map(({ label, href }) =>
-            href.includes("#") ? (
-              <HashLink key={href} href={href} className="nav-link text-sm">
-                {label}
-              </HashLink>
-            ) : (
-              <Link key={href} href={href} className="nav-link text-sm">
-                {label}
-              </Link>
-            ),
-          )}
-        </nav>
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-[var(--space-6)] md:flex"
+          >
+            {navLinks.map(({ label, href }) =>
+              href.includes("#") ? (
+                <HashLink key={href} href={href} className="nav-link text-sm">
+                  {label}
+                </HashLink>
+              ) : (
+                <Link key={href} href={href} className="nav-link text-sm">
+                  {label}
+                </Link>
+              ),
+            )}
+          </nav>
 
-        <button
-          type="button"
-          className="nav-link relative flex h-10 w-10 items-center justify-center md:hidden"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
-          <span className="flex w-5 flex-col items-center justify-center gap-1.5">
-            <span
-              className={`block h-px w-5 bg-current transition-transform duration-300 ${
-                menuOpen ? "translate-y-[7px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-px w-5 bg-current transition-opacity duration-300 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-px w-5 bg-current transition-transform duration-300 ${
-                menuOpen ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
+          <button
+            type="button"
+            className="nav-link relative flex h-10 w-10 items-center justify-center md:hidden"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
+            <span className="flex w-5 flex-col items-center justify-center gap-1.5">
+              <span
+                className={`block h-px w-5 bg-current transition-transform duration-300 ${
+                  menuOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-px w-5 bg-current transition-opacity duration-300 ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-px w-5 bg-current transition-transform duration-300 ${
+                  menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </div>
 
       <nav
@@ -103,7 +105,8 @@ export default function Nav() {
             : "max-h-0 opacity-0"
         } ${showFrost ? "bg-[rgba(249,248,246,0.8)] backdrop-blur-md" : "bg-transparent"}`}
       >
-        <ul className="mx-auto flex max-w-[var(--max-width-content)] flex-col px-[var(--space-4)] py-[var(--space-3)] sm:px-[var(--space-6)]">
+        <div className="px-[var(--space-4)] sm:px-[var(--space-6)]">
+          <ul className="mx-auto flex w-full max-w-[var(--max-width-content)] flex-col py-[var(--space-3)]">
           {navLinks.map(({ label, href }) => (
             <li key={href}>
               {href.includes("#") ? (
@@ -125,7 +128,8 @@ export default function Nav() {
               )}
             </li>
           ))}
-        </ul>
+          </ul>
+        </div>
       </nav>
     </header>
   );
