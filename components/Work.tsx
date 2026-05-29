@@ -6,7 +6,7 @@ export default function Work() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
+      className="scroll-mt-16 px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <h2 id="work-heading" className="text-[var(--text-3xl)]">

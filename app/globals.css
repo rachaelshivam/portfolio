@@ -165,6 +165,118 @@ a:hover {
   border-radius: var(--radius-sm);
 }
 
+.publication-link {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.publication-link:hover {
+  color: var(--color-accent);
+}
+
+.site-footer {
+  background-color: #1a1a1a;
+  color: #f9f8f6;
+}
+
+.site-footer .footer-muted {
+  color: rgba(249, 248, 246, 0.65);
+}
+
+.site-footer .footer-link {
+  display: inline-flex;
+  color: rgba(249, 248, 246, 0.75);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.site-footer .footer-link:hover {
+  color: var(--color-accent-muted);
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 1px solid var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: var(--space-6);
+  padding-bottom: var(--space-7);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+.case-study-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.case-study-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-9);
+}
+
+.case-study-section {
+  max-width: 48rem;
+}
+
+.case-study-section--full {
+  max-width: none;
+}
+
+.case-study-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.case-study-list li {
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+.case-study-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.case-study-deliverables {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.case-study-deliverables li {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

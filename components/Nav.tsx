@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/about" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ] as const;
@@ -53,7 +53,7 @@ export default function Nav() {
           className="hidden items-center gap-[var(--space-6)] md:flex"
         >
           {navLinks.map(({ label, href }) =>
-            href.startsWith("#") ? (
+            href.includes("#") ? (
               <HashLink key={href} href={href} className="nav-link text-sm">
                 {label}
               </HashLink>
@@ -106,7 +106,7 @@ export default function Nav() {
         <ul className="mx-auto flex max-w-[var(--max-width-content)] flex-col px-[var(--space-4)] py-[var(--space-3)] sm:px-[var(--space-6)]">
           {navLinks.map(({ label, href }) => (
             <li key={href}>
-              {href.startsWith("#") ? (
+              {href.includes("#") ? (
                 <HashLink
                   href={href}
                   className="nav-link block py-[var(--space-3)] text-base"

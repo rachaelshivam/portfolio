@@ -18,7 +18,7 @@ export default function CaseStudyCard({
 }: CaseStudyCardProps) {
   return (
     <Link href={`/work/${slug}`} className="case-study-card group block">
-      <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-bg-subtle)]">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[var(--color-bg-subtle)]">
         <Image
           src={imageSrc}
           alt={title}

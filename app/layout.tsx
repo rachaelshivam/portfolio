@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HashScrollHandler from "@/components/HashScrollHandler";
 import Nav from "@/components/Nav";
 import "./globals.css";
 
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
+        <HashScrollHandler />
         <Nav />
         {children}
       </body>
