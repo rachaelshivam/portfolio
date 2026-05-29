@@ -1,20 +1,20 @@
 import Image from "next/image";
 import type {
   CaseStudySection,
-  TextBodyComparison,
-  TextBodyList,
+  TextBodyBullets,
   TextBodyParagraph,
+  TextBodyTwoColumn,
 } from "@/data/caseStudies";
 
 function TextBodyContent({
   body,
 }: {
-  body: Array<TextBodyParagraph | TextBodyList | TextBodyComparison>;
+  body: Array<TextBodyParagraph | TextBodyBullets | TextBodyTwoColumn>;
 }) {
   return (
     <div className="case-study-body mt-[var(--space-5)] space-y-[var(--space-5)]">
       {body.map((block, index) => {
-        if (block.kind === "paragraph") {
+        if (block.type === "paragraph") {
           return (
             <p
               key={index}
@@ -25,18 +25,22 @@ function TextBodyContent({
           );
         }
 
-        if (block.kind === "list") {
+        if (block.type === "bullets") {
           return (
-            <ul
-              key={index}
-              className="case-study-list list-disc space-y-[var(--space-2)] pl-[var(--space-5)] text-muted"
-            >
-              {block.items.map((item) => (
-                <li key={item} className="leading-[var(--leading-relaxed)]">
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <div key={index}>
+              {block.intro && (
+                <p className="mb-[var(--space-3)] text-muted leading-[var(--leading-relaxed)]">
+                  {block.intro}
+                </p>
+              )}
+              <ul className="case-study-list space-y-[var(--space-2)] text-muted">
+                {block.items.map((item) => (
+                  <li key={item} className="leading-[var(--leading-relaxed)]">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           );
         }
 
@@ -45,26 +49,18 @@ function TextBodyContent({
             key={index}
             className="grid gap-[var(--space-6)] md:grid-cols-2"
           >
-            <div>
-              <p className="case-study-label">Included</p>
-              <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-muted">
-                {block.included.map((item) => (
-                  <li key={item} className="leading-[var(--leading-relaxed)]">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="case-study-label">Excluded</p>
-              <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-muted">
-                {block.excluded.map((item) => (
-                  <li key={item} className="leading-[var(--leading-relaxed)]">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {block.columns.map((column) => (
+              <div key={column.heading}>
+                <p className="case-study-label">{column.heading}</p>
+                <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-muted">
+                  {column.items.map((item) => (
+                    <li key={item} className="leading-[var(--leading-relaxed)]">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         );
       })}

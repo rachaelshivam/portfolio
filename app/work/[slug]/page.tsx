@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   return {
     title: `${study.title} — Rachael Shivam`,
-    description: study.summary,
+    description: study.intro,
   };
 }
 
@@ -38,10 +38,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
   }
 
   const metadataItems = [
-    { label: "Role", value: study.metadata.role },
-    { label: "Timeline", value: study.metadata.timeline },
-    { label: "Tools", value: study.metadata.tools },
-    { label: "Context", value: study.metadata.context },
+    { label: "Role", value: study.role },
+    { label: "Timeline", value: study.timeline },
+    { label: "Tools", value: study.tools.join(", ") },
+    { label: "Context", value: study.context },
   ];
 
   return (
@@ -51,7 +51,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <div className="mx-auto w-full max-w-[var(--max-width-content)]">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--color-bg-subtle)]">
               <Image
-                src={study.imageSrc}
+                src={study.heroImage}
                 alt={study.title}
                 fill
                 className="object-cover"
@@ -66,6 +66,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </h1>
               <p className="mt-[var(--space-4)] text-lg leading-[var(--leading-relaxed)] text-muted sm:text-xl">
                 {study.subtitle}
+              </p>
+              <p className="mt-[var(--space-5)] leading-[var(--leading-relaxed)] text-muted">
+                {study.intro}
               </p>
             </div>
 

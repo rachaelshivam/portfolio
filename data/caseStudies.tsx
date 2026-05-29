@@ -1,10 +1,3 @@
-export type CaseStudyMetadata = {
-  role: string;
-  timeline: string;
-  tools: string;
-  context: string;
-};
-
 export type OverviewSection = {
   type: "overview";
   problem: string;
@@ -12,26 +5,29 @@ export type OverviewSection = {
 };
 
 export type TextBodyParagraph = {
-  kind: "paragraph";
+  type: "paragraph";
   content: string;
 };
 
-export type TextBodyList = {
-  kind: "list";
+export type TextBodyBullets = {
+  type: "bullets";
+  intro?: string;
   items: string[];
 };
 
-export type TextBodyComparison = {
-  kind: "comparison";
-  included: string[];
-  excluded: string[];
+export type TextBodyTwoColumn = {
+  type: "two-column";
+  columns: Array<{
+    heading: string;
+    items: string[];
+  }>;
 };
 
 export type TextSection = {
   type: "text";
   category: string;
   heading: string;
-  body: Array<TextBodyParagraph | TextBodyList | TextBodyComparison>;
+  body: Array<TextBodyParagraph | TextBodyBullets | TextBodyTwoColumn>;
 };
 
 export type ImageSection = {
@@ -54,224 +50,210 @@ export type CaseStudySection =
   | DeliverablesSection;
 
 export type CaseStudy = {
-  title: string;
-  summary: string;
-  subtitle: string;
-  tags: string[];
-  imageSrc: string;
   slug: string;
-  metadata: CaseStudyMetadata;
+  title: string;
+  subtitle: string;
+  intro: string;
+  tags: string[];
+  role: string;
+  timeline: string;
+  tools: string[];
+  context: string;
+  thumbnail: string;
+  heroImage: string;
   sections: CaseStudySection[];
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "Healthcare Portal Redesign",
-    summary: "Simplified a complex patient dashboard used by 200k+ users.",
-    subtitle:
-      "Reducing cognitive load for patients managing chronic care online.",
-    tags: ["UX Research", "UI Design", "Prototyping"],
-    imageSrc: "https://picsum.photos/seed/healthcare-portal/800/500",
-    slug: "healthcare-portal",
-    metadata: {
-      role: "Lead UX Designer",
-      timeline: "6 months",
-      tools: "Figma, Maze, FigJam",
-      context: "Enterprise healthcare SaaS",
-    },
+    slug: "okuma",
+    title: "Okuma",
+    subtitle: "Designing for culture and context",
+    intro:
+      "Existing Type 2 Diabetes apps are not designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded prototype that was tested in 13 co-design workshops with 19 participants, directly informing the development of a full mHealth intervention. Co-authored work published at ACM DIS 2025 and ACM AfriCHI 2025.",
+    tags: ["UX Research", "Prototyping", "mHealth"],
+    role: "UX Designer & Researcher",
+    timeline: "5 months (May – Sep 2023)",
+    tools: ["Figma", "Miro", "Zoom", "Google Forms"],
+    context: "University of Bristol MSc Dissertation",
+    thumbnail: "/images/okuma-thumbnail.jpg",
+    heroImage: "/images/okuma-hero.jpg",
     sections: [
       {
         type: "overview",
         problem:
-          "Patients struggled to find critical information across a fragmented dashboard. Appointment details, lab results, and care plans lived in separate modules with inconsistent patterns.",
+          "Existing T2D solutions impose Western design assumptions on Nigerian communities, and none address the patient-caregiver-pharmacist care triad fundamental to diabetes management in Nigeria.",
         solution:
-          "We consolidated key actions into a single home view, introduced a progressive disclosure model, and aligned terminology with how patients described their care journey in research.",
+          "A culturally sensitive mobile app prototype supporting collaborative diabetes care in Port Harcourt, Nigeria — tested in 13 co-design workshops with 19 participants and published at ACM DIS 2025 and ACM AfriCHI 2025.",
+      },
+      {
+        type: "text",
+        category: "The Challenge",
+        heading: "Designing within real constraints",
+        body: [
+          {
+            type: "paragraph",
+            content:
+              "University restrictions prevented direct access to Port Harcourt users, so every design decision had to be grounded in existing research data and validated through close collaboration with the Nigerian PhD researcher leading the project.",
+          },
+          {
+            type: "paragraph",
+            content:
+              "I was designing for a cultural context I hadn't experienced, for infrastructure realities I'd never designed around, and for three distinct user groups — each with different needs — who needed to work together within a single app.",
+          },
+        ],
       },
       {
         type: "text",
         category: "Research",
-        heading: "Understanding patient mental models",
+        heading: "Understanding the landscape",
         body: [
           {
-            kind: "paragraph",
+            type: "paragraph",
             content:
-              "We conducted 18 contextual interviews and mapped common task flows to identify where patients lost confidence. Most friction occurred when switching between clinical and administrative tasks.",
+              "A scoping review of diabetes mHealth research in Africa and a competitive analysis of 8 existing apps revealed a clear gap: no solution addressed the specific realities of Nigeria, and none had been designed for the patient-caregiver-pharmacist triad.",
           },
           {
-            kind: "list",
+            type: "bullets",
+            intro:
+              "The infrastructure context made this gap even more significant:",
             items: [
-              "72% of participants missed upcoming appointments without reminders",
-              "Lab results were the most visited page but hardest to interpret",
-              "Caregivers often completed tasks on behalf of patients",
+              "Only 12.1% of Nigerians experience quality internet services",
+              "Just 36% of Nigeria's urban population owns a smartphone",
+              "Data costs are high — most existing solutions assumed consistent connectivity",
             ],
           },
         ],
       },
       {
         type: "image",
-        src: "https://picsum.photos/seed/healthcare-wireframes/1200/675",
-        alt: "Wireframes of the redesigned patient dashboard",
-        caption: "Early wireframes exploring a unified dashboard hierarchy.",
+        src: "/images/okuma-empathy-journey.jpg",
+        alt: "Empathy maps and journey maps for patient, caregiver, and pharmacist user groups",
+        caption: "Empathy maps and journey maps for each user group",
       },
       {
         type: "text",
-        category: "Scope",
-        heading: "Defining what shipped in v1",
+        category: "Research",
+        heading: "Synthesizing user needs",
         body: [
           {
-            kind: "comparison",
-            included: [
-              "Unified dashboard with prioritized actions",
-              "Plain-language lab result summaries",
-              "Caregiver access and permissions",
-            ],
-            excluded: [
-              "Insurance billing workflows",
-              "Provider messaging redesign",
-              "Native mobile app parity",
-            ],
-          },
-        ],
-      },
-      {
-        type: "deliverables",
-        heading: "Deliverables",
-        items: [
-          "Research synthesis and journey maps",
-          "Interactive Figma prototype",
-          "Component specifications for engineering",
-          "Usability test report with recommendations",
-        ],
-      },
-    ],
-  },
-  {
-    title: "Mobile Banking App",
-    summary: "Redesigned core flows to reduce task completion time by 40%.",
-    subtitle: "Making everyday banking tasks faster on mobile.",
-    tags: ["Mobile UX", "Usability Testing", "Wireframing"],
-    imageSrc: "https://picsum.photos/seed/mobile-banking/800/500",
-    slug: "mobile-banking",
-    metadata: {
-      role: "Product Designer",
-      timeline: "4 months",
-      tools: "Figma, UserTesting",
-      context: "Consumer fintech startup",
-    },
-    sections: [
-      {
-        type: "overview",
-        problem:
-          "Users abandoned transfers and bill pay mid-flow due to unclear steps and excessive verification prompts.",
-        solution:
-          "We streamlined flows to three steps, surfaced progress indicators, and reduced redundant confirmations for low-risk actions.",
-      },
-      {
-        type: "text",
-        category: "Outcomes",
-        heading: "Measuring impact",
-        body: [
-          {
-            kind: "paragraph",
+            type: "paragraph",
             content:
-              "Post-launch usability testing showed a 40% reduction in task completion time and a measurable drop in support tickets related to payments.",
+              "Working with interview transcripts and survey data from Port Harcourt users, I built a picture of each user group's needs, frustrations, and goals. Empathy maps surfaced the emotional burden of chronic disease management, while journey maps identified where the intervention could meaningfully support each user type.",
           },
         ],
       },
       {
-        type: "deliverables",
-        items: [
-          "Redesigned transfer and bill pay flows",
-          "Mobile component library updates",
-          "QA checklist for edge cases",
+        type: "text",
+        category: "Research",
+        heading: "Cultural grounding",
+        body: [
+          {
+            type: "paragraph",
+            content:
+              "As a non-Nigerian designer, I grounded every decision in user data rather than assumption, validating design choices through regular meetings with the Nigerian PhD researcher leading the project. When selecting content — recipes, imagery, community features — I prioritized what aligned with cultural values that emerged from the research.",
+          },
         ],
       },
-    ],
-  },
-  {
-    title: "E-commerce Checkout Flow",
-    summary: "Streamlined checkout to lift conversion and reduce cart abandonment.",
-    subtitle: "A frictionless path from cart to confirmation.",
-    tags: ["Conversion UX", "A/B Testing", "Interaction Design"],
-    imageSrc: "https://picsum.photos/seed/ecommerce-checkout/800/500",
-    slug: "ecommerce-checkout",
-    metadata: {
-      role: "UX Designer",
-      timeline: "3 months",
-      tools: "Figma, Optimizely",
-      context: "Direct-to-consumer retail",
-    },
-    sections: [
       {
-        type: "overview",
-        problem:
-          "Cart abandonment peaked at shipping and payment steps, with users unsure about total costs and delivery timing.",
-        solution:
-          "We introduced upfront cost summaries, guest checkout, and clearer delivery estimates before payment.",
+        type: "text",
+        category: "Design Process",
+        heading: "Feature prioritization",
+        body: [
+          {
+            type: "paragraph",
+            content:
+              "With Android accounting for over 86% of smartphone users in Nigeria, I designed for Android from the outset. Every feature decision was filtered through: 'Will this work on a slow connection with limited data?'",
+          },
+          {
+            type: "two-column",
+            columns: [
+              {
+                heading: "Included",
+                items: [
+                  "Lightweight, culturally relevant imagery",
+                  "Nigerian recipes",
+                  "Community features",
+                  "Simple, data-efficient interfaces",
+                ],
+              },
+              {
+                heading: "Excluded",
+                items: [
+                  "Video consultations",
+                  "Heavy media",
+                  "Always-connected features",
+                  "Generic Western health content",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Five core features",
+        body: [
+          {
+            type: "bullets",
+            items: [
+              "Health Tracker — blood sugar, medications, trends",
+              "Nigerian Recipes — user-contributed, culturally relevant nutrition support",
+              "My Personal Network — private collaboration space for the care triad",
+              "Community Forum — peer support for the psychological burden of chronic disease",
+              "Education — accessible, shareable diabetes information",
+            ],
+          },
+        ],
       },
       {
         type: "image",
-        src: "https://picsum.photos/seed/ecommerce-checkout-detail/1200/675",
-        alt: "Checkout flow screens",
-        caption: "Final checkout screens after A/B validation.",
-      },
-      {
-        type: "deliverables",
-        items: [
-          "Checkout wireframes and hi-fi screens",
-          "A/B test plan and results summary",
-          "Handoff documentation for engineering",
-        ],
-      },
-    ],
-  },
-  {
-    title: "SaaS Design System",
-    summary: "Built a scalable component library adopted across three product teams.",
-    subtitle: "One system, three products, consistent experiences.",
-    tags: ["Design Systems", "Accessibility", "Documentation"],
-    imageSrc: "https://picsum.photos/seed/saas-design-system/800/500",
-    slug: "saas-design-system",
-    metadata: {
-      role: "Design Systems Lead",
-      timeline: "8 months",
-      tools: "Figma, Storybook, Zeroheight",
-      context: "B2B SaaS platform",
-    },
-    sections: [
-      {
-        type: "overview",
-        problem:
-          "Teams shipped inconsistent UI patterns, slowing development and creating accessibility gaps across products.",
-        solution:
-          "We audited existing patterns, defined core tokens and components, and rolled out documentation with contribution guidelines.",
+        src: "/images/okuma-prototype.jpg",
+        alt: "Okuma mobile app prototype screens",
+        caption: "Technology probe prototype designed for co-design workshops",
       },
       {
         type: "text",
-        category: "Process",
-        heading: "Building adoption",
+        category: "Design Process",
+        heading: "Prototyping and iteration",
         body: [
           {
-            kind: "paragraph",
+            type: "paragraph",
             content:
-              "Adoption grew through office hours, paired design reviews, and a clear process for proposing new components.",
+              "I designed technology probes to spark discussion in co-design workshops rather than serve as polished final products — accepting that cultural fit couldn't be validated until workshops happened in Nigeria, and designing for iteration accordingly.",
           },
           {
-            kind: "list",
-            items: [
-              "40+ components documented in Storybook",
-              "WCAG 2.1 AA baseline for all primitives",
-              "Shared Figma library with versioning",
-            ],
+            type: "paragraph",
+            content:
+              "Usability testing with 4 proxy users revealed problems with terminology, iconography, and visual differentiation between user types. These findings drove refinements to labelling, icons, and role-based visual design before the probes reached real users.",
+          },
+        ],
+      },
+      {
+        type: "text",
+        category: "Reflection",
+        heading: "What I learned",
+        body: [
+          {
+            type: "paragraph",
+            content:
+              "The hardest part wasn't the design itself — it was making confident decisions without direct access to the people I was designing for. Secondary research and close collaboration were invaluable, but couldn't fully replicate direct user engagement. I had to accept that some uncertainty was unavoidable, and design in a way that left room for the workshops to surface what I couldn't.",
+          },
+          {
+            type: "paragraph",
+            content:
+              "Designing across an unfamiliar cultural context while balancing three distinct user groups pushed me to interrogate every assumption. The discipline of grounding decisions in research data rather than instinct is something I'll carry into every project.",
           },
         ],
       },
       {
         type: "deliverables",
         items: [
-          "Design token specification",
-          "Component library in Figma and code",
-          "Accessibility guidelines and checklists",
+          "Mobile app prototype (technology probe)",
+          "Information architecture and sitemap",
+          "Co-design workshop materials",
+          "Research published at ACM DIS 2025 and ACM AfriCHI 2025",
         ],
       },
     ],

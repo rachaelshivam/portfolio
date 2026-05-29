@@ -3,24 +3,24 @@ import Link from "next/link";
 
 export type CaseStudyCardProps = {
   title: string;
-  summary: string;
+  intro: string;
   tags: string[];
-  imageSrc: string;
+  thumbnail: string;
   slug: string;
 };
 
 export default function CaseStudyCard({
   title,
-  summary,
+  intro,
   tags,
-  imageSrc,
+  thumbnail,
   slug,
 }: CaseStudyCardProps) {
   return (
     <Link href={`/work/${slug}`} className="case-study-card group block">
       <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[var(--color-bg-subtle)]">
         <Image
-          src={imageSrc}
+          src={thumbnail}
           alt={title}
           fill
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
@@ -33,7 +33,7 @@ export default function CaseStudyCard({
           {title}
         </h3>
         <p className="mt-[var(--space-2)] truncate text-sm text-muted sm:text-base">
-          {summary}
+          {intro}
         </p>
         {tags.length > 0 && (
           <ul className="mt-[var(--space-3)] flex flex-wrap gap-[var(--space-2)]">
