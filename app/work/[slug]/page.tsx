@@ -55,7 +55,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <p className="mt-[var(--space-4)] text-lg leading-[var(--leading-relaxed)] text-muted sm:text-xl">
                 {study.subtitle}
               </p>
-              <p className="mt-[var(--space-5)] leading-[var(--leading-relaxed)] text-muted">
+              <p className="mt-[var(--space-5)] text-lg leading-[var(--leading-relaxed)] text-muted sm:text-xl">
                 {study.intro}
               </p>
             </div>
