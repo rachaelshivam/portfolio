@@ -260,6 +260,144 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "fastdental",
+    title: "FastDental",
+    subtitle: "AI powered documentation overlay for dental practices",
+    intro: "Dentists in the US lose an average of 312 hours per year to clinical documentation. AI scribes reduce transcription time, but don't fix the underlying problem. FastDental is a non-disruptive clinical overlay that unifies X-rays, charting, notes, and billing in a single screen, on top of the systems dentists already use.",
+    summary: "AI-powered clinical documentation overlay for solo dental practices",
+    tags: ["Product Strategy", "UX Design", "AI"],
+    role: "Lead Designer & Strategist",
+    timeline: "Spring Semester 2026",
+    tools: ["Figma", "Figma Make", "MCP", "Cursor"],
+    context: "Product Management Essentials, Carnegie Mellon University · ProdHacks 2026",
+    thumbnail: "/images/fastdental-thumbnail.jpg",
+    heroImage: "/images/fastdental-hero.jpg",
+    sections: [
+      {
+        type: "overview",
+        problem: "Dentists spend an average of 17.5 minutes per patient on documentation — three times the five-minute target. The root cause is display fragmentation: X-rays, notes, charting, and billing live in separate windows. AI scribes help with transcription but leave everything else broken. Full AI-native PMS platforms solve fragmentation but require costly migrations most solo practices won't risk.",
+        solution: "A web-based clinical overlay that sits on top of the dentist's existing PMS — no migration required. It reads patient data and X-rays from the existing system, presents everything in one unified screen, and writes the completed note and billing codes back on export."
+      },
+      {
+        type: "text",
+        category: "The Challenge",
+        heading: "Comprehensiveness vs. speed",
+        body: [
+          {
+            type: "paragraph",
+            content: "The core tension was between comprehensiveness and speed. A dentist seeing 15 patients a day needs to complete each note in under five minutes — but dental documentation is genuinely complex, covering clinical findings, X-ray diagnostics, treatment planning, and billing codes that all have to be accurate and legally defensible. Every design decision was filtered through both constraints."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Understanding the Problem",
+        heading: "Sizing the problem rigorously",
+        body: [
+          {
+            type: "paragraph",
+            content: "The documentation gap per patient is around 12.5 minutes — the difference between the 17.5-minute average and the five-minute target. Multiplied across 1,500 patient visits per year, that's 312 hours of excess documentation time per dentist annually. A FastDental subscription recovers its full annual cost in under three weeks of time savings — a 24:1 benefit-to-cost ratio."
+          },
+          {
+            type: "paragraph",
+            content: "Mapping the competitive landscape across AI scribes, AI-native PMS platforms, and manual documentation confirmed the gap: no existing product combined a unified display, AI diagnostics, and automated billing in a non-disruptive overlay accessible to solo practitioners."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Eliminating fragmentation without adding complexity",
+        body: [
+          {
+            type: "paragraph",
+            content: "The unified screen places X-ray imaging on the left, the interactive odontogram in the centre, and an adaptive clinical note panel on the right — so the dentist's eyes move left to right through the clinical workflow without switching windows. The risk was that consolidating four tools into one screen would feel overwhelming; the layout was designed so each zone maps to a distinct cognitive task, not just a visual region."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "A form that does the work",
+        body: [
+          {
+            type: "paragraph",
+            content: "The right panel adapts to the appointment type — an emergency visit surfaces different required fields to a routine checkup. It also pre-fills anything already known: patient intake data, previous visit history, current medications. What remains is only what the dentist needs to confirm."
+          },
+          {
+            type: "paragraph",
+            content: "AI-flagged pathologies from the X-ray appear as suggestions the dentist can approve or dismiss. Approving a finding automatically generates a draft treatment plan, which in turn generates the billing codes. The dentist moves through a chain of approvals rather than a chain of data entry tasks."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Keeping the dentist accountable, not the AI",
+        body: [
+          {
+            type: "paragraph",
+            content: "Legal responsibility for clinical documentation sits with the dentist, not the system. Rather than treating this as a disclaimer, I made it structural: nothing exports until every section has been actively reviewed and signed off. The Export button stays disabled until all fields are cleared. The friction is intentional — it surfaces accountability rather than burying it."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Key tradeoffs",
+        body: [
+          {
+            type: "bullets",
+            items: [
+              "Overlay over native PMS — made feasible by the ADA's ODIN interoperability standard (ADA Standard No. 1111), allowing FastDental to securely read from and write back to existing PMS systems",
+              "Structured form over voice input — prioritises speed and legal defensibility over conversational interaction",
+              "AI suggestion over full automation — keeps the dentist in the loop and maintains clinical accountability"
+            ]
+          },
+          {
+            type: "paragraph",
+            content: "Naming these tradeoffs explicitly in the pitch was a deliberate choice — they show the constraints were understood, not ignored."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Impact",
+        heading: "ProdHacks 2026",
+        body: [
+          {
+            type: "bullets",
+            items: [
+              "24:1 benefit-to-cost ratio for the target user",
+              "Projected gross margin of 76.7% at scale",
+              "Revenue CAGR of 118.5%"
+            ]
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Reflection",
+        heading: "What I learned",
+        body: [
+          {
+            type: "paragraph",
+            content: "This was my first time approaching a design problem through a full product strategy lens — sizing the problem in hours and dollars before drawing a single screen, and stress-testing the business model alongside the design decisions. It changed how I think about what makes a design defensible: not just whether it's usable, but whether the tradeoffs are understood and the value is legible to the person being asked to pay for it."
+          }
+        ]
+      },
+      {
+        type: "deliverables",
+        items: [
+          "Web-based clinical overlay prototype",
+          "Competitive landscape analysis",
+          "Financial model and business case",
+          "ProdHacks 2026 pitch deck"
+        ]
+      }
+    ]
+  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
