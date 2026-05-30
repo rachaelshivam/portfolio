@@ -70,26 +70,6 @@ function TextBodyContent({
 
 function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
   switch (section.type) {
-    case "overview":
-      return (
-        <section className="case-study-section">
-          <div className="grid gap-[var(--space-8)] md:grid-cols-2">
-            <div>
-              <p className="case-study-label">Problem</p>
-              <p className="mt-[var(--space-3)] leading-[var(--leading-relaxed)] text-muted">
-                {section.problem}
-              </p>
-            </div>
-            <div>
-              <p className="case-study-label">Solution</p>
-              <p className="mt-[var(--space-3)] leading-[var(--leading-relaxed)] text-muted">
-                {section.solution}
-              </p>
-            </div>
-          </div>
-        </section>
-      );
-
     case "text":
       return (
         <section className="case-study-section">
