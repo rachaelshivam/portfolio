@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import CaseStudySections from "@/components/CaseStudySections";
 import Footer from "@/components/Footer";
@@ -48,19 +47,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
     <>
       <article>
         <header className="px-[var(--space-4)] pt-[var(--space-10)] sm:px-[var(--space-6)]">
-          <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--color-bg-subtle)]">
-              <Image
-                src={study.heroImage}
-                alt={study.title}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-              />
-            </div>
-
-            <div className="mt-[var(--space-8)] max-w-3xl">
+          <div className="mx-auto w-full max-w-[740px]">
+            <div className="max-w-3xl">
               <h1 className="text-[clamp(2rem,4vw,var(--text-4xl))] leading-[var(--leading-tight)]">
                 {study.title}
               </h1>
@@ -84,7 +72,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </header>
 
         <div className="px-[var(--space-4)] pb-[var(--space-10)] pt-[var(--space-9)] sm:px-[var(--space-6)]">
-          <div className="mx-auto w-full max-w-[var(--max-width-content)]">
+          <div className="mx-auto w-full max-w-[740px]">
             <CaseStudySections sections={study.sections} />
           </div>
         </div>

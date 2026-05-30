@@ -7,21 +7,21 @@ export type Publication = {
 
 export const publications: Publication[] = [
   {
-    title: "Designing for Trust in Digital Health Experiences",
-    publication: "UX Collective",
+    title: "Designing Okuma: A Digital Health Tool for Type 2 Diabetes in Nigeria",
+    publication: "ACM DIS 2025",
     year: "2025",
-    href: "https://example.com/designing-for-trust",
+    href: "https://doi.org/10.1145/3757232.3757233",
   },
   {
-    title: "Reducing Cognitive Load in Complex Dashboards",
-    publication: "Smashing Magazine",
-    year: "2024",
-    href: "https://example.com/cognitive-load-dashboards",
+    title: "Bridging Context and Culture: Designing Cross-Cultural Solutions for Type 2 Diabetes Care in Nigeria",
+    publication: "ACM AfriCHI 2025",
+    year: "2025",
+    href: "https://doi.org/10.1145/3715336.3735710",
   },
   {
-    title: "A Practical Framework for Inclusive Mobile UX",
-    publication: "A List Apart",
-    year: "2024",
-    href: "https://example.com/inclusive-mobile-ux",
+    title: "An Evidence-based Protocol for the Management of Orthodontic Patients Undergoing MRI Scans",
+    publication: "Orthodontic Update",
+    year: "2021",
+    href: "https://doi.org/10.12968/ortu.2021.14.1.32",
   },
 ];

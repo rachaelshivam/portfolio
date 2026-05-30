@@ -54,6 +54,7 @@ export type CaseStudy = {
   title: string;
   subtitle: string;
   intro: string;
+  summary: string;
   tags: string[];
   role: string;
   timeline: string;
@@ -71,6 +72,7 @@ export const caseStudies: CaseStudy[] = [
     subtitle: "Designing for culture and context",
     intro:
       "Existing Type 2 Diabetes apps are not designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded prototype that was tested in 13 co-design workshops with 19 participants, directly informing the development of a full mHealth intervention. Co-authored work published at ACM DIS 2025 and ACM AfriCHI 2025.",
+    summary: "Digital health tool for Type 2 Diabetes in Nigeria",
     tags: ["UX Research", "Prototyping", "mHealth"],
     role: "UX Designer & Researcher",
     timeline: "5 months (May – Sep 2023)",
