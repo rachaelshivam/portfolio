@@ -398,6 +398,264 @@ export const caseStudies: CaseStudy[] = [
       }
     ]
   },
+  {
+    slug: "luteasense",
+    title: "LuteaSense",
+    subtitle: "Predicting PMDD symptoms before they happen",
+    intro: "LuteaSense is a multimodal biosensor patch that continuously monitors hormone levels and predicts PMDD symptoms 24-48 hours in advance — giving users the time and information they need to manage what's coming. At CMU's MDIR Demo Day 2026, LuteaSense was voted 1st place overall by a panel of industry expert judges. We are now pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship.",
+    summary: "Wearable hormone monitoring for PMDD management",
+    tags: ["Product Design", "Women's Health", "Wearable Tech"],
+    role: "Chief Product Officer",
+    timeline: "Spring Semester 2026",
+    tools: ["Figma", "React Native", "Windsurf"],
+    context: "Medical Device Innovation and Realization, Carnegie Mellon University",
+    thumbnail: "/images/luteasense-thumbnail.jpg",
+    heroImage: "/images/luteasense-hero.jpg",
+    sections: [
+      {
+        type: "overview",
+        problem: "PMDD affects an estimated 3-8% of women of reproductive age, causing severe mood and physical symptoms in the luteal phase. Current management is reactive — women experience symptoms before they can prepare. No consumer product offers advance warning grounded in continuous hormone monitoring.",
+        solution: "A microneedle biosensor patch worn on the arm that continuously monitors hormone levels, paired with a companion app that predicts PMDD symptoms 24-48 hours in advance and delivers actionable management strategies."
+      },
+      {
+        type: "text",
+        category: "My Role",
+        heading: "Chief Product Officer",
+        body: [
+          {
+            type: "paragraph",
+            content: "As CPO, I led the product vision, UX strategy, and companion app development for a team of five. This was my first time working in medical device development, which pushed me well beyond my comfort zone — into IP strategy, regulatory pathways, and the intersection of hardware and software product design."
+          },
+          {
+            type: "bullets",
+            items: [
+              "Defined product vision and feature set for the companion app",
+              "Vibecoded the full React Native frontend prototype",
+              "Conducted AI-assisted persona interviews with simulated PMDD patients and healthcare providers — a methodology learned in CMU's AI Augmented Designer course — to inform design decisions without access to real users",
+              "Led Demo Day pitch preparation and presentation strategy"
+            ]
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Product",
+        heading: "Companion app features",
+        body: [
+          {
+            type: "bullets",
+            items: [
+              "Onboarding and biosensor pairing",
+              "Dashboard showing real-time hormone levels and current menstrual cycle stage",
+              "24-48 hour symptom prediction alerts with actionable management strategies",
+              "Period and symptom/mood logger",
+              "Symptom visualisation over time",
+              "Healthcare provider data sharing"
+            ]
+          },
+          {
+            type: "paragraph",
+            content: "The decision to pair predictions with actionable strategies — rather than notifications alone — was grounded in existing PMDD coping research, which shows that structured self-care and coping strategies during the premenstrual phase meaningfully reduce symptom impact."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Research",
+        heading: "AI-assisted persona interviews",
+        body: [
+          {
+            type: "paragraph",
+            content: "Without access to real PMDD patients or healthcare providers, I used AI-simulated persona interviews — a methodology covered in CMU's AI Augmented Designer course — to surface design requirements and validate assumptions early. Personas were grounded in published PMDD research and clinical context, following the advanced prompting methodology taught in the course."
+          }
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/luteasense-demoday-1.jpg",
+        alt: "LuteaSense team at CMU MDIR Demo Day 2026",
+        caption: "CMU MDIR Demo Day 2026, hosted at the Swartz Center for Entrepreneurship"
+      },
+      {
+        type: "text",
+        category: "Recognition",
+        heading: "1st place overall at CMU Demo Day 2026",
+        body: [
+          {
+            type: "paragraph",
+            content: "LuteaSense was voted 1st place overall by a panel of industry expert judges at CMU's Medical Device Innovation and Realization Demo Day 2026 — emerging as the top quantitative performer with consistently high scores across device quality, presentation, and prototype strength."
+          }
+        ]
+      },
+      {
+        type: "image",
+        src: "/images/luteasense-demoday-2.jpg",
+        alt: "LuteaSense prototype demonstration at Demo Day",
+        caption: "Prototype demonstration at Demo Day"
+      },
+      {
+        type: "text",
+        category: "What's Next",
+        heading: "Watch this space",
+        body: [
+          {
+            type: "paragraph",
+            content: "We are actively pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship. More details will be shared as the project develops — if you're interested in what we're building, feel free to get in touch."
+          }
+        ]
+      },
+      {
+        type: "deliverables",
+        items: [
+          "React Native companion app prototype",
+          "Product vision and feature roadmap",
+          "AI-assisted persona research",
+          "Demo Day pitch — 1st place overall, CMU MDIR 2026"
+        ]
+      }
+    ]
+  },
+  {
+    slug: "mise-ai",
+    title: "Mise.AI",
+    subtitle: "Designing trust into autonomous AI",
+    intro: "Fast-casual restaurants lose around $179,000 per store annually from bad ingredient stocking — a problem that existing tools flag but don't fix. As Lead Designer on Mise.AI, I was responsible for making the agent's automation visible, trustworthy, and controllable.",
+    summary: "Agentic AI inventory management system for fast-casual restaurants",
+    tags: ["AI Design", "Product Design", "Agentic Systems"],
+    role: "Lead Product Designer",
+    timeline: "Fall Semester 2024",
+    tools: ["Figma", "Figma Make", "Miro"],
+    context: "Design of AI Products and Services, Carnegie Mellon University",
+    thumbnail: "/images/mise-ai-thumbnail.jpg",
+    heroImage: "/images/mise-ai-hero.jpg",
+    sections: [
+      {
+        type: "overview",
+        problem: "Fast-casual restaurants operate on tight margins and lean teams. Ingredient stocking is a precision problem — too much and food spoils, too little and orders are lost. For a Chipotle-scale store, the cost of getting it wrong is around $179,000 per year.",
+        solution: "Mise.AI forecasts demand, ranks suppliers, generates orders, and contacts suppliers directly — pausing for manager approval before executing. As Lead Product Designer, I drove the design from concept to prototype, and contributed across concept development and the final pitch."
+      },
+      {
+        type: "text",
+        category: "The Challenge",
+        heading: "Knowing where to draw the line",
+        body: [
+          {
+            type: "paragraph",
+            content: "The core design challenge was knowing when the agent should act, and when it should pause for human input. Every screen had to communicate not just what the system knows, but what it is about to do — and why. The system also had to account for failure. A wrong order in a fast-casual kitchen doesn't just waste money — it affects customers, staff, and supplier relationships."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Understanding the System",
+        heading: "Designing for what the agent actually does",
+        body: [
+          {
+            type: "paragraph",
+            content: "Before designing the interface, I needed to understand what the agent was doing under the hood — because every screen had to reflect a specific type of agent action, not just a generic AI output. Mise.AI is built on three modules: a demand forecasting model that predicts ingredient demand 3–7 days out; a supplier ranking model that scores suppliers per order; and a multimodal ordering agent that contacts suppliers via phone, email, or portal and surfaces the result for manager approval."
+          },
+          {
+            type: "paragraph",
+            content: "Before committing to the concept, the team ran consequence scanning to anticipate risks — including unfair supplier ranking and good suppliers being incorrectly flagged — designing mitigations in from the outset rather than treating them as edge cases."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Simplifying complex model outputs",
+        body: [
+          {
+            type: "paragraph",
+            content: "The forecasting model produces probability ranges and confidence intervals, but I simplified these to High/Medium/Low demand labels to give managers what they needed at a glance. The same logic applied to supplier data — rather than surfacing everything the model had access to, I kept the interface to three criteria: reliability, delivery time, and price."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Preserving human judgment",
+        body: [
+          {
+            type: "paragraph",
+            content: "I chose to show all ranked supplier options rather than pre-selecting the top one. The agent can rank by data, but a manager might have context the model doesn't — a relationship with a supplier, or knowledge of a local issue — and the design needed to preserve that judgment."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Drawing the human-in-the-loop line",
+        body: [
+          {
+            type: "paragraph",
+            content: "The agent could have been designed to place orders automatically, with no manager involvement. But in a high-stakes operational context, automation without oversight felt like the wrong trade-off. Every consequential action requires manager approval, and manual overrides feed back into the agent's future learning — so manager expertise improves the system over time."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Making agent actions transparent",
+        body: [
+          {
+            type: "paragraph",
+            content: "Every AI-generated order includes a rationale card explaining the agent's reasoning in plain language. The confirmation screen shows outreach status in real time — whether the agent has succeeded, is in progress, or has failed — and flags any orders it couldn't complete for manual follow-up."
+          },
+          {
+            type: "paragraph",
+            content: "To demonstrate the ordering module, we simulated a conversation between the agent and a supplier using GPT's voice mode, showing the agent navigating uncertainty — like a supplier running low on stock — in real time. This informed how the confirmation screen should communicate when an order needs human intervention."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Responding to critique",
+        body: [
+          {
+            type: "paragraph",
+            content: "Feedback from our class critique revealed that the agent contacting a supplier wasn't visually connected to the manager's approval action. I refined the confirmation screen so the agent's outreach was explicit and immediate, closing the loop between what the manager approves and what the agent does next."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Impact",
+        heading: "Pitch results",
+        body: [
+          {
+            type: "bullets",
+            items: [
+              "Projected $46,000 in annual savings per store",
+              "Break-even at approximately 450 stores",
+              "Presented at final pitch to faculty and peers"
+            ]
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Reflection",
+        heading: "What I learned",
+        body: [
+          {
+            type: "paragraph",
+            content: "This was my first time designing for agentic AI, and it changed how I think about translating AI systems into interfaces. Until this project, I hadn't designed for a system that acts on a user's behalf — knowing what to show, what to simplify, and where to ask for human input was a challenge I hadn't encountered before. Every decision was an attempt to keep fairness, accountability, transparency, and explainability at the centre of the design rather than as afterthoughts."
+          }
+        ]
+      },
+      {
+        type: "deliverables",
+        items: [
+          "End-to-end product prototype",
+          "Consequence scanning analysis",
+          "Agent transparency framework",
+          "Final pitch to faculty and peers"
+        ]
+      }
+    ]
+  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
