@@ -19,7 +19,7 @@ export default function Publications() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="publication-link block text-[1.125rem] font-medium leading-[var(--leading-snug)]"
+                className="publication-link block text-[1.25rem] font-semibold leading-[var(--leading-snug)]"
               >
                 {item.title}
               </a>

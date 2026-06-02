@@ -37,7 +37,7 @@ export default function CaseStudyCard({
       </div>
 
       <div className="mt-[var(--space-4)]">
-        <h3 className="font-semibold text-[1.25rem] leading-[var(--leading-snug)]">
+        <h3 className="text-[1.25rem] font-semibold leading-[var(--leading-snug)]" style={{ fontWeight: 600 }}>
           {title}
         </h3>
         <p className="mt-[var(--space-2)] truncate text-[1rem] text-muted">

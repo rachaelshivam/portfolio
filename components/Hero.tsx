@@ -1,3 +1,5 @@
+"use client";
+
 import HashLink from "@/components/HashLink";
 
 function ChevronDownIcon() {
@@ -19,27 +21,54 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative min-h-screen px-[var(--space-4)] sm:px-[var(--space-6)]"
+      className="relative flex min-h-screen flex-col justify-center px-[var(--space-4)] sm:px-[var(--space-6)]"
     >
-      <div className="mx-auto flex min-h-screen w-full max-w-[var(--max-width-content)] items-center">
+      <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <div className="max-w-3xl">
           <h1
             id="hero-heading"
-            className="font-bold text-[clamp(2.5rem,5vw,4rem)] leading-[var(--leading-tight)] tracking-tight"
+            className="font-bold text-[clamp(3rem,6vw,5rem)] leading-[var(--leading-tight)] tracking-tight"
           >
-            Designing experiences people trust.
+            Product Designer<br />and Strategist.*
           </h1>
 
-          <p className="mt-[var(--space-6)] max-w-xl text-lg leading-[var(--leading-relaxed)] text-muted sm:mt-[var(--space-7)] sm:text-xl">
-            I&apos;m a UX designer who turns complex problems into clear,
-            intuitive products.
+          <p
+            className="mt-[0.75rem] text-[1.25rem] leading-[var(--leading-relaxed)] opacity-0 animate-fade-in"
+            style={{ animationDelay: '0.5s' }}
+          >
+            * also a <span className="font-semibold">qualified dentist</span>
+          </p>
+
+          <p
+            className="mt-[1.5rem] max-w-[720px] text-[1rem] leading-[var(--leading-relaxed)] sm:text-[1.125rem] opacity-0 animate-fade-in"
+            style={{ animationDelay: '1s' }}
+          >
+            I spent years as a clinician frustrated by badly designed health
+            technology. Now I design technology in a way that actually works
+            for the people using it.
+          </p>
+
+          <p
+            className="mt-[1.5rem] max-w-[640px] text-[0.875rem] leading-[var(--leading-relaxed)] opacity-0 animate-fade-in"
+            style={{ animationDelay: '1s' }}
+          >
+            Currently completing my{" "}
+            <a
+              href="https://www.hcii.cmu.edu/academics/mhci"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-200 ease hover:text-[var(--color-accent)]"
+            >
+              Master of Human-Computer Interaction
+            </a>{" "}
+            at Carnegie Mellon University.
           </p>
         </div>
       </div>
 
       <HashLink
         href="#work"
-        className="hero-scroll-link hero-scroll-indicator"
+        className="hero-scroll-link hero-scroll-indicator absolute bottom-20 left-1/2 -translate-x-1/2"
         aria-label="Scroll to work section"
       >
         <span className="text-sm text-muted">scroll to see my work</span>
