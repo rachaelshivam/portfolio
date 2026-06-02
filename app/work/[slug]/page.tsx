@@ -49,13 +49,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <header className="px-[var(--space-4)] pt-[var(--space-10)] sm:px-[var(--space-6)]">
           <div className="mx-auto w-full max-w-[740px]">
             <div className="max-w-3xl">
-              <h1 className="text-[clamp(2rem,4vw,var(--text-4xl))] leading-[var(--leading-tight)]">
+              <h1 className="font-bold text-[clamp(2rem,4vw,3.5rem)] leading-[var(--leading-tight)]">
                 {study.title}
               </h1>
-              <p className="mt-[var(--space-4)] text-lg leading-[var(--leading-relaxed)] text-muted sm:text-xl">
+              <p className="mt-[var(--space-4)] text-[1.125rem] leading-[var(--leading-relaxed)] text-muted">
                 {study.subtitle}
               </p>
-              <p className="mt-[var(--space-5)] text-lg leading-[var(--leading-relaxed)] text-muted sm:text-xl">
+              <p className="mt-[var(--space-5)] max-w-[680px] text-[1.125rem] leading-[1.7] text-muted">
                 {study.intro}
               </p>
             </div>

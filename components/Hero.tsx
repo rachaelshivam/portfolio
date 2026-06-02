@@ -25,7 +25,7 @@ export default function Hero() {
         <div className="max-w-3xl">
           <h1
             id="hero-heading"
-            className="text-[clamp(2.25rem,5vw,var(--text-5xl))] leading-[var(--leading-tight)] tracking-tight"
+            className="font-bold text-[clamp(2.5rem,5vw,4rem)] leading-[var(--leading-tight)] tracking-tight"
           >
             Designing experiences people trust.
           </h1>

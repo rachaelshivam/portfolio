@@ -8,7 +8,7 @@ export default function Publications() {
       className="px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-        <h2 id="publications-heading" className="text-[var(--text-3xl)]">
+        <h2 id="publications-heading" className="font-semibold text-[1.5rem] sm:text-[2rem]">
           Publications
         </h2>
 
@@ -19,11 +19,11 @@ export default function Publications() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="publication-link block text-xl font-medium leading-[var(--leading-snug)] sm:text-2xl"
+                className="publication-link block text-[1.125rem] font-medium leading-[var(--leading-snug)]"
               >
                 {item.title}
               </a>
-              <p className="mt-[var(--space-2)] text-sm text-muted sm:text-base">
+              <p className="mt-[var(--space-2)] text-[1rem] text-muted">
                 {item.publication}
                 <span aria-hidden="true"> · </span>
                 <span>{item.year}</span>

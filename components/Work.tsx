@@ -9,7 +9,7 @@ export default function Work() {
       className="scroll-mt-16 px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-        <h2 id="work-heading" className="text-[var(--text-3xl)]">
+        <h2 id="work-heading" className="font-semibold text-[1.5rem] sm:text-[2rem]">
           Selected work
         </h2>
 

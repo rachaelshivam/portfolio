@@ -37,10 +37,10 @@ export default function CaseStudyCard({
       </div>
 
       <div className="mt-[var(--space-4)]">
-        <h3 className="font-serif text-xl font-bold leading-[var(--leading-snug)] sm:text-2xl">
+        <h3 className="font-semibold text-[1.25rem] leading-[var(--leading-snug)]">
           {title}
         </h3>
-        <p className="mt-[var(--space-2)] truncate text-sm text-muted sm:text-base">
+        <p className="mt-[var(--space-2)] truncate text-[1rem] text-muted">
           {summary}
         </p>
         {tags.length > 0 && (

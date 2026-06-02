@@ -214,6 +214,134 @@ export const caseStudies: CaseStudy[] = [
     ]
   },
   {
+    slug: "mise-ai",
+    title: "Mise.AI",
+    subtitle: "Designing trust into autonomous AI",
+    intro: "Fast-casual restaurants lose around $179,000 per store annually from bad ingredient stocking — a problem that existing tools flag but don't fix. As Lead Designer on Mise.AI, I was responsible for making the agent's automation visible, trustworthy, and controllable.",
+    summary: "Agentic AI inventory management system for fast-casual restaurants",
+    tags: ["AI Design", "Product Design", "Agentic Systems"],
+    role: "Lead Product Designer",
+    timeline: "Fall Semester 2024",
+    tools: ["Figma", "Figma Make", "Miro"],
+    context: "Design of AI Products and Services, Carnegie Mellon University",
+    thumbnail: "/images/mise-ai-thumbnail.jpg",
+    heroImage: "/images/mise-ai-hero.jpg",
+    sections: [
+      {
+        type: "text",
+        category: "The Challenge",
+        heading: "Every screen had to communicate what the agent was about to do — and why.",
+        body: [
+          {
+            type: "paragraph",
+            content: "The core design challenge was knowing when the agent should act, and when it should pause for human input. A wrong order in a fast-casual kitchen doesn't just waste money — it affects customers, staff, and supplier relationships. Every design decision had to account for both the normal case and the failure case."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Understanding the System",
+        heading: "I needed to understand what the agent was doing under the hood before I could design for it.",
+        body: [
+          {
+            type: "paragraph",
+            content: "Mise.AI is built on three modules: a demand forecasting model that predicts ingredient demand 3–7 days out; a supplier ranking model that scores suppliers per order; and a multimodal ordering agent that contacts suppliers via phone, email, or portal and surfaces the result for manager approval. Every screen had to reflect a specific type of agent action, not just a generic AI output."
+          },
+          {
+            type: "paragraph",
+            content: "Before committing to the concept, the team ran consequence scanning to anticipate risks — including unfair supplier ranking and good suppliers being incorrectly flagged. Rather than treating these as edge cases, we designed mitigations in from the outset."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Complex model outputs needed to be simplified without losing meaning.",
+        body: [
+          {
+            type: "paragraph",
+            content: "The forecasting model produces probability ranges and confidence intervals, but I simplified these to High/Medium/Low demand labels to give managers what they needed at a glance. The same logic applied to supplier data — rather than surfacing everything the model had access to, I kept the interface to three criteria: reliability, delivery time, and price."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "The agent ranks suppliers, but the manager makes the final call.",
+        body: [
+          {
+            type: "paragraph",
+            content: "I chose to show all ranked supplier options rather than pre-selecting the top one. The agent can rank by data, but a manager might have context the model doesn't — a relationship with a supplier, or knowledge of a local issue — and the design needed to preserve that judgment."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "Every consequential action requires manager approval.",
+        body: [
+          {
+            type: "paragraph",
+            content: "The agent could have been designed to place orders automatically, with no manager involvement. But in a high-stakes operational context, automation without oversight felt like the wrong trade-off. Manual overrides feed back into the agent's future learning — so manager expertise improves the system over time."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "The confirmation screen closes the loop between approval and action.",
+        body: [
+          {
+            type: "paragraph",
+            content: "Every AI-generated order includes a rationale card explaining the agent's reasoning in plain language. The confirmation screen shows outreach status in real time — whether the agent has succeeded, is in progress, or has failed — and flags any orders it couldn't complete for manual follow-up. Feedback from our class critique revealed that the agent contacting a supplier wasn't visually connected to the manager's approval action, which I addressed in a refined version of the screen."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Design Process",
+        heading: "We simulated a live supplier call to stress-test the ordering module.",
+        body: [
+          {
+            type: "paragraph",
+            content: "To demonstrate the ordering module, we used GPT's voice mode to simulate a conversation between the agent and a supplier in real time — including edge cases like a supplier running low on stock. This directly informed how the confirmation screen communicates when an order needs human intervention."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Impact",
+        heading: "Presented at the final course pitch to faculty and peers.",
+        body: [
+          {
+            type: "paragraph",
+            content: "The financial model projected $46,000 in annual savings per store, with break-even at approximately 450 stores."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Reflection",
+        heading: "PLACEHOLDER — to be refined.",
+        body: [
+          {
+            type: "paragraph",
+            content: "This was my first time designing for agentic AI. Until this project, every system I'd designed responded to the user — this one acted for them. Knowing what to show, what to simplify, and where to ask for human input were challenges I hadn't encountered before. The throughline across every decision was keeping the human informed and in control, without making that feel like a burden."
+          }
+        ]
+      },
+      {
+        type: "deliverables",
+        items: [
+          "End-to-end product prototype",
+          "Consequence scanning analysis",
+          "Agent transparency framework",
+          "Final pitch to faculty and peers"
+        ]
+      }
+    ]
+  },
+  {
     slug: "fastdental",
     title: "FastDental",
     subtitle: "AI powered documentation overlay for dental practices",
@@ -468,134 +596,6 @@ export const caseStudies: CaseStudy[] = [
           "Product vision and feature roadmap",
           "AI-assisted persona research",
           "Demo Day pitch — 1st place overall, CMU MDIR 2026"
-        ]
-      }
-    ]
-  },
-  {
-    slug: "mise-ai",
-    title: "Mise.AI",
-    subtitle: "Designing trust into autonomous AI",
-    intro: "Fast-casual restaurants lose around $179,000 per store annually from bad ingredient stocking — a problem that existing tools flag but don't fix. As Lead Designer on Mise.AI, I was responsible for making the agent's automation visible, trustworthy, and controllable.",
-    summary: "Agentic AI inventory management system for fast-casual restaurants",
-    tags: ["AI Design", "Product Design", "Agentic Systems"],
-    role: "Lead Product Designer",
-    timeline: "Fall Semester 2024",
-    tools: ["Figma", "Figma Make", "Miro"],
-    context: "Design of AI Products and Services, Carnegie Mellon University",
-    thumbnail: "/images/mise-ai-thumbnail.jpg",
-    heroImage: "/images/mise-ai-hero.jpg",
-    sections: [
-      {
-        type: "text",
-        category: "The Challenge",
-        heading: "Every screen had to communicate what the agent was about to do — and why.",
-        body: [
-          {
-            type: "paragraph",
-            content: "The core design challenge was knowing when the agent should act, and when it should pause for human input. A wrong order in a fast-casual kitchen doesn't just waste money — it affects customers, staff, and supplier relationships. Every design decision had to account for both the normal case and the failure case."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Understanding the System",
-        heading: "I needed to understand what the agent was doing under the hood before I could design for it.",
-        body: [
-          {
-            type: "paragraph",
-            content: "Mise.AI is built on three modules: a demand forecasting model that predicts ingredient demand 3–7 days out; a supplier ranking model that scores suppliers per order; and a multimodal ordering agent that contacts suppliers via phone, email, or portal and surfaces the result for manager approval. Every screen had to reflect a specific type of agent action, not just a generic AI output."
-          },
-          {
-            type: "paragraph",
-            content: "Before committing to the concept, the team ran consequence scanning to anticipate risks — including unfair supplier ranking and good suppliers being incorrectly flagged. Rather than treating these as edge cases, we designed mitigations in from the outset."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Design Process",
-        heading: "Complex model outputs needed to be simplified without losing meaning.",
-        body: [
-          {
-            type: "paragraph",
-            content: "The forecasting model produces probability ranges and confidence intervals, but I simplified these to High/Medium/Low demand labels to give managers what they needed at a glance. The same logic applied to supplier data — rather than surfacing everything the model had access to, I kept the interface to three criteria: reliability, delivery time, and price."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Design Process",
-        heading: "The agent ranks suppliers, but the manager makes the final call.",
-        body: [
-          {
-            type: "paragraph",
-            content: "I chose to show all ranked supplier options rather than pre-selecting the top one. The agent can rank by data, but a manager might have context the model doesn't — a relationship with a supplier, or knowledge of a local issue — and the design needed to preserve that judgment."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Design Process",
-        heading: "Every consequential action requires manager approval.",
-        body: [
-          {
-            type: "paragraph",
-            content: "The agent could have been designed to place orders automatically, with no manager involvement. But in a high-stakes operational context, automation without oversight felt like the wrong trade-off. Manual overrides feed back into the agent's future learning — so manager expertise improves the system over time."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Design Process",
-        heading: "The confirmation screen closes the loop between approval and action.",
-        body: [
-          {
-            type: "paragraph",
-            content: "Every AI-generated order includes a rationale card explaining the agent's reasoning in plain language. The confirmation screen shows outreach status in real time — whether the agent has succeeded, is in progress, or has failed — and flags any orders it couldn't complete for manual follow-up. Feedback from our class critique revealed that the agent contacting a supplier wasn't visually connected to the manager's approval action, which I addressed in a refined version of the screen."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Design Process",
-        heading: "We simulated a live supplier call to stress-test the ordering module.",
-        body: [
-          {
-            type: "paragraph",
-            content: "To demonstrate the ordering module, we used GPT's voice mode to simulate a conversation between the agent and a supplier in real time — including edge cases like a supplier running low on stock. This directly informed how the confirmation screen communicates when an order needs human intervention."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Impact",
-        heading: "Presented at the final course pitch to faculty and peers.",
-        body: [
-          {
-            type: "paragraph",
-            content: "The financial model projected $46,000 in annual savings per store, with break-even at approximately 450 stores."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Reflection",
-        heading: "PLACEHOLDER — to be refined.",
-        body: [
-          {
-            type: "paragraph",
-            content: "This was my first time designing for agentic AI. Until this project, every system I'd designed responded to the user — this one acted for them. Knowing what to show, what to simplify, and where to ask for human input were challenges I hadn't encountered before. The throughline across every decision was keeping the human informed and in control, without making that feel like a burden."
-          }
-        ]
-      },
-      {
-        type: "deliverables",
-        items: [
-          "End-to-end product prototype",
-          "Consequence scanning analysis",
-          "Agent transparency framework",
-          "Final pitch to faculty and peers"
         ]
       }
     ]

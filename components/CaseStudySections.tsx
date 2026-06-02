@@ -18,7 +18,7 @@ function TextBodyContent({
           return (
             <p
               key={index}
-              className="text-muted leading-[var(--leading-relaxed)]"
+              className="text-[1rem] leading-[var(--leading-relaxed)] text-muted"
             >
               {block.content}
             </p>
@@ -29,13 +29,13 @@ function TextBodyContent({
           return (
             <div key={index}>
               {block.intro && (
-                <p className="mb-[var(--space-3)] text-muted leading-[var(--leading-relaxed)]">
+                <p className="mb-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] text-muted">
                   {block.intro}
                 </p>
               )}
-              <ul className="case-study-list space-y-[var(--space-2)] text-muted">
+              <ul className="case-study-list space-y-[var(--space-2)] text-[1rem] text-muted">
                 {block.items.map((item) => (
-                  <li key={item} className="leading-[var(--leading-relaxed)]">
+                  <li key={item} className="text-[1rem] leading-[var(--leading-relaxed)]">
                     {item}
                   </li>
                 ))}
@@ -52,9 +52,9 @@ function TextBodyContent({
             {block.columns.map((column) => (
               <div key={column.heading}>
                 <p className="case-study-label">{column.heading}</p>
-                <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-muted">
+                <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-[1rem] text-muted">
                   {column.items.map((item) => (
-                    <li key={item} className="leading-[var(--leading-relaxed)]">
+                    <li key={item} className="text-[1rem] leading-[var(--leading-relaxed)]">
                       {item}
                     </li>
                   ))}
@@ -73,8 +73,10 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
     case "text":
       return (
         <section className="case-study-section">
-          <p className="case-study-label">{section.category}</p>
-          <h2 className="mt-[var(--space-3)] text-[var(--text-2xl)] sm:text-[var(--text-3xl)]">
+          <p className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-muted">
+            {section.category}
+          </p>
+          <h2 className="mt-[var(--space-3)] font-semibold text-[1.25rem] sm:text-[1.5rem]">
             {section.heading}
           </h2>
           <TextBodyContent body={section.body} />
@@ -104,7 +106,7 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
     case "deliverables":
       return (
         <section className="case-study-section">
-          <h2 className="text-[var(--text-2xl)]">
+          <h2 className="font-semibold text-[1.25rem] sm:text-[1.5rem]">
             {section.heading ?? "Deliverables"}
           </h2>
           <ul className="case-study-deliverables mt-[var(--space-5)]">
