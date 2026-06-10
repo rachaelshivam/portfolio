@@ -21,7 +21,7 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative flex min-h-screen flex-col justify-center px-[var(--space-4)] sm:px-[var(--space-6)]"
+      className="relative flex min-h-screen flex-col pt-[20vh] px-[var(--space-4)] sm:px-[var(--space-6)]"
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <div className="max-w-3xl">
@@ -33,10 +33,10 @@ export default function Hero() {
           </h1>
 
           <p
-            className="mt-[0.75rem] text-[1.25rem] leading-[var(--leading-relaxed)] opacity-0 animate-fade-in"
+            className="mt-[0.75rem] text-[2rem] leading-[var(--leading-relaxed)] opacity-0 animate-fade-in"
             style={{ animationDelay: '0.5s' }}
           >
-            * also a <span className="font-semibold">qualified dentist</span>
+            <span className="font-bold">*</span> also a <span className="font-semibold">qualified dentist</span>
           </p>
 
           <p
