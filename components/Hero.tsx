@@ -27,9 +27,9 @@ export default function Hero() {
         <div className="max-w-3xl">
           <h1
             id="hero-heading"
-            className="font-bold text-[clamp(3rem,6vw,5rem)] leading-[var(--leading-tight)] tracking-tight"
+            className="font-bold text-[clamp(2.5rem,5vw,4rem)] leading-[var(--leading-tight)] tracking-tight"
           >
-            Product Designer<br />and Strategist.*
+            <span className="whitespace-nowrap">Human-Centered Designer</span><br />and Strategist.*
           </h1>
 
           <p
@@ -43,8 +43,7 @@ export default function Hero() {
             className="mt-[1.5rem] max-w-[720px] text-[1rem] leading-[var(--leading-relaxed)] sm:text-[1.125rem] opacity-0 animate-fade-in"
             style={{ animationDelay: '1s' }}
           >
-            I spent years as a clinician frustrated by badly designed health
-            technology. Now I design technology in a way that actually works
+            Years of working with poorly designed health technology in clinical settings led me to HCI. Now I design technology in a way that actually works
             for the people using it.
           </p>
 
