@@ -29,7 +29,7 @@ export default function Hero() {
             id="hero-heading"
             className="font-bold text-[clamp(2.5rem,5vw,4rem)] leading-[var(--leading-tight)] tracking-tight"
           >
-            <span className="whitespace-nowrap">Human-Centered Designer</span><br />and Strategist.*
+            <span className="whitespace-nowrap">Human-Centered Designer</span><br />and Strategist.* 
           </h1>
 
           <p
