@@ -23,7 +23,7 @@ export default function CaseStudyCard({
 
   return (
     <Link href={`/work/${slug}`} className="case-study-card group block">
-      <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[var(--color-bg-subtle)]">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[var(--color-border)]">
         {!imageError && (
           <Image
             src={thumbnail}

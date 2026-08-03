@@ -87,7 +87,7 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
       return (
         <section className="case-study-section case-study-section--full">
           <figure>
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--color-bg-subtle)]">
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--color-border)]">
               <Image
                 src={section.src}
                 alt={section.alt}
@@ -96,7 +96,7 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
                 sizes="100vw"
               />
             </div>
-            <figcaption className="mt-[var(--space-3)] text-sm text-[var(--color-text-subtle)]">
+            <figcaption className="mt-[var(--space-3)] text-sm text-[var(--color-text-muted)]">
               {section.caption}
             </figcaption>
           </figure>

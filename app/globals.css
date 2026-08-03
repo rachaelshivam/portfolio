@@ -3,16 +3,12 @@
 
 :root {
   /* Colors */
-  --color-bg: #f9f8f6;
-  --color-bg-subtle: #f3f2ef;
-  --color-text: #141414;
-  --color-text-muted: #5a5856;
-  --color-text-subtle: #8a8784;
-  --color-accent: #a67c52;
-  --color-accent-muted: #c4a882;
-  --color-accent-hover: #8f6842;
-  --color-border: #e5e2dd;
-  --color-border-subtle: #eeecea;
+  --color-bg: #F9F9F9;
+  --color-text-primary: #212121;
+  --color-text-body: #3D3D3D;
+  --color-text-muted: #737272;
+  --color-border: #E5E5E5;
+  --color-accent: #D83775;
 
   /* Typography */
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
@@ -52,16 +48,15 @@
 
   /* Tailwind theme aliases */
   --background: var(--color-bg);
-  --foreground: var(--color-text);
+  --foreground: var(--color-text-primary);
 }
 
 @theme inline {
   --color-background: var(--color-bg);
-  --color-foreground: var(--color-text);
+  --color-foreground: var(--color-text-primary);
   --color-accent: var(--color-accent);
   --color-muted: var(--color-text-muted);
   --color-border: var(--color-border);
-  --color-border-subtle: var(--color-border-subtle);
   --font-sans: var(--font-body);
   --font-serif: var(--font-heading);
 }
@@ -81,7 +76,7 @@ html {
 
 body {
   background-color: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-text-body);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
@@ -96,29 +91,29 @@ h6 {
   font-family: var(--font-heading);
   font-weight: 500;
   line-height: var(--leading-tight);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-accent-hover);
+  color: var(--color-text-primary);
 }
 
 .site-nav .nav-link,
 .site-nav .nav-logo {
-  color: var(--color-text);
+  color: var(--color-text-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .site-nav .nav-link:hover,
 .site-nav .nav-logo:hover {
-  color: var(--color-accent);
+  color: var(--color-text-primary);
 }
 
 .site-nav .nav-logo {
@@ -135,7 +130,7 @@ a:hover {
   font-weight: 500;
   letter-spacing: 0.01em;
   color: var(--color-bg);
-  background-color: var(--color-text);
+  background-color: var(--color-text-primary);
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -143,7 +138,7 @@ a:hover {
 
 .hero-cta:hover {
   color: var(--color-bg);
-  background-color: var(--color-accent);
+  background-color: var(--color-text-primary);
 }
 
 @keyframes hero-scroll-bounce {
@@ -164,7 +159,7 @@ a:hover {
 }
 
 .hero-scroll-link:hover {
-  color: var(--color-text);
+  color: var(--color-text-body);
 }
 
 .hero-scroll-indicator {
@@ -190,12 +185,12 @@ a:hover {
 }
 
 .case-study-card {
-  color: var(--color-text);
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
 .case-study-card:hover {
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .case-study-tag {
@@ -204,38 +199,38 @@ a:hover {
   font-size: var(--text-xs);
   line-height: 1.4;
   color: var(--color-text-muted);
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-border);
   border-radius: var(--radius-sm);
 }
 
 .publication-link {
-  color: var(--color-text);
+  color: var(--color-text-primary);
   text-decoration: none;
   transition: color 200ms ease;
 }
 
 .publication-link:hover {
-  color: var(--color-accent);
+  color: var(--color-text-primary);
 }
 
 .site-footer {
-  background-color: #1a1a1a;
-  color: #f9f8f6;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg);
 }
 
 .site-footer .footer-muted {
-  color: rgba(249, 248, 246, 0.65);
+  color: rgba(250, 250, 250, 0.65);
 }
 
 .site-footer .footer-link {
   display: inline-flex;
-  color: rgba(249, 248, 246, 0.75);
+  color: rgba(250, 250, 250, 0.75);
   text-decoration: none;
   transition: color 200ms ease;
 }
 
 .site-footer .footer-link:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-text-primary);
 }
 
 .timeline {
@@ -263,7 +258,7 @@ a:hover {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: var(--color-accent);
+  background-color: var(--color-text-primary);
 }
 
 .case-study-label {
@@ -271,7 +266,7 @@ a:hover {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 .case-study-sections {
@@ -303,19 +298,19 @@ a:hover {
   content: "—";
   position: absolute;
   left: 0;
-  color: var(--color-accent);
+  color: var(--color-text-primary);
 }
 
 .case-study-deliverables {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid var(--color-border-subtle);
+  border-top: 1px solid var(--color-border);
 }
 
 .case-study-deliverables li {
   padding: var(--space-4) 0;
-  border-bottom: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border);
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
 }

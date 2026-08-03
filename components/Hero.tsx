@@ -56,7 +56,7 @@ export default function Hero() {
               href="https://www.hcii.cmu.edu/academics/mhci"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-200 ease hover:text-[var(--color-accent)]"
+              className="transition-colors duration-200 ease hover:text-[var(--color-text-primary)]"
             >
               Master of Human-Computer Interaction
             </a>{" "}

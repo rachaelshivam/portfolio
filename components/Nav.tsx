@@ -33,10 +33,10 @@ export default function Nav() {
 
   return (
     <header
-      className={`site-nav sticky top-0 z-50 w-full transition-[background-color,backdrop-filter,border-color] duration-300 ${
+      className={`site-nav sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-300 ${
         showFrost
-          ? "border-b border-border-subtle bg-[rgba(249,248,246,0.8)] backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          ? "bg-[rgba(249,249,249,0.8)] backdrop-blur-md"
+          : "bg-transparent"
       }`}
     >
       <div className="px-[var(--space-4)] sm:px-[var(--space-6)]">
@@ -99,11 +99,11 @@ export default function Nav() {
       <nav
         id="mobile-nav"
         aria-label="Mobile primary"
-        className={`overflow-hidden border-t border-transparent transition-[max-height,opacity,border-color] duration-300 md:hidden ${
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 md:hidden ${
           menuOpen
-            ? "max-h-64 border-border-subtle opacity-100"
+            ? "max-h-64 opacity-100"
             : "max-h-0 opacity-0"
-        } ${showFrost ? "bg-[rgba(249,248,246,0.8)] backdrop-blur-md" : "bg-transparent"}`}
+        } ${showFrost ? "bg-[rgba(249,249,249,0.8)] backdrop-blur-md" : "bg-transparent"}`}
       >
         <div className="px-[var(--space-4)] sm:px-[var(--space-6)]">
           <ul className="mx-auto flex w-full max-w-[var(--max-width-content)] flex-col py-[var(--space-3)]">
