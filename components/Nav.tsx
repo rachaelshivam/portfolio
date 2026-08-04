@@ -39,8 +39,8 @@ export default function Nav() {
           : "bg-transparent"
       }`}
     >
-      <div className="px-[var(--space-4)] sm:px-[var(--space-6)]">
-        <div className="mx-auto flex h-16 w-full max-w-[var(--max-width-content)] items-center justify-between">
+      <div className="px-[var(--space-4)] sm:px-[var(--space-5)]">
+        <div className="mx-auto flex h-16 w-full max-w-[72rem] items-center justify-between">
           <Link
             href="/"
             className="nav-logo text-lg tracking-tight sm:text-xl"
@@ -105,8 +105,8 @@ export default function Nav() {
             : "max-h-0 opacity-0"
         } ${showFrost ? "bg-[rgba(249,249,249,0.8)] backdrop-blur-md" : "bg-transparent"}`}
       >
-        <div className="px-[var(--space-4)] sm:px-[var(--space-6)]">
-          <ul className="mx-auto flex w-full max-w-[var(--max-width-content)] flex-col py-[var(--space-3)]">
+        <div className="px-[var(--space-4)] sm:px-[var(--space-5)]">
+          <ul className="mx-auto flex w-full max-w-[72rem] flex-col py-[var(--space-3)]">
           {navLinks.map(({ label, href }) => (
             <li key={href}>
               {href.includes("#") ? (

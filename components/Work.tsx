@@ -1,4 +1,5 @@
-import CaseStudyCard from "@/components/CaseStudyCard";
+import CaseStudyCard from "./CaseStudyCard";
+import FadeUp from "./FadeUp";
 import { caseStudies } from "@/data/caseStudies";
 
 export default function Work() {
@@ -13,9 +14,16 @@ export default function Work() {
           Selected work
         </h2>
 
-        <div className="mt-[var(--space-8)] grid grid-cols-1 gap-x-[var(--space-6)] gap-y-[var(--space-9)] md:grid-cols-2">
-          {caseStudies.map((study) => (
-            <CaseStudyCard key={study.slug} {...study} />
+        <div className="mt-[var(--space-8)] flex flex-col gap-20">
+          {caseStudies.map((study, index) => (
+            <FadeUp key={study.slug}>
+              <div>
+                <CaseStudyCard {...study} />
+                {index < caseStudies.length - 1 && (
+                  <hr className="mt-20 border-[var(--color-border)]" />
+                )}
+              </div>
+            </FadeUp>
           ))}
         </div>
       </div>

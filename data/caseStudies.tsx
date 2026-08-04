@@ -63,8 +63,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "okuma",
     title: "Okuma",
     subtitle: "Designing for culture and context",
-    intro: "Existing Type 2 Diabetes apps are not designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded prototype that was tested in 13 co-design workshops with 19 participants, directly informing the development of a full mHealth intervention. I also co-authored work published at ACM DIS 2025 and ACM AfriCHI 2025.",
-    summary: "Digital health tool for Type 2 Diabetes in Nigeria",
+    intro: "Existing Type 2 Diabetes apps aren't designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded mobile prototype that was co-designed through 13 workshops with 19 participants in Port Harcourt, then evaluated by 30 additional users through think-aloud sessions and interviews. The work produced two publications at ACM DIS 2025 and ACM AfriCHI 2025, contributing methodological guidance for designing digital health tools that are locally relevant and regionally adaptable across diverse African communities.",
+    summary: "Designed a culturally grounded mobile health prototype for Type 2 Diabetes care in Nigeria — co-designed with 19 participants, evaluated by 30 more, and contributing methodological guidance for cross-cultural digital health design through two ACM publications.",
     tags: ["UX Research", "Prototyping", "mHealth"],
     role: "UX Designer & Researcher",
     timeline: "5 months (May – Sep 2023)",
@@ -80,7 +80,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "University restrictions prevented direct access to Port Harcourt users, so every decision had to be grounded in existing research data and validated through close collaboration with the Nigerian PhD researcher leading the project. I was designing for a cultural context I hadn't experienced, infrastructure realities I'd never designed around, and three distinct user groups who needed to work together within a single app."
+            content: "University restrictions prevented direct access to Port Harcourt users, so every decision had to be grounded in existing research data and validated through close collaboration with the Nigerian PhD researcher leading the project. I was designing for a cultural context I hadn't experienced, infrastructure realities I'd never designed around, and three distinct user groups — patients, caregivers, and community pharmacists — who needed to work together within a single app."
           }
         ]
       },
@@ -91,86 +91,54 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "A scoping review of diabetes mHealth research in Africa and a competitive analysis of 8 existing apps confirmed the gap: nothing addressed the specific realities of Nigeria, and nothing had been designed for the patient-caregiver-pharmacist triad. The infrastructure context made this even more significant — only 12.1% of Nigerians experience quality internet services, just 36% of urban Nigerians own a smartphone, and data costs are high. Most existing solutions had been built on assumptions that simply don't hold in Port Harcourt."
+            content: "A scoping review of diabetes mHealth research in Africa and a competitive analysis of 8 existing apps confirmed the gap: nothing addressed the specific realities of Nigeria, and nothing had been designed for the patient-caregiver-pharmacist triad."
+          },
+          {
+            type: "paragraph",
+            content: "The infrastructure context made this critical — only 12.1% of Nigerians experience quality internet services, just 36% of urban Nigerians own a smartphone, and data costs are high. Most existing solutions had been built on assumptions that don't hold in Port Harcourt."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Research",
+        heading: "Three user groups, three different relationships with the same disease.",
+        body: [
+          {
+            type: "paragraph",
+            content: "Patients managing their condition day to day. Caregivers carrying the emotional and practical burden at home. And community pharmacists, who in Nigeria often serve as the most accessible frontline healthcare providers, as they are more reachable than doctors. The collaboration between these groups is real but largely invisible, happening informally through community relationships rather than formal healthcare systems."
+          },
+          {
+            type: "paragraph",
+            content: "Working with interview transcripts and survey data from Port Harcourt, I adopted an Afrocentric approach — rooting design decisions in the sociocultural contexts and lived experiences of the end users rather than importing Western assumptions. Empathy maps surfaced the emotional burden of chronic disease management across all three groups, while journey maps identified where the intervention could meaningfully support each user type."
           }
         ]
       },
       {
         type: "image",
         src: "/images/okuma-empathy-journey.jpg",
-        alt: "Empathy maps and journey maps for patient, caregiver, and pharmacist user groups",
+        alt: "Empathy maps and journey maps for each user group",
         caption: "Empathy maps and journey maps for each user group"
       },
       {
         type: "text",
-        category: "Research",
-        heading: "Building a picture of three very different user groups.",
+        category: "Design",
+        heading: "What we left out mattered as much as what we kept.",
         body: [
           {
             type: "paragraph",
-            content: "Working with interview transcripts and survey data from Port Harcourt users, I mapped each group's needs, frustrations, and goals. Empathy maps surfaced the emotional burden of chronic disease management across all three groups, while journey maps identified where the intervention could meaningfully support each user type."
+            content: "With Android accounting for over 86% of smartphone users in Nigeria, I designed for Android from the outset. Every feature was evaluated against the same constraint — lightweight, data-efficient, and culturally relevant. That meant no video consultations, no heavy media, no always-connected features, and no generic Western health content."
           }
         ]
       },
       {
         type: "text",
-        category: "Research",
-        heading: "Every design decision was grounded in data, not assumption.",
+        category: "Design",
+        heading: "Five features, one app — designed to work across all three sides of the care relationship.",
         body: [
           {
             type: "paragraph",
-            content: "As a non-Nigerian designer, I validated every choice through regular meetings with the Nigerian PhD researcher leading the project. When selecting content — recipes, imagery, community features — I prioritised what aligned with cultural values that emerged from the research rather than what felt intuitive to me."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Design Process",
-        heading: "Infrastructure constraints shaped every feature decision.",
-        body: [
-          {
-            type: "paragraph",
-            content: "With Android accounting for over 86% of smartphone users in Nigeria, I designed for Android from the outset. Every feature was evaluated against the same constraint — lightweight, data-efficient, and culturally relevant."
-          },
-          {
-            type: "two-column",
-            columns: [
-              {
-                heading: "Included",
-                items: [
-                  "Lightweight, culturally relevant imagery",
-                  "Nigerian recipes",
-                  "Community features",
-                  "Simple, data-efficient interfaces"
-                ]
-              },
-              {
-                heading: "Excluded",
-                items: [
-                  "Video consultations",
-                  "Heavy media",
-                  "Always-connected features",
-                  "Generic Western health content"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Design Process",
-        heading: "I landed on five core features that served all three user groups.",
-        body: [
-          {
-            type: "bullets",
-            items: [
-              "Health Tracker — blood sugar, medications, trends",
-              "Nigerian Recipes — user-contributed, culturally relevant nutrition support",
-              "My Personal Network — private collaboration space for the care triad",
-              "Community Forum — peer support for the psychological burden of chronic disease",
-              "Education — accessible, shareable diabetes information"
-            ]
+            content: "Working with the PhD researcher, I landed on five core features driven by the research: a Health Tracker for logging blood sugar and medications, Nigerian Recipes contributed by users, My Personal Network as a private collaboration space for the care triad, a Community Forum for peer support, and an Education section with accessible, shareable diabetes information."
           }
         ]
       },
@@ -178,37 +146,51 @@ export const caseStudies: CaseStudy[] = [
         type: "image",
         src: "/images/okuma-prototype.jpg",
         alt: "Okuma mobile app prototype screens",
-        caption: "Technology probe prototype designed for co-design workshops"
+        caption: "Prototype screens"
       },
       {
         type: "text",
-        category: "Design Process",
-        heading: "Proxy usability testing refined the prototype before it reached real users.",
+        category: "Design",
+        heading: "The probes had to work on first contact — there was no second chance to test before the workshops.",
         body: [
           {
             type: "paragraph",
-            content: "I designed technology probes to spark discussion in co-design workshops rather than serve as polished final products — accepting that cultural fit couldn't be validated until the workshops happened in Nigeria. Usability testing with 4 proxy users revealed problems with terminology, iconography, and visual differentiation between user types, which I addressed before the probes reached real users."
+            content: "I designed technology probes — intentionally unpolished prototypes meant to spark discussion in co-design workshops rather than serve as finished products. I accepted that cultural fit couldn't be fully validated until the workshops happened in Nigeria, so the probes needed to be clear enough to be useful while leaving room for participants to reshape them."
+          },
+          {
+            type: "paragraph",
+            content: "Proxy usability testing with 4 users before handoff revealed problems with terminology, iconography, and visual differentiation between user types, which I addressed before the probes reached real users."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Impact",
+        heading: "The prototype went further than I expected.",
+        body: [
+          {
+            type: "paragraph",
+            content: "My technology probes were used in 13 co-design workshops with 19 participants — patients, caregivers, and pharmacists from diverse ethnic groups in Port Harcourt. Participants shaped the features, named the app \"Okuma\" through consensus, and identified where the design aligned with local cultural norms and where it fell short across sociocultural boundaries within the same city."
+          },
+          {
+            type: "paragraph",
+            content: "The prototype was then evaluated by 30 additional participants through think-aloud sessions and interviews — a second study I hadn't originally designed for but that my prototype was robust enough to support."
+          },
+          {
+            type: "paragraph",
+            content: "The work contributed to two publications: one at ACM DIS 2025 on cross-cultural participatory design methodology, and one at ACM AfriCHI 2025 on the design of the tool itself. Together they offer methodological guidance for developing digital health tools that are locally relevant and regionally adaptable."
           }
         ]
       },
       {
         type: "text",
         category: "Reflection",
-        heading: "Designing without direct user access taught me to sit with uncertainty.",
+        heading: "Designing across cultures taught me to navigate uncertainty.",
         body: [
           {
             type: "paragraph",
-            content: "The hardest part wasn't the design itself — it was making confident decisions without direct access to the people I was designing for. I had to accept that some uncertainty was unavoidable, and design in a way that left room for the workshops to surface what I couldn't. The discipline of grounding decisions in research data rather than instinct is something I'll carry into every project."
+            content: "The hardest part wasn't the design itself — it was making confident decisions for a context I hadn't experienced, knowing some of them would be wrong. I had to design in a way that left room for the workshops to surface what I couldn't — and they did, revealing that features which worked for one ethnic group didn't always land for another, even within the same city."
           }
-        ]
-      },
-      {
-        type: "deliverables",
-        items: [
-          "Mobile app prototype (technology probe)",
-          "Information architecture and sitemap",
-          "Co-design workshop materials",
-          "Research published at ACM DIS 2025 and ACM AfriCHI 2025"
         ]
       }
     ]

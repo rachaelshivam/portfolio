@@ -1,3 +1,4 @@
+import FadeUp from "./FadeUp";
 import { publications } from "@/data/publications";
 
 export default function Publications() {
@@ -12,25 +13,30 @@ export default function Publications() {
           Publications
         </h2>
 
-        <ul className="mt-[var(--space-8)] divide-y divide-border-subtle">
-          {publications.map((item) => (
-            <li key={item.href} className="publication-item py-[var(--space-5)]">
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="publication-link block text-[1.25rem] font-semibold leading-[var(--leading-snug)]"
-              >
-                {item.title}
-              </a>
-              <p className="mt-[var(--space-2)] text-[1rem] text-muted">
-                {item.publication}
-                <span aria-hidden="true"> · </span>
-                <span>{item.year}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
+        <FadeUp>
+          <ul className="mt-[var(--space-8)] divide-y divide-[var(--color-border)]">
+            {publications.map((item) => (
+              <li key={item.href} className="publication-item py-[var(--space-5)]">
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="publication-link block text-[1.25rem] font-semibold leading-[var(--leading-snug)]"
+                >
+                  {item.title}
+                  <span className="ml-1 text-[0.875rem] text-[var(--color-text-muted)]">↗</span>
+                </a>
+                <p className="mt-[var(--space-2)] text-[1rem] text-[var(--color-text-muted)]">
+                  {item.publication}
+                  <span aria-hidden="true"> · </span>
+                  <span>{item.year}</span>
+                  <span aria-hidden="true"> · </span>
+                  <span>{item.authorRole}</span>
+                </p>
+              </li>
+            ))}
+          </ul>
+        </FadeUp>
       </div>
     </section>
   );

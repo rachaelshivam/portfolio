@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeUp from "./FadeUp";
 import type {
   CaseStudySection,
   TextBodyBullets,
@@ -18,7 +19,7 @@ function TextBodyContent({
           return (
             <p
               key={index}
-              className="text-[1rem] leading-[var(--leading-relaxed)] text-muted"
+              className="text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]"
             >
               {block.content}
             </p>
@@ -29,11 +30,11 @@ function TextBodyContent({
           return (
             <div key={index}>
               {block.intro && (
-                <p className="mb-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] text-muted">
+                <p className="mb-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
                   {block.intro}
                 </p>
               )}
-              <ul className="case-study-list space-y-[var(--space-2)] text-[1rem] text-muted">
+              <ul className="case-study-list space-y-[var(--space-2)] text-[1rem] text-[#404040]">
                 {block.items.map((item) => (
                   <li key={item} className="text-[1rem] leading-[var(--leading-relaxed)]">
                     {item}
@@ -52,7 +53,7 @@ function TextBodyContent({
             {block.columns.map((column) => (
               <div key={column.heading}>
                 <p className="case-study-label">{column.heading}</p>
-                <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-[1rem] text-muted">
+                <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-[1rem] text-[#404040]">
                   {column.items.map((item) => (
                     <li key={item} className="text-[1rem] leading-[var(--leading-relaxed)]">
                       {item}
@@ -72,49 +73,55 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
   switch (section.type) {
     case "text":
       return (
-        <section className="case-study-section">
-          <p className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-muted">
-            {section.category}
-          </p>
-          <h2 className="mt-[var(--space-3)] font-semibold text-[1.25rem] sm:text-[1.5rem]">
-            {section.heading}
-          </h2>
-          <TextBodyContent body={section.body} />
-        </section>
+        <FadeUp>
+          <section className="case-study-section">
+            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#737272]">
+              {section.category}
+            </p>
+            <h2 className="mt-[var(--space-3)] font-bold text-[1.375rem] text-[#212121]">
+              {section.heading}
+            </h2>
+            <TextBodyContent body={section.body} />
+          </section>
+        </FadeUp>
       );
 
     case "image":
       return (
-        <section className="case-study-section case-study-section--full">
-          <figure>
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--color-border)]">
-              <Image
-                src={section.src}
-                alt={section.alt}
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </div>
-            <figcaption className="mt-[var(--space-3)] text-sm text-[var(--color-text-muted)]">
-              {section.caption}
-            </figcaption>
-          </figure>
-        </section>
+        <FadeUp>
+          <section className="case-study-section case-study-section--full">
+            <figure>
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-[var(--color-border)]">
+                <Image
+                  src={section.src}
+                  alt={section.alt}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+              </div>
+              <figcaption className="mt-[var(--space-3)] text-sm text-[var(--color-text-muted)]">
+                {section.caption}
+              </figcaption>
+            </figure>
+          </section>
+        </FadeUp>
       );
 
     case "deliverables":
       return (
-        <section className="case-study-section">
-          <h2 className="font-semibold text-[1.25rem] sm:text-[1.5rem]">
-            {section.heading ?? "Deliverables"}
-          </h2>
-          <ul className="case-study-deliverables mt-[var(--space-5)]">
-            {section.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
+        <FadeUp>
+          <section className="case-study-section">
+            <h2 className="font-bold text-[1.375rem] text-[#212121]">
+              {section.heading ?? "Deliverables"}
+            </h2>
+            <ul className="case-study-deliverables mt-[var(--space-5)]">
+              {section.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        </FadeUp>
       );
   }
 }
