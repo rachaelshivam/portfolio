@@ -28,6 +28,7 @@ export default function Hero() {
           <h1
             id="hero-heading"
             className="font-bold text-[clamp(2.5rem,5vw,4rem)] leading-[var(--leading-tight)] tracking-tight"
+            style={{ fontFamily: 'var(--font-serif)' }}
           >
             <span className="whitespace-nowrap">Human-Centered Designer</span><br />and Strategist.* 
           </h1>

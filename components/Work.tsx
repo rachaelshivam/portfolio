@@ -1,4 +1,5 @@
 import CaseStudyCard from "./CaseStudyCard";
+import FadeInLeft from "./FadeInLeft";
 import FadeUp from "./FadeUp";
 import { caseStudies } from "@/data/caseStudies";
 
@@ -10,19 +11,16 @@ export default function Work() {
       className="scroll-mt-16 px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-        <h2 id="work-heading" className="font-semibold text-[1.5rem] sm:text-[2rem]">
-          Selected work
-        </h2>
+        <FadeInLeft>
+          <h2 id="work-heading" className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+            Selected work
+          </h2>
+        </FadeInLeft>
 
         <div className="mt-[var(--space-8)] flex flex-col gap-20">
-          {caseStudies.map((study, index) => (
+          {caseStudies.map((study) => (
             <FadeUp key={study.slug}>
-              <div>
-                <CaseStudyCard {...study} />
-                {index < caseStudies.length - 1 && (
-                  <hr className="mt-20 border-[var(--color-border)]" />
-                )}
-              </div>
+              <CaseStudyCard {...study} />
             </FadeUp>
           ))}
         </div>

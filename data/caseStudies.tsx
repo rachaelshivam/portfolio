@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Okuma",
     subtitle: "Designing for culture and context",
     intro: "Existing Type 2 Diabetes apps aren't designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded mobile prototype that was co-designed through 13 workshops with 19 participants in Port Harcourt, then evaluated by 30 additional users through think-aloud sessions and interviews. The work produced two publications at ACM DIS 2025 and ACM AfriCHI 2025, contributing methodological guidance for designing digital health tools that are locally relevant and regionally adaptable across diverse African communities.",
-    summary: "Designed a culturally grounded mobile health prototype for Type 2 Diabetes care in Nigeria — co-designed with 19 participants, evaluated by 30 more, and contributing methodological guidance for cross-cultural digital health design through two ACM publications.",
+    summary: "Designed a culturally grounded digital health tool for collaborative Type 2 Diabetes care in Nigeria. Contributed methodological guidance for cross-cultural digital health design through 2 ACM publications.",
     tags: ["UX Research", "Prototyping", "mHealth"],
     role: "UX Designer & Researcher",
     timeline: "5 months (May – Sep 2023)",

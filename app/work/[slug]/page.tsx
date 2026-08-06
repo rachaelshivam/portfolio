@@ -50,7 +50,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <article className="px-[var(--space-4)] sm:px-[var(--space-6)]">
         <header className="mx-auto w-full max-w-[800px] pt-[var(--space-8)]">
           <div>
-            <h1 className="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-[var(--leading-tight)] text-[#212121]">
+            <h1 className="font-semibold text-[clamp(1.25rem,2.5vw,2rem)] leading-[var(--leading-tight)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)' }}>
               {study.title}
             </h1>
             <p className="mt-[var(--space-4)] text-[1.125rem] leading-[var(--leading-relaxed)] font-normal text-[#737272]">

@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type FadeUpProps = {
+type FadeInLeftProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-export default function FadeUp({ children, className = "" }: FadeUpProps) {
+export default function FadeInLeft({ children, className = "" }: FadeInLeftProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -59,7 +59,7 @@ export default function FadeUp({ children, className = "" }: FadeUpProps) {
     ? {}
     : {
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(32px)",
+        transform: isVisible ? "translateX(0)" : "translateX(-20px)",
         transition: "opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
       };
 
