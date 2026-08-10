@@ -38,13 +38,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
     notFound();
   }
 
-  const metadataItems = [
-    { label: "Role", value: study.role },
-    { label: "Timeline", value: study.timeline },
-    { label: "Tools", value: study.tools.join(", ") },
-    { label: "Context", value: study.context },
-  ];
-
   return (
     <>
       <article className="px-[var(--space-4)] sm:px-[var(--space-6)]">
@@ -62,11 +55,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </div>
 
           <FadeUp>
-            <dl className="case-study-meta mt-[var(--space-8)] grid gap-[var(--space-5)] sm:grid-cols-2 lg:grid-cols-4">
-              {metadataItems.map(({ label, value }) => (
-                <div key={label}>
-                  <dt className="text-[0.7rem] font-medium uppercase tracking-[0.08em] text-[#737272]">{label}</dt>
-                  <dd className="mt-[var(--space-2)] font-medium text-[#212121]">{value}</dd>
+            <dl className={`case-study-meta mt-[var(--space-8)] grid gap-[var(--space-5)] sm:grid-cols-2 ${study.metadata.some(({ value }) => value.length > 40) ? 'lg:grid-cols-4' : study.metadata.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'}`}>
+              {study.metadata.map(({ label, value }) => (
+                <div key={label} className={value.length > 40 ? 'col-span-2' : ''}>
+                  <dt className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#737272]">{label}</dt>
+                  <dd className="mt-[var(--space-2)] text-[1rem] font-normal text-[#404040]">{value}</dd>
                 </div>
               ))}
             </dl>
