@@ -10,6 +10,7 @@ import type {
   MetricsSection,
   ThreeColumnSection,
   ImageComparisonSection,
+  PullQuoteSection,
 } from "@/data/caseStudies";
 
 function TextBodyContent({
@@ -24,12 +25,15 @@ function TextBodyContent({
           const insightMatch = block.content.match(/^(Insight \d+:)/);
           if (insightMatch) {
             const [label, rest] = block.content.split(/: /);
+            const firstSentenceEnd = rest.indexOf('. ');
+            const firstSentence = firstSentenceEnd !== -1 ? rest.substring(0, firstSentenceEnd + 1) : rest;
+            const remainingText = firstSentenceEnd !== -1 ? rest.substring(firstSentenceEnd + 1) : '';
             return (
               <p
                 key={index}
                 className="text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]"
               >
-                <span className="font-semibold">{label}:</span> {rest}
+                <span className="font-semibold">{label}</span> <span className="font-semibold">{firstSentence}</span>{remainingText}
               </p>
             );
           }
@@ -86,12 +90,12 @@ function TextBodyContent({
   );
 }
 
-function CaseStudySectionBlock({ section, showCategory }: { section: CaseStudySection; showCategory: boolean }) {
+function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeadingOnly }: { section: CaseStudySection; showCategory: boolean; previousSectionIsHeadingOnly: boolean }) {
   switch (section.type) {
     case "text":
       return (
         <FadeUp>
-          <section className="case-study-section">
+          <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
             {showCategory && (
               <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#737272]">
                 {section.category}
@@ -286,6 +290,28 @@ function CaseStudySectionBlock({ section, showCategory }: { section: CaseStudySe
           </section>
         </FadeUp>
       );
+
+    case "pullquote":
+      const pullquoteSection = section as PullQuoteSection;
+      return (
+        <FadeUp>
+          <section className="case-study-section my-[var(--space-12)]">
+            <div className="relative">
+              <span className="absolute -top-4 -left-2 text-[6rem] italic text-[#E5E5E5] leading-none select-none" style={{ fontFamily: 'var(--font-serif)' }}>
+                "
+              </span>
+              <blockquote className="relative z-10 pl-8">
+                <p className="text-[1.625rem] italic font-bold leading-[var(--leading-relaxed)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)' }}>
+                  {pullquoteSection.quote}
+                </p>
+                <footer className="mt-4 text-[1rem] font-normal text-[#737272]">
+                  — {pullquoteSection.attribution}
+                </footer>
+              </blockquote>
+            </div>
+          </section>
+        </FadeUp>
+      );
   }
 }
 
@@ -299,9 +325,11 @@ export default function CaseStudySections({
       {sections.map((section, index) => {
         // Find the last text section before the current section
         let previousCategory: string | null = null;
+        let previousSectionIsHeadingOnly = false;
         for (let i = index - 1; i >= 0; i--) {
           if (sections[i].type === "text") {
             previousCategory = (sections[i] as Extract<CaseStudySection, { type: "text" }>).category;
+            previousSectionIsHeadingOnly = (sections[i] as Extract<CaseStudySection, { type: "text" }>).body.length === 0;
             break;
           }
         }
@@ -310,7 +338,7 @@ export default function CaseStudySections({
         const showCategory = currentCategory !== null && currentCategory !== previousCategory;
         
         return (
-          <CaseStudySectionBlock key={index} section={section} showCategory={showCategory} />
+          <CaseStudySectionBlock key={index} section={section} showCategory={showCategory} previousSectionIsHeadingOnly={previousSectionIsHeadingOnly} />
         );
       })}
     </div>

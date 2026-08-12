@@ -21,10 +21,11 @@ export default function AboutPage() {
             <h1
               id="about-heading"
               className="text-[clamp(2rem,4vw,var(--text-4xl))] leading-[var(--leading-tight)]"
+              style={{ fontFamily: 'var(--font-serif)' }}
             >
               About
             </h1>
-            <div className="mt-[var(--space-6)] space-y-[var(--space-5)] text-muted leading-[var(--leading-relaxed)]">
+            <div className="mt-[var(--space-6)] space-y-[var(--space-5)] text-[#404040] leading-[var(--leading-relaxed)]">
               <p>
                 I&apos;m a UX designer studying human-computer interaction at
                 Carnegie Mellon, with a background in research-driven product
@@ -62,17 +63,17 @@ export default function AboutPage() {
         className="px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
       >
         <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-          <h2 id="journey-heading" className="text-[var(--text-3xl)]">
+          <h2 id="journey-heading" className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[#737272]">
             Experience
           </h2>
 
           <ol className="timeline mt-[var(--space-8)]">
             {experience.map((item) => (
               <li key={`${item.organisation}-${item.year}`} className="timeline-item">
-                <p className="font-serif text-lg font-medium leading-[var(--leading-snug)]">
+                <p className="font-sans text-lg font-medium leading-[var(--leading-snug)]">
                   {item.role}
                   {item.current && (
-                    <span className="ml-[var(--space-2)] text-sm font-sans font-normal text-accent">
+                    <span className="ml-[var(--space-2)] text-sm font-normal text-accent">
                       Current
                     </span>
                   )}
@@ -92,7 +93,7 @@ export default function AboutPage() {
         className="px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
       >
         <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-          <h2 id="creative-heading" className="text-[var(--text-3xl)]">
+          <h2 id="creative-heading" className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[#737272]">
             Creative work
           </h2>
           <p className="mt-[var(--space-4)] max-w-xl text-muted">

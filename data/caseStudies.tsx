@@ -73,6 +73,12 @@ export interface ImageComparisonSection {
   right: { src: string; alt: string; caption: string };
 }
 
+export interface PullQuoteSection {
+  type: "pullquote";
+  quote: string;
+  attribution: string;
+}
+
 export type CaseStudySection =
   | TextSection
   | ImageSection
@@ -81,7 +87,8 @@ export type CaseStudySection =
   | WhatIDidSection
   | MetricsSection
   | ThreeColumnSection
-  | ImageComparisonSection;
+  | ImageComparisonSection
+  | PullQuoteSection;
 
 export type CaseStudy = {
   slug: string;
@@ -101,13 +108,13 @@ export const caseStudies: CaseStudy[] = [
     slug: "roboticscareer",
     title: "RoboticsCareer.org",
     subtitle: "Turning a one-visit platform into a measurable career journey",
-    intro: "RoboticsCareer.org is the ARM Institute's national platform for connecting people to careers in advanced manufacturing and robotics. The platform serves a broad audience, but low engagement and no outcome data means the ARM Institute can't prove its impact. As Product Manager for a multidisciplinary team of 5, I led research and strategy to identify the highest-impact design opportunities and translate them into a product direction that could increase engagement and close the data gap.",
-    summary: "Led research and product strategy for a national robotics career platform to increase engagement and give a federally funded organization the outcome data it needs to prove impact. 100% of perception measures outperformed the existing tool and mechanism trust exceeded 2x in design validation.",
+    intro: "RoboticsCareer.org is the ARM Institute's federally funded national platform for connecting people to careers in advanced manufacturing and robotics. The platform serves a broad audience, but low engagement and no outcome data means the ARM Institute can't prove its impact. As Product Manager for a multidisciplinary team of five, I led research and strategy to identify the highest-impact design opportunities. We delivered an ecosystem of three integrated solutions: a career interest quiz, career journey map, and career dashboard.",
+    summary: "Led product strategy and research for a national robotics career platform to increase engagement and give a federally funded organization the outcome data it needs to prove impact. 100% of perception measures outperformed the existing tool and mechanism trust exceeded 2x in design validation.",
     tags: ["Product Management", "UX Research", "Product Strategy"],
     metadata: [
       { label: "Role", value: "Product Manager" },
       { label: "Timeline", value: "January - July 2026" },
-      { label: "Team", value: "Stephen Chen, Caelan Moglovkin, Rachael Shivam (me), Kayla Windust, Tian Zhou" }
+      { label: "Team", value: "Stephen Chen, Caelan Moglovkin, Kayla Windust, Tian Zhou" }
     ],
     thumbnail: "/images/roboticscareer-thumbnail.jpg",
     heroImage: "/images/roboticscareer-hero.jpg",
@@ -119,23 +126,12 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "bullets",
             items: [
-              "Led product strategy and stakeholder alignment across our team, ARM, and Fivestar (ARM's external development partner)",
+              "Led product strategy and cross-functional coordination across our team, ARM, and Fivestar (ARM's external development partner)",
               "Drove key scoping decisions including targeting Gen Z/Gen Alpha based on market sizing and a broader environmental analysis",
-              "Defined research strategy; wrote protocols and facilitated sessions including high school workshops",
+              "Defined research strategy from planning through synthesis and shaped the product direction for three integrated solutions: a Career Interest Quiz, Career Journey Map, and Career Dashboard",
               "Designed UX improvement screens addressing critical-severity issues identified through heuristic evaluation and usability testing",
               "Framed the value case for ARM, including defining metrics for measuring solution impact"
             ]
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Context",
-        heading: "",
-        body: [
-          {
-            type: "paragraph",
-            content: "The ARM Institute is a federally funded national consortium working to accelerate robotics, automation, and AI adoption across US manufacturing. RoboticsCareer.org is ARM's platform for that mission, connecting people to vetted robotics jobs and training programs, developed in collaboration with Fivestar, a Pittsburgh-based development firm."
           }
         ]
       },
@@ -146,11 +142,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "RoboticsCareer.org is good at getting people through the door, but doesn't give them much reason to stay. The moment someone clicks on a job or training program, they're sent to an external listing, and ARM loses sight of whether they pursued training, applied, or got hired. That's a problem for a federally funded organization that needs to demonstrate impact."
-          },
-          {
-            type: "paragraph",
-            content: "So, ARM came to us with three core challenges for RoboticsCareer.org:"
+            content: "RoboticsCareer.org gets people through the door, but doesn't give them much reason to stay. Users browse jobs and training programs but rarely come back. The moment someone clicks on a listing, they're sent to an external site, and ARM loses sight of whether they pursued training, applied, or got hired. Low engagement and no outcome data meant ARM couldn't demonstrate the platform's value to its funders. So, ARM came to us with three core challenges for RoboticsCareer.org:"
           }
         ]
       },
@@ -159,7 +151,7 @@ export const caseStudies: CaseStudy[] = [
         columns: [
           {
             heading: "01",
-            body: "Help them understand their current and future users"
+            body: "Help ARM understand their current and future users"
           },
           {
             heading: "02",
@@ -195,7 +187,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Across 7 methods and 190 participants, we spoke to high schoolers and college students directly, but also to the people who influence their decisions: parents, teachers, and robotics program leaders. We wanted to understand how these groups shape perceptions of the field and engage younger audiences, and to surface barriers and motivators across the full journey, not just at the point of platform interaction."
+            content: "Across seven methods and 190 participants, we spoke to high schoolers and college students directly, but also to the people who influence their decisions: parents, teachers, and robotics program leaders. We wanted to understand how these groups shape perceptions of the field and engage younger audiences, and to surface barriers and motivators across the full journey, not just at the point of platform interaction."
           }
         ]
       },
@@ -239,28 +231,22 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Research",
-        heading: "",
+        heading: "A workshop with ARM confirmed our focus.",
         body: [
           {
             type: "paragraph",
-            content: "\"This is the most valuable research I've seen come out of one of these capstone projects.\" — Livia Rice, Senior Director of Communications, ARM Institute"
+            content: "Our research had surfaced systemic problems like outdated perceptions of manufacturing that were real but beyond the project's reach. We presented our recommendation to stay focused on what we could ship and measure within the platform, and ARM agreed."
+          },
+          {
+            type: "paragraph",
+            content: "That decision gave us our two guiding questions: How might we turn someone's interest into a real path? And how might we make that path trackable, so ARM can finally see it?"
           }
         ]
       },
       {
-        type: "text",
-        category: "Research",
-        heading: "In a workshop with ARM, we made the call together.",
-        body: [
-          {
-            type: "paragraph",
-            content: "Rather than chase the biggest problem — convincing a generation to care about manufacturing — we would focus on making the platform as good as it can be for everyone who already lands on it, and give ARM a way to see outcomes."
-          },
-          {
-            type: "paragraph",
-            content: "These two insights, combined with ARM's need to track outcomes, became our two guiding questions. How might we turn someone's interest into a real path? And: How might we make that path trackable, so ARM can finally see it?"
-          }
-        ]
+        type: "pullquote",
+        quote: "This is the most valuable research I've seen come out of one of these capstone projects.",
+        attribution: "Livia Rice, Senior Director of Communications, ARM Institute"
       },
       {
         type: "text",
@@ -269,17 +255,23 @@ export const caseStudies: CaseStudy[] = [
         body: []
       },
       {
-        type: "two-column-text",
+        type: "text",
         category: "Solution",
         heading: "01 Career Interest Quiz: Connecting interests to roles",
-        left: {
-          heading: "What it does",
-          body: "A scenario-based quiz using day-in-the-life questions to help younger users connect the field to their existing interests. Results show multiple ranked roles — each with actionable next steps and a visible path upward from entry-level positions — rather than a single verdict."
-        },
-        right: {
-          heading: "Design rationale",
-          body: "We chose a narrative format over a traditional questionnaire after testing both — participants found it more engaging, personal, and trustworthy. Quiz length was deliberate: users trusted results more when they felt the quiz had gathered enough information to earn them. Results are transparent about how each answer mapped to the match, something users explicitly asked for."
-        }
+        body: [
+          {
+            type: "paragraph",
+            content: "A scenario-based quiz that uses day-in-the-life questions to connect younger users' existing interests to robotics and manufacturing careers, surfacing multiple ranked roles with actionable next steps rather than a single verdict."
+          },
+          {
+            type: "bullets",
+            items: [
+              "We chose a narrative format over a traditional questionnaire after testing both, as participants found it more engaging, personal, and trustworthy.",
+              "We deliberately kept the quiz on the longer side and refined length through multiple iterations, as testing showed users trusted results more when the quiz felt thorough.",
+              "Results are transparent about how each answer mapped to the match, something users explicitly asked for."
+            ]
+          }
+        ]
       },
       {
         type: "image",
@@ -288,17 +280,22 @@ export const caseStudies: CaseStudy[] = [
         caption: "Career Interest Quiz screens"
       },
       {
-        type: "two-column-text",
+        type: "text",
         category: "Solution",
         heading: "02 Career Journey Map: Showing the path forward",
-        left: {
-          heading: "What it does",
-          body: "Once a user sets a target role from their quiz results, the journey map shows them the full route — milestones from training through certification, first job, and beyond."
-        },
-        right: {
-          heading: "Design rationale",
-          body: "Our research showed users don't experience careers as linear. A map that ends at the first job felt incomplete — it answered 'how do I get in?' but not 'what does a career here actually look like?' Continuing the loop past employment gives users a reason to stay engaged with the platform long after their first hire."
-        }
+        body: [
+          {
+            type: "paragraph",
+            content: "Once a user sets a target role from their quiz results, the journey map shows a customizable path from training through certification, first job, and beyond."
+          },
+          {
+            type: "bullets",
+            items: [
+              "Milestones are structured around training, certification, and progression, giving users a reason to return to the platform at each stage.",
+              "The path continues past first hire with branching options based on user goals (e.g. earning more, moving into a specific role), because our research showed career paths aren't linear, and even specialists might circle back to training."
+            ]
+          }
+        ]
       },
       {
         type: "image",
@@ -307,17 +304,22 @@ export const caseStudies: CaseStudy[] = [
         caption: "Career Journey Map screens"
       },
       {
-        type: "two-column-text",
+        type: "text",
         category: "Solution",
         heading: "03 Career Dashboard: Tracking progress and closing ARM's data gap",
-        left: {
-          heading: "What it does",
-          body: "A customizable, widget-based home where users track applications, saved jobs, and training in one place. Users can rearrange, resize, and add widgets to match their priorities. A one-tap self-reporting nudge appears when users return to the platform after taking an action — asking them to log what they did, closing ARM's data gap on applications, training enrolment, completions, and hires for the first time."
-        },
-        right: {
-          heading: "Design rationale",
-          body: "Customizability reflects a core research finding: users at different career stages need fundamentally different views. The nudge is timed to the moment of return because testing showed users are most likely to self-report immediately after taking an action — not when prompted later. That timing is what makes the data reliable enough for ARM to use."
-        }
+        body: [
+          {
+            type: "paragraph",
+            content: "A customizable, widget-based home where users track applications, saved jobs, and training in one place, with a one-tap self-reporting nudge that closes ARM's data gap on applications, enrolment, completions, and hires for the first time."
+          },
+          {
+            type: "bullets",
+            items: [
+              "The layout is customizable because users at different career stages need fundamentally different views.",
+              "The nudge is timed to the moment of return because testing showed users self-report most reliably right after taking an action, not when prompted later."
+            ]
+          }
+        ]
       },
       {
         type: "image",
@@ -357,7 +359,7 @@ export const caseStudies: CaseStudy[] = [
             comparison: "vs 3.00 existing tool"
           },
           {
-            value: "7.00/7",
+            value: "7/7",
             label: "New career discovery",
             comparison: "vs 3.33 existing tool"
           },
@@ -388,7 +390,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             type: "paragraph",
-            content: "ARM and Fivestar were enthusiastic following our final presentation. We've handed over all deliverables, implementation guidelines, and documentation, and are now waiting for deployment, after which we'll have the real-world metrics to back up what our testing showed."
+            content: "ARM and Fivestar were enthusiastic following our final presentation. We've handed over all deliverables, implementation guidelines, and documentation. The real test will come with deployment. Our design validation was strong, but live usage will show whether the patterns we saw in testing hold at scale."
           }
         ]
       },
@@ -399,11 +401,11 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "This was my first time working as a Product Manager on a team. The hardest adjustment was knowing when to direct and make a call on scope or strategy, and when to step back and let the designers own the decision."
+            content: "This was my first time working as a Product Manager on a team. The hardest adjustment was knowing when to make a call on scope or strategy, and when to step back and defer to my team's expertise."
           },
           {
             type: "paragraph",
-            content: "Translating our research and design into something ARM could act on, in language that connected to their funding pressures and organisational goals, required a different kind of thinking than I'd practiced before. Part of that was defining the right metrics for measuring impact, because without deployed solutions, the case for our work had to be built on evidence we could generate ourselves."
+            content: "Translating our research and design into something ARM could act on, in language that connected to their funding pressures and organizational goals, required a different kind of thinking than I'd practiced before. Part of that was defining the right metrics for measuring impact, because without deployed solutions, the case for our work had to be built on evidence we could generate ourselves."
           },
           {
             type: "paragraph",
@@ -417,7 +419,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "okuma",
     title: "Okuma",
     subtitle: "Designing for culture and context",
-    intro: "Existing Type 2 Diabetes apps aren't designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded mobile prototype that was co-designed through 13 workshops with 19 participants in Port Harcourt, then evaluated by 30 additional users through think-aloud sessions and interviews. The work produced two publications at ACM DIS 2025 and ACM AfriCHI 2025, contributing methodological guidance for designing digital health tools that are locally relevant and regionally adaptable across diverse African communities.",
+    intro: "Existing Type 2 Diabetes apps aren't designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded mobile prototype for the specific context of Port Harcourt, Nigeria, which was then used as a technology probe in 13 co-design workshops with 19 participants and evaluated by 30 additional users. The work produced two publications at ACM DIS 2025 and ACM AfriCHI 2025, contributing methodological guidance for designing digital health tools that are locally relevant and regionally adaptable across diverse African communities.",
     summary: "Designed a culturally grounded digital health tool for collaborative Type 2 Diabetes care in Nigeria. Contributed methodological guidance for cross-cultural digital health design through 2 ACM publications.",
     tags: ["UX Research", "Prototyping", "mHealth"],
     metadata: [
@@ -435,7 +437,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "University restrictions prevented direct access to Port Harcourt users, so every decision had to be grounded in existing research data and validated through close collaboration with the Nigerian PhD researcher leading the project. I was designing for a cultural context I hadn't experienced, infrastructure realities I'd never designed around, and three distinct user groups — patients, caregivers, and community pharmacists — each with different needs that the app had to address while enabling them to work together."
+            content: "The app needed to work for real people in Port Harcourt — a city with its own infrastructure constraints, cultural dynamics, and healthcare realities I hadn't experienced. But university restrictions prevented direct access to users there, so every decision had to be grounded in existing research data and validated through close collaboration with the Nigerian PhD researcher leading the project. I was designing for a cultural context I hadn't experienced, infrastructure realities I'd never designed around, and three distinct user groups — patients, caregivers, and community pharmacists — each with different needs that the app had to address while enabling them to work together."
           }
         ]
       },
@@ -446,7 +448,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "A scoping review of diabetes mHealth research in Africa and a competitive analysis of 8 existing apps confirmed the gap: nothing addressed the specific realities of Nigeria, and nothing had been designed for the patient-caregiver-pharmacist triad."
+            content: "I conducted a scoping review of diabetes mHealth research in Africa and a competitive analysis of 8 existing apps, which confirmed the gap: nothing addressed the specific realities of Nigeria, and nothing had been designed for the patient-caregiver-pharmacist triad."
           }
         ]
       },
@@ -457,22 +459,22 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Only 12.1% of Nigerians experience quality internet services, just 36% of urban Nigerians own a smartphone, and data costs are high. Most existing solutions had been built on assumptions that simply don't hold in Port Harcourt — connectivity, device access, and data affordability that couldn't be taken for granted."
+            content: "Only 12.1% of Nigerians experience quality internet services, just 36% of urban Nigerians own a smartphone, and data costs are high. Existing diabetes apps assumed reliable connectivity, capable devices, and cheap data — none of which held in Port Harcourt. Any solution for this context would need to be built from different assumptions entirely."
           }
         ]
       },
       {
         type: "text",
         category: "Research",
-        heading: "T2D care in Nigeria is collaborative by necessity, but largely invisible.",
+        heading: "Diabetes care in Port Harcourt runs primarily on informal relationships, not formal systems.",
         body: [
           {
             type: "paragraph",
-            content: "In Nigeria, diabetes care doesn't happen in isolation. Patients rely on caregivers for daily support, and community pharmacists — more accessible than doctors — often serve as the primary point of clinical contact. This care triad is real but largely informal, held together by community relationships rather than formal systems."
+            content: "Patients rely on caregivers for daily support, and community pharmacists — more accessible than doctors — often serve as the primary clinical contact. These three groups already function as a care triad, but their coordination is informal and largely unsupported by any existing tool.",
           },
           {
             type: "paragraph",
-            content: "Working with interview transcripts and survey data from Port Harcourt, I adopted an Afrocentric approach — rooting design decisions in the sociocultural contexts and lived experiences of the end users rather than importing Western assumptions. Empathy mapping across all three groups surfaced shared needs — for better T2D education, culturally relevant nutritional guidance, and improved communication. Journey maps revealed where the informal, largely unregulated care relationships that already existed could be formalised and better supported through the app."
+            content: "Working with interview transcripts and survey data from Port Harcourt, I adopted an Afrocentric approach — rooting design decisions in the sociocultural contexts and lived experiences of the end users rather than in Western assumptions. Empathy mapping across all three groups surfaced shared needs — for better Type 2 Diabetes education, culturally relevant nutritional guidance, and improved communication. Journey maps revealed where the informal, largely unregulated care relationships that already existed could be formalised and better supported through the app."
           }
         ]
       },
@@ -489,7 +491,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Android was the clear platform choice, as it accounts for over 86% of smartphone users in Nigeria. But I also had to design for Port Harcourt's infrastructure realities: low connectivity, high data costs, and limited device storage. That meant cutting video consultations, heavy media, and always-connected features entirely. The core features I did include were designed to work within these constraints — lightweight, data-efficient, and functional without a reliable connection."
+            content: "Android was the clear platform choice, used by over 86% of smartphone owners in Nigeria, and I designed with Material Design 3 guidelines to align with interaction patterns users would already be familiar with. But I also had to design for Port Harcourt's infrastructure realities: low connectivity, high data costs, and limited device storage. That meant cutting video consultations, heavy media, and always-connected features entirely. The core features I did include were designed to work within these constraints — lightweight, data-efficient, and functional without a reliable connection."
           }
         ]
       },
@@ -566,8 +568,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "mise-ai",
     title: "Mise.AI",
-    subtitle: "Designing trust into autonomous AI",
-    intro: "Fast-casual restaurants lose around $179,000 per store annually from inventory mismanagement — a problem that existing tools flag but don't fix. As Lead Designer on a team of five, I designed and built the end-to-end interface for an agentic AI system that forecasts demand, ranks suppliers, and places orders — pausing for human approval before executing. The financial model projected $46,000 in annual savings per store, and the prototype was praised by faculty for its completeness and human-in-the-loop design decisions.",
+    subtitle: "Balancing AI autonomy with human oversight",
+    intro: "Fast-casual restaurants lose around $179,000 per store annually from inventory mismanagement, a problem that existing tools flag but don't fix. Operating on tight margins and lean teams, these restaurants need more than alerts. They need action. As Lead Designer on a team of 5, I designed and built the end-to-end interface for an agentic AI system that forecasts demand, ranks suppliers, and places orders, pausing for human-in-the-loop approval before executing. The financial model projected $46,000 in annual savings per store.",
     summary: "Built the end-to-end interface for an agentic AI inventory system for fast-casual restaurants with human-in-the-loop oversight, making the agent's automation visible, trustworthy, and controllable. Financial model projected $46,000 in annual savings per store.",
     tags: ["AI Design", "Product Design", "Agentic Systems"],
     thumbnail: "/images/mise-ai-thumbnail.jpg",
@@ -586,24 +588,10 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "bullets",
             items: [
-              "Designed and built the end-to-end interface for an agentic AI inventory management system",
+              "Designed and vibecoded the full interactive prototype in React, translating design decisions directly into a working demo",
               "Led consequence scanning to identify and mitigate risks including unfair supplier ranking",
-              "Applied FATE principles (fairness, accountability, transparency, explainability) to every design decision, drawing on Microsoft's Responsible AI framework",
-              "Vibecoded the full interactive prototype in React, translating design decisions directly into a working demo",
-              "Prototyped and simulated a live supplier call using GPT voice mode to stress-test the ordering module",
-              "Presented at the CMU Design of AI Products and Services class pitch day"
+              "Applied FATE principles (fairness, accountability, transparency, explainability) to every design decision, drawing on Microsoft's Responsible AI framework"
             ]
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Context",
-        heading: "The tools that exist for this problem solve the wrong part of it.",
-        body: [
-          {
-            type: "paragraph",
-            content: "Fast-casual restaurants operate on tight margins and lean teams. Existing inventory tools tell managers what's running low, but leave everything else — forecasting demand, choosing suppliers, placing orders, and tracking outcomes — to them. Mise.AI was designed to handle that entire chain: predicting what's needed, recommending who to order from, contacting suppliers directly, and surfacing the result for manager approval."
           }
         ]
       },
@@ -653,9 +641,15 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Before committing to the concept, I led the team through consequence scanning to anticipate risks — including unfair supplier ranking and good suppliers being incorrectly flagged. It was important to me that we designed mitigations in from the outset rather than treating them as edge cases."
+            content: "Before committing to the concept, I led the team through consequence scanning to anticipate risks and design mitigations from the outset. We identified three key risks: over/under-stocking, unfair supplier ranking, and incorrect automated orders. The mitigations I designed for included human-in-the-loop approval for every order, transparent rationale for AI recommendations, manager overrides on supplier selection, and prominent error handling when orders fail."
           }
         ]
+      },
+      {
+        type: "image",
+        src: "/images/mise-ai-consequence-scanning.jpg",
+        alt: "Consequence scanning workshop output",
+        caption: "Consequence scanning workshop output"
       },
       {
         type: "text",
@@ -780,7 +774,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "The financial model projected $46,000 in annual savings per store, with break-even at approximately 450 stores. The prototype covered the full flow from demand forecasting through supplier selection, manager approval, and order confirmation, including error handling for failed supplier contact. Faculty praised the prototype at the class pitch day for its completeness and the clarity of its human-in-the-loop design decisions."
+            content: "The financial model projected $46,000 in annual savings per store, with break-even at approximately 450 stores. The prototype covered the full flow from demand forecasting through supplier selection, manager approval, and order confirmation, including error handling for failed supplier contact."
           }
         ]
       },
@@ -1025,22 +1019,11 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Design & Development",
-        heading: "I designed and built the companion app frontend end to end.",
+        heading: "I designed and vibecoded the companion app.",
         body: [
           {
             type: "paragraph",
             content: "Using Windsurf as my development environment, I vibecoded the full React Native frontend — translating my own designs directly into a working prototype without a separate engineering handoff. The MVP was built with mock data and iterated screen by screen based on product requirements."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Research",
-        heading: "Without access to real users, I used AI-simulated persona interviews to ground the design.",
-        body: [
-          {
-            type: "paragraph",
-            content: "I built personas representing PMDD patients and healthcare providers using advanced prompting methodology from CMU's AI Augmented Designer course, grounded in published PMDD research and clinical context rather than generated from scratch."
           }
         ]
       },
