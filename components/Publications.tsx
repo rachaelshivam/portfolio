@@ -24,8 +24,8 @@ export default function Publications() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="publication-link block text-[1.5rem] font-semibold leading-[var(--leading-snug)]"
-                  style={{ fontFamily: 'var(--font-serif)' }}
+                  className="publication-link block text-[1.5rem] font-normal leading-[var(--leading-snug)]"
+                  style={{ fontFamily: 'var(--font-serif)', fontWeight: 550 }}
                 >
                   {item.title}
                   <span className="ml-1 text-[0.875rem] text-[var(--color-text-muted)]">↗</span>

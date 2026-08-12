@@ -569,7 +569,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "mise-ai",
     title: "Mise.AI",
     subtitle: "Balancing AI autonomy with human oversight",
-    intro: "Fast-casual restaurants lose around $179,000 per store annually from inventory mismanagement, a problem that existing tools flag but don't fix. Operating on tight margins and lean teams, these restaurants need more than alerts. They need action. As Lead Designer on a team of 5, I designed and built the end-to-end interface for an agentic AI system that forecasts demand, ranks suppliers, and places orders, pausing for human-in-the-loop approval before executing. The financial model projected $46,000 in annual savings per store.",
+    intro: "Fast-casual restaurants lose around $179,000 per store annually from inventory mismanagement, a problem that existing tools flag but don't fix. Operating on tight margins and lean teams, these restaurants need more than alerts. They need action. As Lead Designer on a team of five, I designed and built the end-to-end interface for an agentic AI system that forecasts demand, ranks suppliers, and places orders, pausing for human-in-the-loop approval before executing. The financial model projected $46,000 in annual savings per store.",
     summary: "Built the end-to-end interface for an agentic AI inventory system for fast-casual restaurants with human-in-the-loop oversight, making the agent's automation visible, trustworthy, and controllable. Financial model projected $46,000 in annual savings per store.",
     tags: ["AI Design", "Product Design", "Agentic Systems"],
     thumbnail: "/images/mise-ai-thumbnail.jpg",
