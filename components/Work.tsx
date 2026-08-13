@@ -12,7 +12,7 @@ export default function Work() {
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <FadeInLeft>
-          <h2 id="work-heading" className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+          <h2 id="work-heading" className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
             Selected work
           </h2>
         </FadeInLeft>

@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h1 className="text-[clamp(1.25rem,2.5vw,2rem)] leading-[var(--leading-tight)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 575 }}>
               {study.title}
             </h1>
-            <p className="mt-[var(--space-4)] text-[1.125rem] leading-[var(--leading-relaxed)] font-normal text-[#737272]">
+            <p className="mt-[var(--space-4)] text-[1.125rem] leading-[var(--leading-relaxed)] font-normal text-[var(--color-text-muted)]">
               {study.subtitle}
             </p>
             <p className="mt-[var(--space-5)] text-[1rem] leading-[1.7] font-normal text-[#404040]">
@@ -55,10 +55,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </div>
 
           <FadeUp>
-            <dl className={`case-study-meta mt-[var(--space-8)] grid gap-[var(--space-5)] sm:grid-cols-2 ${study.metadata.some(({ value }) => value.length > 40) ? 'lg:grid-cols-4' : study.metadata.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'}`}>
+            <dl className="mt-[var(--space-8)] grid" style={{ gridTemplateColumns: `repeat(${study.metadata.length}, 1fr)` }}>
               {study.metadata.map(({ label, value }) => (
-                <div key={label} className={value.length > 40 ? 'col-span-2' : ''}>
-                  <dt className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#737272]">{label}</dt>
+                <div key={label}>
+                  <dt className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">{label}</dt>
                   <dd className="mt-[var(--space-2)] text-[1rem] font-normal text-[#404040]">{value}</dd>
                 </div>
               ))}

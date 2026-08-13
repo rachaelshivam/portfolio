@@ -409,7 +409,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             type: "paragraph",
-            content: "Finally, this project reinforced something I believe strongly about the PM role: being hands-on matters. I didn't just set direction — I wrote research protocols, facilitated interviews and workshops, designed screens, and used AI tools to accelerate the work. In a small team working at pace, a PM who can contribute directly moves the work forward faster."
+            content: "Finally, this project reinforced something I believe strongly about the PM role: being hands-on matters. I didn't just set direction — I wrote research protocols, facilitated interviews and workshops, designed screens, and used AI tools to accelerate the work. In a small team with a tight project timeline, a PM who can contribute directly moves the work forward faster."
           }
         ]
       }
@@ -424,7 +424,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["UX Research", "Prototyping", "mHealth"],
     metadata: [
       { label: "Role", value: "UX Designer & Researcher" },
-      { label: "Timeline", value: "5 months (May – Sep 2023)" },
+      { label: "Timeline", value: "May – September 2023" },
       { label: "Context", value: "University of Bristol MSc Dissertation" }
     ],
     thumbnail: "/images/okuma-thumbnail.jpg",
@@ -576,8 +576,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "/images/mise-ai-hero.jpg",
     metadata: [
       { label: "Role", value: "Lead Product Designer" },
-      { label: "Timeline", value: "2 weeks (Spring 2025)" },
-      { label: "Context", value: "Design of AI Products and Services, Carnegie Mellon University" }
+      { label: "Timeline", value: "2 weeks (Fall 2025)" },
+      { label: "Team", value: "Aditi Agni, Leo Li, Ram Kaushik Ramalingan, Devisha Tayal" }
     ],
     sections: [
       {
@@ -930,15 +930,15 @@ export const caseStudies: CaseStudy[] = [
     slug: "luteasense",
     title: "LuteaSense",
     subtitle: "Predicting PMDD symptoms before they happen",
-    intro: "LuteaSense is a multimodal biosensor patch that continuously monitors hormone levels and predicts PMDD symptoms 24-48 hours in advance — giving users the time and information they need to manage what's coming. At CMU's Medical Device Innovation and Realization (MDIR) Demo Day 2026, LuteaSense was voted 1st place overall by a panel of industry expert judges. We are now pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship.",
+    intro: "LuteaSense is a multimodal biosensor patch that continuously monitors hormone levels and predicts PMDD symptoms 24-48 hours in advance — giving users the time and information they need to manage what's coming. At Demo Day for CMU's Medical Device Innovation and Realization (MDIR) course, LuteaSense was voted 1st place overall by a panel of industry expert judges. We are now pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship.",
     summary: "Led product and design for a wearable biosensor that predicts PMDD symptoms 24-48 hours in advance for women and AFAB individuals. 1st place overall at CMU MDIR Demo Day 2026, now pursuing as a Swartz Center startup.",
     tags: ["Product Design", "Women's Health", "Wearable Tech"],
     thumbnail: "/images/luteasense-thumbnail.jpg",
     heroImage: "/images/luteasense-hero.jpg",
     metadata: [
       { label: "Role", value: "Chief Product Officer" },
-      { label: "Timeline", value: "Spring Semester 2026" },
-      { label: "Context", value: "Medical Device Innovation and Realization, Carnegie Mellon University" }
+      { label: "Timeline", value: "January - May 2026" },
+      { label: "Team", value: "Hanlin Cao, Aashna Jiju, Yunwei Li, Rujuta Thombre" }
     ],
     sections: [
       {
@@ -949,9 +949,8 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "bullets",
             items: [
-              "Led product vision, UX strategy, and companion app development as Chief Product Officer",
-              "Vibecoded the full React Native frontend prototype using Windsurf",
-              "Conducted AI-assisted persona interviews with simulated PMDD patients and healthcare providers, using methodology from CMU's AI Augmented Designer course",
+              "Led product strategy, UX design, feature definition, and IP/regulatory planning as Chief Product Officer",
+              "Vibecoded the full React Native frontend prototype",
               "Led Demo Day pitch preparation and presentation strategy"
             ]
           }
@@ -966,7 +965,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Context",
-        heading: "PMDD affects millions of women and AFAB individuals, and current management is entirely reactive.",
+        heading: "PMDD affects millions of women and AFAB individuals, but current management lacks personalized, real-time prediction.",
         body: [
           {
             type: "paragraph",
@@ -1023,7 +1022,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Using Windsurf as my development environment, I vibecoded the full React Native frontend — translating my own designs directly into a working prototype without a separate engineering handoff. The MVP was built with mock data and iterated screen by screen based on product requirements."
+            content: "Using Windsurf, I vibecoded the full React Native frontend from my own designs, then worked with a teammate on backend integration for the final functional prototype."
           }
         ]
       },

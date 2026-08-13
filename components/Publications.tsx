@@ -1,5 +1,6 @@
 import FadeInLeft from "./FadeInLeft";
 import FadeUp from "./FadeUp";
+import { ArrowUpRight } from "lucide-react";
 import { publications } from "@/data/publications";
 
 export default function Publications() {
@@ -11,7 +12,7 @@ export default function Publications() {
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <FadeInLeft>
-          <h2 id="publications-heading" className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+          <h2 id="publications-heading" className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
             Publications
           </h2>
         </FadeInLeft>
@@ -28,7 +29,7 @@ export default function Publications() {
                   style={{ fontFamily: 'var(--font-serif)', fontWeight: 550 }}
                 >
                   {item.title}
-                  <span className="ml-1 text-[0.875rem] text-[var(--color-text-muted)]">↗</span>
+                  <ArrowUpRight className="ml-1 inline-block" style={{ width: '1.5rem', height: '1.5rem', strokeWidth: 2.5 }} />
                 </a>
                 <p className="mt-[var(--space-2)] text-[1rem] text-[var(--color-text-muted)]">
                   {item.publication}

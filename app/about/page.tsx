@@ -23,37 +23,31 @@ export default function AboutPage() {
               className="text-[clamp(2rem,4vw,var(--text-4xl))] leading-[var(--leading-tight)]"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              About
+              Hi, I'm Rachael
             </h1>
             <div className="mt-[var(--space-6)] space-y-[var(--space-5)] text-[#404040] leading-[var(--leading-relaxed)]">
               <p>
-                I&apos;m a UX designer studying human-computer interaction at
-                Carnegie Mellon, with a background in research-driven product
-                design.
+                I started my career as a practicing dentist, where I saw firsthand how poorly designed health tech made already complex work harder for both providers and patients. This made me curious about the decisions behind the technology we use, and how understanding people's needs could lead to better products and services.
               </p>
               <p>
-                I care about clarity, accessibility, and the small details that
-                help people feel confident using complex tools. My work spans
-                healthcare, fintech, and design systems — always grounded in
-                understanding real user needs.
+                That curiosity led me to study Computer Science before completing my Master of Human-Computer Interaction at Carnegie Mellon University, where my work spanned healthcare, finance, education, and AI, through both academic and industry-sponsored projects.
               </p>
               <p>
-                Outside of design, you&apos;ll find me drawing, exploring
-                museums, and collecting reference books on typography and visual
-                culture.
+                I'm drawn to complex systems and emerging technologies, and problems that sit at the intersection of research, design, and strategy.
               </p>
             </div>
           </div>
 
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[var(--color-bg-subtle)]">
-            <Image
-              src="https://picsum.photos/seed/about-portrait/800/1000"
-              alt="Portrait of Rachael Shivam"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
+          <div className="relative aspect-[4/5] w-full">
+            <div className="absolute left-[0%] top-[5%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)]" style={{ transform: 'rotate(-6deg)', zIndex: 1 }}>
+              <div className="aspect-[4/3] bg-[var(--color-border)]"></div>
+            </div>
+            <div className="absolute left-[50%] top-[10%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)]" style={{ transform: 'rotate(3deg)', zIndex: 2 }}>
+              <div className="aspect-[4/3] bg-[var(--color-border)]"></div>
+            </div>
+            <div className="absolute left-[15%] top-[40%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)]" style={{ transform: 'rotate(-2deg)', zIndex: 3 }}>
+              <div className="aspect-[4/3] bg-[var(--color-border)]"></div>
+            </div>
           </div>
         </div>
       </section>

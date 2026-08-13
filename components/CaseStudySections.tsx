@@ -97,7 +97,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
             {showCategory && (
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#737272]">
+              <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                 {section.category}
               </p>
             )}
@@ -152,7 +152,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className="case-study-section">
             {showCategory && section.category && (
-              <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#737272]">
+              <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                 {section.category}
               </p>
             )}
@@ -164,7 +164,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
             <div className="mt-[var(--space-5)] grid gap-[var(--space-6)] md:grid-cols-2">
               <div>
                 {section.left.heading && (
-                  <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#737272]">
+                  <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                     {section.left.heading}
                   </p>
                 )}
@@ -174,7 +174,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
               </div>
               <div>
                 {section.right.heading && (
-                  <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#737272]">
+                  <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                     {section.right.heading}
                   </p>
                 )}
@@ -191,7 +191,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
       return (
         <FadeUp>
           <section className="case-study-section">
-            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#737272]">
+            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
               WHAT I DID
             </p>
             <ul className="case-study-deliverables mt-[var(--space-5)]">
@@ -257,7 +257,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
           <section className="case-study-section">
             <div className="grid gap-[var(--space-6)] md:grid-cols-2">
               <div>
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#737272]">Before</p>
+                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">Before</p>
                 <div className="mt-[var(--space-3)] overflow-hidden rounded-2xl">
                   <Image
                     src={comparisonSection.left.src}
@@ -267,12 +267,12 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                     className="aspect-video w-full object-cover"
                   />
                 </div>
-                <p className="mt-[var(--space-3)] text-[0.875rem] leading-[var(--leading-relaxed)] font-normal text-[#737272]">
+                <p className="mt-[var(--space-3)] text-[0.875rem] leading-[var(--leading-relaxed)] font-normal text-[var(--color-text-muted)]">
                   {comparisonSection.left.caption}
                 </p>
               </div>
               <div>
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#737272]">After</p>
+                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">After</p>
                 <div className="mt-[var(--space-3)] overflow-hidden rounded-2xl">
                   <Image
                     src={comparisonSection.right.src}
@@ -282,7 +282,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                     className="aspect-video w-full object-cover"
                   />
                 </div>
-                <p className="mt-[var(--space-3)] text-[0.875rem] leading-[var(--leading-relaxed)] font-normal text-[#737272]">
+                <p className="mt-[var(--space-3)] text-[0.875rem] leading-[var(--leading-relaxed)] font-normal text-[var(--color-text-muted)]">
                   {comparisonSection.right.caption}
                 </p>
               </div>
@@ -304,7 +304,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                 <p className="text-[1.625rem] italic font-bold leading-[var(--leading-relaxed)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)' }}>
                   {pullquoteSection.quote}
                 </p>
-                <footer className="mt-4 text-[1rem] font-normal text-[#737272]">
+                <footer className="mt-4 text-[1rem] font-normal text-[var(--color-text-muted)]">
                   — {pullquoteSection.attribution}
                 </footer>
               </blockquote>

@@ -25,20 +25,20 @@ export default function CaseStudyCard({
 
   return (
     <Link href={`/work/${slug}`} className="case-study-card group block">
-      <div className="grid gap-6 md:gap-[60px] md:grid-cols-[45%_55%]">
-        <div className="relative aspect-[4/3] h-[240px] min-h-[400px] overflow-hidden rounded-2xl bg-[var(--color-border)] md:aspect-auto md:h-full order-1 md:order-2">
+      <div className="grid gap-6 lg:gap-[60px] lg:grid-cols-[1fr_1.2fr]">
+        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl bg-[var(--color-border)] order-1 lg:order-2 max-w-[45%] mx-auto lg:max-w-none lg:mx-0">
           {!imageError && (
             <Image
               src={thumbnail}
               alt={title}
               fill
               className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
-              sizes="(max-width: 768px) 100vw, 45vw"
+              sizes="(max-width: 1024px) 100vw, 45vw"
               onError={() => setImageError(true)}
             />
           )}
         </div>
-        <div className="flex flex-col justify-center order-2 md:order-1 py-4">
+        <div className="flex flex-col justify-center order-2 lg:order-1 py-4">
           <h3 className="text-[1.5rem] leading-[var(--leading-tight)] text-[var(--color-text-primary)]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 550 }}>
             {title}
           </h3>
