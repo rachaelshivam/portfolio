@@ -109,7 +109,7 @@ export const caseStudies: CaseStudy[] = [
     title: "RoboticsCareer.org",
     subtitle: "Turning a one-visit platform into a measurable career journey",
     intro: "RoboticsCareer.org is the ARM Institute's federally funded national platform for connecting people to careers in advanced manufacturing and robotics. The platform serves a broad audience, but low engagement and no outcome data means the ARM Institute can't prove its impact. As Product Manager for a multidisciplinary team of five, I led research and strategy to identify the highest-impact design opportunities. We delivered an ecosystem of three integrated solutions: a career interest quiz, career journey map, and career dashboard.",
-    summary: "Led product strategy and research for a national robotics career platform to increase engagement and give a federally funded organization the outcome data it needs to prove impact. 100% of perception measures outperformed the existing tool and mechanism trust exceeded 2x in design validation.",
+    summary: "Led product strategy and research for a federally funded robotics career platform to increase engagement and close a critical outcome data gap. 100% of perception measures outperformed the existing tool, with return intent exceeding 2.5x in design validation.",
     tags: ["Product Management", "UX Research", "Product Strategy"],
     metadata: [
       { label: "Role", value: "Product Manager" },
@@ -231,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Research",
-        heading: "A workshop with ARM confirmed our focus.",
+        heading: "A client workshop with ARM confirmed our focus.",
         body: [
           {
             type: "paragraph",
@@ -420,15 +420,15 @@ export const caseStudies: CaseStudy[] = [
     title: "Okuma",
     subtitle: "Designing for culture and context",
     intro: "Existing Type 2 Diabetes apps aren't designed for the realities of Nigeria — its infrastructure, its culture, or the collaborative nature of diabetes care there. I designed a culturally grounded mobile prototype for the specific context of Port Harcourt, Nigeria, which was then used as a technology probe in 13 co-design workshops with 19 participants and evaluated by 30 additional users. The work produced two publications at ACM DIS 2025 and ACM AfriCHI 2025, contributing methodological guidance for designing digital health tools that are locally relevant and regionally adaptable across diverse African communities.",
-    summary: "Designed a culturally grounded digital health tool for collaborative Type 2 Diabetes care in Nigeria. Contributed methodological guidance for cross-cultural digital health design through 2 ACM publications.",
+    summary: "Designed a culturally grounded mobile technology probe for collaborative Type 2 Diabetes care in Nigeria. Contributed methodological guidance for cross-cultural digital health design through two ACM publications.",
     tags: ["UX Research", "Prototyping", "mHealth"],
     metadata: [
       { label: "Role", value: "UX Designer & Researcher" },
       { label: "Timeline", value: "May – September 2023" },
       { label: "Context", value: "University of Bristol MSc Dissertation" }
     ],
-    thumbnail: "/images/okuma-thumbnail.jpg",
-    heroImage: "/images/okuma-hero.jpg",
+    thumbnail: "/images/okuma-thumbnail.png",
+    heroImage: "/images/okuma-thumbnail.png",
     sections: [
       {
         type: "text",

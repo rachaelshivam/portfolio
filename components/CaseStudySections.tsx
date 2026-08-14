@@ -114,13 +114,15 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className="case-study-section case-study-section--full">
             <figure>
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-[var(--color-border)]">
+              <div className="w-full overflow-hidden rounded-xl bg-[var(--color-border)]">
                 <Image
                   src={section.src}
                   alt={section.alt}
-                  fill
-                  className="object-cover"
+                  width={0}
+                  height={0}
                   sizes="100vw"
+                  className="w-full h-auto"
+                  style={{ width: '100%', height: 'auto' }}
                 />
               </div>
               <figcaption className="mt-[var(--space-3)] text-sm text-[var(--color-text-muted)]">
@@ -258,13 +260,15 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
             <div className="grid gap-[var(--space-6)] md:grid-cols-2">
               <div>
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">Before</p>
-                <div className="mt-[var(--space-3)] overflow-hidden rounded-2xl">
+                <div className="mt-[var(--space-3)] w-full overflow-hidden rounded-xl">
                   <Image
                     src={comparisonSection.left.src}
                     alt={comparisonSection.left.alt}
-                    width={800}
-                    height={450}
-                    className="aspect-video w-full object-cover"
+                    width={0}
+                    height={0}
+                    sizes="50vw"
+                    className="w-full h-auto"
+                    style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
                 <p className="mt-[var(--space-3)] text-[0.875rem] leading-[var(--leading-relaxed)] font-normal text-[var(--color-text-muted)]">
@@ -273,13 +277,15 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
               </div>
               <div>
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">After</p>
-                <div className="mt-[var(--space-3)] overflow-hidden rounded-2xl">
+                <div className="mt-[var(--space-3)] w-full overflow-hidden rounded-xl">
                   <Image
                     src={comparisonSection.right.src}
                     alt={comparisonSection.right.alt}
-                    width={800}
-                    height={450}
-                    className="aspect-video w-full object-cover"
+                    width={0}
+                    height={0}
+                    sizes="50vw"
+                    className="w-full h-auto"
+                    style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
                 <p className="mt-[var(--space-3)] text-[0.875rem] leading-[var(--leading-relaxed)] font-normal text-[var(--color-text-muted)]">

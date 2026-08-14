@@ -2,13 +2,13 @@
 
 import HashLink from "@/components/HashLink";
 import Link from "next/link";
+import { Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
   { label: "Work", href: "/#work" },
   { label: "About", href: "/about" },
-  { label: "Resume", href: "#resume" },
-  { label: "Contact", href: "#contact" },
+  { label: "Resume", href: "#resume" }
 ] as const;
 
 export default function Nav() {
@@ -35,7 +35,7 @@ export default function Nav() {
     <header
       className={`site-nav sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-300 ${
         showFrost
-          ? "bg-[rgba(249,249,249,0.8)] backdrop-blur-md"
+          ? "bg-[rgba(253,253,253,0.8)] backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -43,7 +43,8 @@ export default function Nav() {
         <div className="mx-auto flex h-16 w-full max-w-[72rem] items-center justify-between">
           <Link
             href="/"
-            className="nav-logo text-lg tracking-tight sm:text-xl"
+            className="nav-logo text-[1.15rem] tracking-tight sm:text-xl"
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 600 }}
             onClick={() => setMenuOpen(false)}
           >
             Rachael Shivam
@@ -55,15 +56,25 @@ export default function Nav() {
           >
             {navLinks.map(({ label, href }) =>
               href.includes("#") ? (
-                <HashLink key={href} href={href} className="nav-link text-sm">
+                <HashLink key={href} href={href} className="nav-link text-[0.95rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
                   {label}
                 </HashLink>
               ) : (
-                <Link key={href} href={href} className="nav-link text-sm">
+                <Link key={href} href={href} className="nav-link text-[0.95rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
                   {label}
                 </Link>
               ),
             )}
+            <Link href="mailto:rachael@example.com" className="nav-link" aria-label="Email">
+              <Mail size={18} />
+            </Link>
+            <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect width="4" height="12" x="2" y="9"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </Link>
           </nav>
 
           <button
@@ -103,7 +114,7 @@ export default function Nav() {
           menuOpen
             ? "max-h-64 opacity-100"
             : "max-h-0 opacity-0"
-        } ${showFrost ? "bg-[rgba(249,249,249,0.8)] backdrop-blur-md" : "bg-transparent"}`}
+        } ${showFrost ? "bg-[rgba(253,253,253,0.8)] backdrop-blur-md" : "bg-transparent"}`}
       >
         <div className="px-[var(--space-4)] sm:px-[var(--space-5)]">
           <ul className="mx-auto flex w-full max-w-[72rem] flex-col py-[var(--space-3)]">
@@ -112,7 +123,8 @@ export default function Nav() {
               {href.includes("#") ? (
                 <HashLink
                   href={href}
-                  className="nav-link block py-[var(--space-3)] text-base"
+                  className="nav-link block py-[var(--space-3)] text-[0.95rem]"
+                  style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
@@ -120,7 +132,8 @@ export default function Nav() {
               ) : (
                 <Link
                   href={href}
-                  className="nav-link block py-[var(--space-3)] text-base"
+                  className="nav-link block py-[var(--space-3)] text-[0.95rem]"
+                  style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
@@ -128,6 +141,18 @@ export default function Nav() {
               )}
             </li>
           ))}
+          <div className="flex gap-4 py-[var(--space-3)]">
+            <Link href="mailto:rachael@example.com" className="nav-link" aria-label="Email">
+              <Mail size={18} />
+            </Link>
+            <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect width="4" height="12" x="2" y="9"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </Link>
+          </div>
           </ul>
         </div>
       </nav>

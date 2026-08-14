@@ -25,8 +25,8 @@ export default function CaseStudyCard({
 
   return (
     <Link href={`/work/${slug}`} className="case-study-card group block">
-      <div className="grid gap-6 lg:gap-[60px] lg:grid-cols-[1fr_1.2fr]">
-        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl bg-[var(--color-border)] order-1 lg:order-2 max-w-[45%] mx-auto lg:max-w-none lg:mx-0">
+      <div className="grid gap-6 lg:gap-[60px] lg:grid-cols-[2fr_3fr]">
+        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl bg-[var(--color-border)] order-1 lg:order-2 max-w-[60%] mx-auto lg:max-w-none lg:mx-0">
           {!imageError && (
             <Image
               src={thumbnail}

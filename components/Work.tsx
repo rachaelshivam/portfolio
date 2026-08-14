@@ -8,7 +8,7 @@ export default function Work() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="scroll-mt-16 px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
+      className="scroll-mt-16 px-10 pb-[var(--space-10)]"
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <FadeInLeft>

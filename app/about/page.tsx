@@ -23,7 +23,7 @@ export default function AboutPage() {
               className="text-[clamp(2rem,4vw,var(--text-4xl))] leading-[var(--leading-tight)]"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              Hi, I'm Rachael
+              Hi, I'm Rachael :)
             </h1>
             <div className="mt-[var(--space-6)] space-y-[var(--space-5)] text-[#404040] leading-[var(--leading-relaxed)]">
               <p>

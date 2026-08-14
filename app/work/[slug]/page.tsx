@@ -65,13 +65,15 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </dl>
           </FadeUp>
 
-          <div className="mt-[var(--space-9)] relative aspect-[16/9] w-full max-h-[500px] overflow-hidden rounded-2xl">
+          <div className="mt-[var(--space-9)] w-full overflow-hidden rounded-xl">
             <Image
               src={study.heroImage}
               alt={study.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 800px"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-auto"
+              style={{ width: '100%', height: 'auto' }}
               priority
             />
           </div>
