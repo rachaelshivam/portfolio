@@ -3,6 +3,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import { creativeWork } from "@/data/creativeWork";
 import { experience } from "@/data/experience";
+import ExperienceAccordion from "@/components/ExperienceAccordion";
 
 export const metadata: Metadata = {
   title: "About — Rachael Shivam",
@@ -57,28 +58,11 @@ export default function AboutPage() {
         className="px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
       >
         <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-          <h2 id="journey-heading" className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[#737272]">
+          <h2 id="journey-heading" className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
             Experience
           </h2>
 
-          <ol className="timeline mt-[var(--space-8)]">
-            {experience.map((item) => (
-              <li key={`${item.organisation}-${item.year}`} className="timeline-item">
-                <p className="font-sans text-lg font-medium leading-[var(--leading-snug)]">
-                  {item.role}
-                  {item.current && (
-                    <span className="ml-[var(--space-2)] text-sm font-normal text-accent">
-                      Current
-                    </span>
-                  )}
-                </p>
-                <p className="mt-[var(--space-1)] text-muted">{item.organisation}</p>
-                <p className="mt-[var(--space-1)] text-sm text-[var(--color-text-subtle)]">
-                  {item.year}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <ExperienceAccordion items={experience} />
         </div>
       </section>
 
@@ -87,7 +71,7 @@ export default function AboutPage() {
         className="px-[var(--space-4)] pb-[var(--space-10)] sm:px-[var(--space-6)]"
       >
         <div className="mx-auto w-full max-w-[var(--max-width-content)]">
-          <h2 id="creative-heading" className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[#737272]">
+          <h2 id="creative-heading" className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
             Creative work
           </h2>
           <p className="mt-[var(--space-4)] max-w-xl text-muted">
