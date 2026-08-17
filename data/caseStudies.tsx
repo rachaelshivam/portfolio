@@ -116,8 +116,8 @@ export const caseStudies: CaseStudy[] = [
       { label: "Timeline", value: "January - July 2026" },
       { label: "Team", value: "Stephen Chen, Caelan Moglovkin, Kayla Windust, Tian Zhou" }
     ],
-    thumbnail: "/images/roboticscareer-thumbnail.jpg",
-    heroImage: "/images/roboticscareer-hero.jpg",
+    thumbnail: "/images/case-studies/roboticscareer-thumbnail.mp4",
+    heroImage: "/images/case-studies/roboticscareer-thumbnail.mp4",
     sections: [{
         type: "text",
         category: "What I Did",
@@ -572,8 +572,8 @@ export const caseStudies: CaseStudy[] = [
     intro: "Fast-casual restaurants lose around $179,000 per store annually from inventory mismanagement, a problem that existing tools flag but don't fix. Operating on tight margins and lean teams, these restaurants need more than alerts. They need action. As Lead Designer on a team of five, I designed and built the end-to-end interface for an agentic AI system that forecasts demand, ranks suppliers, and places orders, pausing for human-in-the-loop approval before executing. The financial model projected $46,000 in annual savings per store.",
     summary: "Built the end-to-end interface for an agentic AI inventory system for fast-casual restaurants with human-in-the-loop oversight, making the agent's automation visible, trustworthy, and controllable. Financial model projected $46,000 in annual savings per store.",
     tags: ["AI Design", "Product Design", "Agentic Systems"],
-    thumbnail: "/images/mise-ai-thumbnail.jpg",
-    heroImage: "/images/mise-ai-hero.jpg",
+    thumbnail: "/images/case-studies/mise-ai-thumbnail.mp4",
+    heroImage: "/images/case-studies/mise-ai-thumbnail.mp4",
     metadata: [
       { label: "Role", value: "Lead Product Designer" },
       { label: "Timeline", value: "2 weeks (Fall 2025)" },
@@ -931,7 +931,7 @@ export const caseStudies: CaseStudy[] = [
     title: "LuteaSense",
     subtitle: "Predicting PMDD symptoms before they happen",
     intro: "LuteaSense is a multimodal biosensor patch that continuously monitors hormone levels and predicts PMDD symptoms 24-48 hours in advance — giving users the time and information they need to manage what's coming. At Demo Day for CMU's Medical Device Innovation and Realization (MDIR) course, LuteaSense was voted 1st place overall by a panel of industry expert judges. We are now pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship.",
-    summary: "Led product and design for a wearable biosensor that predicts PMDD symptoms 24-48 hours in advance for women and AFAB individuals. 1st place overall at CMU MDIR Demo Day 2026, now pursuing as a Swartz Center startup.",
+    summary: "Led product and design for a wearable biosensor and companion app that predict PMDD symptoms 24-48 hours in advance for women and AFAB individuals. 1st place overall at CMU MDIR Demo Day 2026, now pursuing as a Swartz Center startup.",
     tags: ["Product Design", "Women's Health", "Wearable Tech"],
     thumbnail: "/images/luteasense-thumbnail.png",
     heroImage: "/images/luteasense-thumbnail.png",

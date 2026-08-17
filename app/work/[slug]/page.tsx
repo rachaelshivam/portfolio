@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import CaseStudySections from "@/components/CaseStudySections";
 import FadeUp from "@/components/FadeUp";
 import Footer from "@/components/Footer";
+import HeroMedia from "@/components/HeroMedia";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 
 type PageProps = {
@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h1 className="text-[clamp(1.25rem,2.5vw,2rem)] leading-[var(--leading-tight)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 575 }}>
               {study.title}
             </h1>
-            <p className="mt-[var(--space-4)] text-[1.125rem] leading-[var(--leading-relaxed)] font-normal text-[var(--color-text-muted)]">
+            <p className="mt-[var(--space-4)] text-[1.125rem] leading-[var(--leading-relaxed)] text-[#5D5D5D]" style={{ fontWeight: 450 }}>
               {study.subtitle}
             </p>
             <p className="mt-[var(--space-5)] text-[1rem] leading-[1.7] font-normal text-[#404040]">
@@ -65,17 +65,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </dl>
           </FadeUp>
 
-          <div className="mt-[var(--space-9)] w-full overflow-hidden rounded-xl">
-            <Image
-              src={study.heroImage}
-              alt={study.title}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-full h-auto"
-              style={{ width: '100%', height: 'auto' }}
-              priority
-            />
+          <div className="mt-[var(--space-9)]">
+            <HeroMedia src={study.heroImage} alt={study.title} />
           </div>
         </header>
 
