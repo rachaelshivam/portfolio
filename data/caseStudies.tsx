@@ -933,8 +933,8 @@ export const caseStudies: CaseStudy[] = [
     intro: "LuteaSense is a multimodal biosensor patch that continuously monitors hormone levels and predicts PMDD symptoms 24-48 hours in advance — giving users the time and information they need to manage what's coming. At Demo Day for CMU's Medical Device Innovation and Realization (MDIR) course, LuteaSense was voted 1st place overall by a panel of industry expert judges. We are now pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship.",
     summary: "Led product and design for a wearable biosensor that predicts PMDD symptoms 24-48 hours in advance for women and AFAB individuals. 1st place overall at CMU MDIR Demo Day 2026, now pursuing as a Swartz Center startup.",
     tags: ["Product Design", "Women's Health", "Wearable Tech"],
-    thumbnail: "/images/luteasense-thumbnail.jpg",
-    heroImage: "/images/luteasense-hero.jpg",
+    thumbnail: "/images/luteasense-thumbnail.png",
+    heroImage: "/images/luteasense-thumbnail.png",
     metadata: [
       { label: "Role", value: "Chief Product Officer" },
       { label: "Timeline", value: "January - May 2026" },
@@ -958,7 +958,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "image",
-        src: "/images/luteasense-team.jpg",
+        src: "/images/luteasense-team.png",
         alt: "LuteaSense team at CMU MDIR Demo Day 2026",
         caption: "LuteaSense team at MDIR Demo Day 2026"
       },

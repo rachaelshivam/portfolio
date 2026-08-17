@@ -3,7 +3,6 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import { creativeWork } from "@/data/creativeWork";
 import { experience } from "@/data/experience";
-import ExperienceAccordion from "@/components/ExperienceAccordion";
 
 export const metadata: Metadata = {
   title: "About — Rachael Shivam",
@@ -18,7 +17,7 @@ export default function AboutPage() {
         className="px-[var(--space-4)] py-[var(--space-10)] sm:px-[var(--space-6)]"
       >
         <div className="mx-auto grid w-full max-w-[var(--max-width-content)] gap-[var(--space-8)] md:grid-cols-2 md:items-center md:gap-[var(--space-9)]">
-          <div>
+          <div className="md:self-start md:mt-[var(--space-8)]">
             <h1
               id="about-heading"
               className="text-[clamp(2rem,4vw,var(--text-4xl))] leading-[var(--leading-tight)]"
@@ -62,7 +61,28 @@ export default function AboutPage() {
             Experience
           </h2>
 
-          <ExperienceAccordion items={experience} />
+          <div className="flex flex-wrap justify-between gap-[var(--space-6)] mt-[var(--space-8)]">
+            {experience.map((item) => (
+              <div
+                key={`${item.organisation}-${item.period}`}
+                className="relative group"
+              >
+                <div className="h-[96px] w-[96px] cursor-pointer rounded-xl bg-[var(--color-border)]"></div>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-[var(--space-2)] w-max bg-white rounded-lg shadow-lg p-[var(--space-3)] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  <p className="text-[0.875rem] text-[#212121] font-medium">
+                    {item.role}
+                  </p>
+                  <p className="mt-[var(--space-1)] text-[0.75rem] text-[var(--color-text-muted)]">
+                    {item.organisation}
+                    {item.context && <span> · {item.context}</span>}
+                  </p>
+                  <p className="mt-[var(--space-1)] text-[0.75rem] text-[var(--color-text-muted)]">
+                    {item.period}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
