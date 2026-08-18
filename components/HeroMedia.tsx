@@ -28,7 +28,7 @@ export default function HeroMedia({ src, alt }: HeroMediaProps) {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.01 }
     );
 
     observer.observe(videoRef.current);

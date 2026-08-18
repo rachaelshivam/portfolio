@@ -41,7 +41,7 @@ export default function CaseStudyCard({
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.01 }
     );
 
     observer.observe(videoRef.current);
@@ -83,7 +83,7 @@ export default function CaseStudyCard({
           <h3 className="text-[1.5rem] leading-[var(--leading-tight)] text-[var(--color-text-primary)]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 550 }}>
             {title}
           </h3>
-          <p className="mt-2 text-[1.125rem] text-[#5D5D5D]" style={{ fontWeight: 450 }}>
+          <p className="mt-2 text-[1.125rem] text-[#5D5D5D]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 450 }}>
             {subtitle}
           </p>
           <p className="mt-3 text-[1rem] leading-[var(--leading-normal)] text-[var(--color-text-body)]">

@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <section
         aria-labelledby="about-heading"
-        className="px-[var(--space-4)] py-[var(--space-10)] sm:px-[var(--space-6)]"
+        className="px-[var(--space-4)] py-[var(--space-10)] sm:px-[var(--space-5)]"
       >
         <div className="mx-auto grid w-full max-w-[var(--max-width-content)] gap-[var(--space-8)] md:grid-cols-2 md:items-center md:gap-[var(--space-9)]">
           <div className="md:self-start md:mt-[var(--space-8)]">
@@ -39,13 +39,13 @@ export default function AboutPage() {
           </div>
 
           <div className="relative aspect-[4/5] w-full">
-            <div className="absolute left-[0%] top-[5%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)]" style={{ transform: 'rotate(-6deg)', zIndex: 1 }}>
+            <div className="absolute left-[-5%] top-[5%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-105 hover:z-50" style={{ transform: 'rotate(-6deg)', zIndex: 1 }}>
               <div className="aspect-[4/3] bg-[var(--color-border)]"></div>
             </div>
-            <div className="absolute left-[50%] top-[10%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)]" style={{ transform: 'rotate(3deg)', zIndex: 2 }}>
+            <div className="absolute left-[45%] top-[10%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-105 hover:z-50" style={{ transform: 'rotate(3deg)', zIndex: 2 }}>
               <div className="aspect-[4/3] bg-[var(--color-border)]"></div>
             </div>
-            <div className="absolute left-[15%] top-[40%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)]" style={{ transform: 'rotate(-2deg)', zIndex: 3 }}>
+            <div className="absolute left-[10%] top-[40%] w-[55%] bg-white p-3 pb-12 shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-105 hover:z-50" style={{ transform: 'rotate(-2deg)', zIndex: 3 }}>
               <div className="aspect-[4/3] bg-[var(--color-border)]"></div>
             </div>
           </div>

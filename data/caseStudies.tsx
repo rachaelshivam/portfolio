@@ -199,7 +199,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "image",
-        src: "/images/roboticscareer-workshop.jpg",
+        src: "/images/roboticscareer-workshop.png",
         alt: "Facilitating research at a high school workshop",
         caption: "Facilitating research at a high school workshop"
       },
