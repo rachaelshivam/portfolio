@@ -210,7 +210,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Insight 1: Career identity forms earlier than most people assume. By college, most students have already decided on their career path, and younger audiences are meaningfully more open to new possibilities."
+            content: "Insight 1: Career identity forms early. By college, most students have already decided on their career path, and younger audiences are more open to new possibilities."
           },
           {
             type: "paragraph",
@@ -437,44 +437,52 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "The app needed to work for real people in Port Harcourt — a city with its own infrastructure constraints, cultural dynamics, and healthcare realities I hadn't experienced. But university restrictions prevented direct access to users there, so every decision had to be grounded in existing research data and validated through close collaboration with the Nigerian PhD researcher leading the project. I was designing for a cultural context I hadn't experienced, infrastructure realities I'd never designed around, and three distinct user groups — patients, caregivers, and community pharmacists — each with different needs that the app had to address while enabling them to work together."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Research",
-        heading: "No existing solution had been built for this context.",
-        body: [
+            content: "The tool needed to work for real people in Port Harcourt — a city with its own infrastructure constraints, cultural dynamics, and healthcare realities I hadn't experienced. But ethical restrictions prevented direct access to users there."
+          },
           {
             type: "paragraph",
-            content: "I conducted a scoping review of diabetes mHealth research in Africa and a competitive analysis of 8 existing apps, which confirmed the gap: nothing addressed the specific realities of Nigeria, and nothing had been designed for the patient-caregiver-pharmacist triad."
+            content: "To navigate this, I built a close working relationship with the Nigerian PhD researcher leading the project, meeting regularly to sense-check my assumptions against his cultural knowledge and lived experience of the context. He was an essential collaborator, but he couldn't replace the end users, so every design decision also had to be grounded in existing research data and leave room for the co-design workshops to surface what I couldn't anticipate."
           }
         ]
       },
       {
         type: "text",
-        category: "Research",
-        heading: "Nigeria's infrastructure ruled out most existing approaches.",
-        body: [
-          {
-            type: "paragraph",
-            content: "Only 12.1% of Nigerians experience quality internet services, just 36% of urban Nigerians own a smartphone, and data costs are high. Existing diabetes apps assumed reliable connectivity, capable devices, and cheap data — none of which held in Port Harcourt. Any solution for this context would need to be built from different assumptions entirely."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Research",
+        category: "The Challenge",
         heading: "Diabetes care in Port Harcourt runs primarily on informal relationships, not formal systems.",
         body: [
           {
             type: "paragraph",
-            content: "Patients rely on caregivers for daily support, and community pharmacists — more accessible than doctors — often serve as the primary clinical contact. These three groups already function as a care triad, but their coordination is informal and largely unsupported by any existing tool.",
+            content: "Patients rely on caregivers for daily support, and community pharmacists, who are often more accessible than doctors in Nigeria's strained public health system, serve as the primary clinical contact. These three groups already function as a care triad, but their coordination is informal and largely unsupported by any existing tool."
           },
           {
             type: "paragraph",
-            content: "Working with interview transcripts and survey data from Port Harcourt, I adopted an Afrocentric approach — rooting design decisions in the sociocultural contexts and lived experiences of the end users rather than in Western assumptions. Empathy mapping across all three groups surfaced shared needs — for better Type 2 Diabetes education, culturally relevant nutritional guidance, and improved communication. Journey maps revealed where the informal, largely unregulated care relationships that already existed could be formalised and better supported through the app."
+            content: "I needed to design a single product that served all three groups, formalised relationships that had never been digitised, and navigated a healthcare structure I had no prior experience of."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Research",
+        heading: "Existing solutions fell short.",
+        body: [
+          {
+            type: "paragraph",
+            content: "I conducted a scoping review of diabetes mHealth research in Africa and a competitive analysis of 8 existing apps. Existing interventions in Nigeria were generally considered useful by their audiences, but were hindered by poor UI design, a lack of inclusivity, and information that was difficult for users to understand. None had been designed for the patient-caregiver-pharmacist triad, and none facilitated collaborative care or peer support."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Research",
+        heading: "I used an Afrocentric approach to inform my design direction.",
+        body: [
+          {
+            type: "paragraph",
+            content: "Working with interview transcripts and survey data from Port Harcourt, I adopted an Afrocentric approach — rooting design decisions in the sociocultural contexts and lived experiences of the end users rather than in Western assumptions.",
+          },
+          {
+            type: "paragraph",
+            content: "Empathy mapping across all three groups surfaced shared needs for better Type 2 Diabetes education, culturally relevant nutritional guidance, and improved communication. Journey maps revealed where the informal, largely unregulated care relationships that already existed could be formalised and better supported through the app."
           }
         ]
       },
@@ -487,11 +495,26 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Key Design Decisions",
+        heading: "I intentionally created a prototype that invited co-design.",
+        body: [
+          {
+            type: "paragraph",
+            content: "I designed a technology probe — an intentionally open-ended prototype built in Figma so the PhD researcher could easily and quickly modify it during workshops as participants gave feedback. The fidelity needed to be high enough for parcitipants to envision the product, but open enough for them to shape the design rather than just react to it. Proxy usability testing with four users before handoff revealed problems with terminology, iconography, and visual differentiation between user types, which I addressed before the probes reached real users."
+          }
+        ]
+      },
+      {
+        type: "text",
+        category: "Key Design Decisions",
         heading: "I built around what users in Port Harcourt actually had access to.",
         body: [
           {
             type: "paragraph",
-            content: "Android was the clear platform choice, used by over 86% of smartphone owners in Nigeria, and I designed with Material Design 3 guidelines to align with interaction patterns users would already be familiar with. But I also had to design for Port Harcourt's infrastructure realities: low connectivity, high data costs, and limited device storage. That meant cutting video consultations, heavy media, and always-connected features entirely. The core features I did include were designed to work within these constraints — lightweight, data-efficient, and functional without a reliable connection."
+            content: "Only 12.1% of Nigerians experience quality internet services, just 36% of urban Nigerians own a smartphone, and data costs are high. I initially designed for both desktop and mobile, but with over 83% of Nigeria's internet traffic coming from mobile devices, I instead focused on a mobile prototype. Android accounts for over 86% of smartphone users in Nigeria, so I used Material Design 3 guidelines so the interface would feel familiar."
+          },
+          {
+            type: "paragraph",
+            content: "I also had to design for Port Harcourt's infrastructure realities: low connectivity, high data costs, and limited device storage. That meant cutting video consultations, heavy media, and always-connected features entirely. The core features I did include were designed to work within these constraints — lightweight, data-efficient, and functional without a reliable connection."
           }
         ]
       },
@@ -525,11 +548,11 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Key Design Decisions",
-        heading: "I had one chance to get the prototypes right before they reached real users.",
+        heading: "Proxy testing helped catch usability issues before the probes reached Port Harcourt.",
         body: [
           {
             type: "paragraph",
-            content: "I designed technology probes to spark discussion in co-design workshops rather than serve as finished products — accepting that cultural fit couldn't be fully validated until the workshops happened in Nigeria. Proxy usability testing with 4 users before handoff revealed problems with terminology, iconography, and visual differentiation between user types, which I addressed before the probes reached real users."
+            content: "Since I couldn't access participants in Port Harcourt, I ran usability testing with four proxy users before handoff. They couldn't validate cultural fit, but they surfaced problems with terminology, iconography, and visual differentiation between user types that I was able to fix before the probes reached Port Harcourt."
           }
         ]
       },
@@ -540,7 +563,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "My technology probes were used in 13 co-design workshops with 19 participants — patients, caregivers, and pharmacists from diverse ethnic groups in Port Harcourt. Participants shaped the features, named the app \"Okuma\" through consensus, and identified where the design aligned with local cultural norms and where it fell short across sociocultural boundaries within the same city."
+            content: "My technology probe was used in 13 co-design workshops with 19 participants — patients, caregivers, and pharmacists from diverse ethnic groups in Port Harcourt. Participants shaped the features, named the app \"Okuma\" through consensus, and identified where the design aligned with local cultural norms and where it fell short across sociocultural boundaries within the same city."
           },
           {
             type: "paragraph",
@@ -930,9 +953,9 @@ export const caseStudies: CaseStudy[] = [
     slug: "luteasense",
     title: "LuteaSense",
     subtitle: "Predicting PMDD symptoms before they happen",
-    intro: "LuteaSense is a multimodal biosensor patch that continuously monitors hormone levels and predicts PMDD symptoms 24-48 hours in advance — giving users the time and information they need to manage what's coming. At Demo Day for CMU's Medical Device Innovation and Realization (MDIR) course, LuteaSense was voted 1st place overall by a panel of industry expert judges. We are now pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship.",
-    summary: "Led product and design for a wearable biosensor and companion app that predict PMDD symptoms 24-48 hours in advance for women and AFAB individuals. 1st place overall at CMU MDIR Demo Day 2026, now pursuing as a Swartz Center startup.",
-    tags: ["Product Design", "Women's Health", "Wearable Tech"],
+    intro: "LuteaSense is a multimodal biosensor patch that continuously monitors hormone levels and predicts Premenstrual Dysphoric Disorder (PMDD) symptoms 24-48 hours in advance — giving users the time and information they need to manage what's coming. At Demo Day for CMU's Medical Device Innovation and Realization (MDIR) course, LuteaSense was voted 1st place overall by a panel of industry expert judges. We are now pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship.",
+    summary: "Led product and design for a wearable biosensor and companion app that predict PMDD symptoms 24-48 hours in advance for women and AFAB individuals. Awarded 1st place at CMU MDIR Demo Day 2026, now pursuing as a Swartz Center startup.",
+    tags: ["Product Design", "0->1", "Wearable Tech"],
     thumbnail: "/images/luteasense-thumbnail.png",
     heroImage: "/images/luteasense-thumbnail.png",
     metadata: [
@@ -981,14 +1004,34 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "paragraph",
             content: "Taking on the CPO role pushed me well beyond my comfort zone — into IP strategy, regulatory pathways, and the intersection of hardware and software product design. I had to lead product decisions in a domain where I had no prior experience, while learning fast enough to make those decisions well."
+          },
+          {
+            type: "paragraph",
+            content: "Before making any product decisions, I mapped the stakeholder landscape and clinical care cycle to build a foundation for the work ahead."
           }
         ]
+      },
+      {
+        type: "image",
+        src: "/images/luteasense-stakeholder-map.png",
+        alt: "Stakeholder map showing the relationships between patients, providers, and caregivers",
+        caption: "Stakeholder map showing the relationships between patients, providers, and caregivers"
+      },
+      {
+        type: "image",
+        src: "/images/luteasense-care-cycle.png",
+        alt: "Cycle of care for PMDD management, from symptom onset through treatment",
+        caption: "Cycle of care for PMDD management, from symptom onset through treatment"
       },
       {
         type: "text",
         category: "Product",
         heading: "The app gives users advance warning and the strategies to act on it.",
         body: [
+          {
+            type: "paragraph",
+            content: "Using Windsurf, I vibecoded the full React Native frontend from my own designs, then worked with a teammate on backend integration for the final functional prototype."
+          },
           {
             type: "paragraph",
             content: "The MVP centred on five core features:"
@@ -1005,26 +1048,15 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             type: "paragraph",
-            content: "The decision to pair predictions with actionable strategies — rather than notifications alone — was grounded in existing PMDD coping research, which shows that structured self-care and coping strategies during the premenstrual phase meaningfully reduce symptom impact."
+            content: "The decision to pair predictions with actionable strategies rather than notifications alone was grounded in existing PMDD coping research, which shows that structured self-care and coping strategies during the premenstrual phase meaningfully reduce symptom impact."
           }
         ]
       },
       {
         type: "image",
-        src: "/images/luteasense-app-screens.jpg",
+        src: "/images/luteasense-app-screens.png",
         alt: "LuteaSense companion app prototype screens",
         caption: "Companion app prototype screens"
-      },
-      {
-        type: "text",
-        category: "Design & Development",
-        heading: "I designed and vibecoded the companion app.",
-        body: [
-          {
-            type: "paragraph",
-            content: "Using Windsurf, I vibecoded the full React Native frontend from my own designs, then worked with a teammate on backend integration for the final functional prototype."
-          }
-        ]
       },
       {
         type: "text",
@@ -1038,13 +1070,19 @@ export const caseStudies: CaseStudy[] = [
         ]
       },
       {
+        type: "image",
+        src: "/images/luteasense-demo-setup.png",
+        alt: "LuteaSense demo setup at MDIR Demo Day 2026",
+        caption: "LuteaSense demo setup at MDIR Demo Day 2026"
+      },
+      {
         type: "text",
         category: "What's Next",
-        heading: "LuteaSense is becoming a real company.",
+        heading: "We're exploring what's next for LuteaSense.",
         body: [
           {
             type: "paragraph",
-            content: "We are actively pursuing LuteaSense as a startup through CMU's Swartz Center for Entrepreneurship. More details will be shared as the project develops — if you're interested in what we're building, feel free to get in touch."
+            content: "We are pursuing LuteaSense further through CMU's Swartz Center for Entrepreneurship. More details will be shared as the project develops — if you're interested in what we're building, feel free to get in touch."
           }
         ]
       }

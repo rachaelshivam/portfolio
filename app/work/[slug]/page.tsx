@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h1 className="text-[clamp(1.25rem,2.5vw,2rem)] leading-[var(--leading-tight)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 575 }}>
               {study.title}
             </h1>
-            <p className="mt-[var(--space-4)] text-[1.25rem] leading-[var(--leading-relaxed)] text-[#5D5D5D]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 450 }}>
+            <p className="mt-[var(--space-4)] text-[1.125rem] leading-[var(--leading-relaxed)] text-[#5D5D5D]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 450 }}>
               {study.subtitle}
             </p>
             <p className="mt-[var(--space-5)] text-[1rem] leading-[1.7] font-normal text-[#404040]">

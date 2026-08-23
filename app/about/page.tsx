@@ -58,8 +58,11 @@ export default function AboutPage() {
       >
         <div className="mx-auto w-full max-w-[var(--max-width-content)]">
           <h2 id="journey-heading" className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
-            Experience
+            My Experience
           </h2>
+          <p className="mt-[var(--space-4)] max-w-xl text-[var(--color-text-muted)]">
+            I've been fortunate to work with some great organizations. Hover over each logo or view my resume to learn more.
+          </p>
 
           <div className="flex flex-wrap justify-between gap-[var(--space-6)] mt-[var(--space-8)]">
             {experience.map((item) => (
@@ -67,7 +70,7 @@ export default function AboutPage() {
                 key={`${item.organisation}-${item.period}`}
                 className="relative group"
               >
-                <div className="h-[96px] w-[96px] cursor-pointer rounded-xl bg-[var(--color-border)]"></div>
+                <div className="h-[96px] w-[96px] cursor-pointer rounded-xl bg-[var(--color-border)] hover:scale-110 transition-transform duration-200"></div>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-[var(--space-2)] w-max bg-white rounded-lg shadow-lg p-[var(--space-3)] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                   <p className="text-[0.875rem] text-[#212121] font-medium">
                     {item.role}
