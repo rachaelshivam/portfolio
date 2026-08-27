@@ -97,9 +97,15 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
             {showCategory && (
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
-                {section.category}
-              </p>
+              section.category?.toLowerCase().replace(/[.,!?;:]*$/, '') === "what i did" ? (
+                <h2 className="font-bold text-[1.375rem] text-[#212121]">
+                  {section.category}
+                </h2>
+              ) : (
+                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
+                  {section.category}
+                </p>
+              )
             )}
             <h2 className="mt-[var(--space-3)] font-bold text-[1.375rem] text-[#212121]">
               {section.heading}
@@ -154,9 +160,15 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className="case-study-section">
             {showCategory && section.category && (
-              <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
-                {section.category}
-              </p>
+              section.category.toLowerCase().replace(/[.,!?;:]*$/, '') === "what i did" ? (
+                <h2 className="font-bold text-[1.375rem] text-[#212121]">
+                  {section.category}
+                </h2>
+              ) : (
+                <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
+                  {section.category}
+                </p>
+              )
             )}
             {section.heading && (
               <h2 className="mt-[var(--space-3)] font-bold text-[1.375rem] text-[#212121]">
@@ -193,9 +205,9 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
       return (
         <FadeUp>
           <section className="case-study-section">
-            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
-              WHAT I DID
-            </p>
+            <h2 className="font-bold text-[1.375rem] text-[#212121]">
+              What I Did
+            </h2>
             <ul className="case-study-deliverables mt-[var(--space-5)]">
               {section.items.map((item) => (
                 <li key={item}>{item}</li>

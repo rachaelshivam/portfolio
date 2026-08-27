@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "/images/case-studies/roboticscareer-thumbnail.mp4",
     sections: [{
         type: "text",
-        category: "What I Did",
+        category: "What I did.",
         heading: "",
         body: [
           {
@@ -605,7 +605,7 @@ export const caseStudies: CaseStudy[] = [
     sections: [
       {
         type: "text",
-        category: "What I Did",
+        category: "What I did.",
         heading: "",
         body: [
           {
@@ -966,7 +966,7 @@ export const caseStudies: CaseStudy[] = [
     sections: [
       {
         type: "text",
-        category: "What I Did",
+        category: "What I did.",
         heading: "",
         body: [
           {

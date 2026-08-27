@@ -1,6 +1,7 @@
 "use client";
 
 import HashLink from "@/components/HashLink";
+import { MapPin, GraduationCap, Search } from "lucide-react";
 
 function ChevronDownIcon() {
   return (
@@ -25,44 +26,32 @@ export default function Hero() {
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <div className="max-w-3xl">
+          <p className="text-[1rem] leading-[var(--leading-relaxed)] text-[var(--color-text-primary)]">
+            Hey, I'm Rachael,
+          </p>
           <h1
-            id="hero-heading"
-            className="font-bold text-[clamp(2.5rem,5vw,4rem)] leading-[var(--leading-tight)] tracking-tight"
+            className="mt-[var(--space-3)] font-bold text-[clamp(1.5rem,3vw,2rem)] leading-[var(--leading-tight)] tracking-tight text-[#212121]"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
-            <span className="whitespace-nowrap">Human-Centered Designer</span><br />and Strategist.* 
+            a Dentist-turned-Product Designer and Strategist
           </h1>
-
-          <p
-            className="mt-[0.75rem] text-[2rem] leading-[var(--leading-relaxed)] opacity-0 animate-fade-in"
-            style={{ animationDelay: '0.5s' }}
-          >
-            <span className="font-bold">*</span> also a <span className="font-semibold">qualified dentist</span>
+          <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] text-[var(--color-text-primary)]">
+            with 3+ years experience across healthcare, finance, education, AI, and Enterprise SaaS.
           </p>
-
-          <p
-            className="mt-[1.5rem] max-w-[720px] text-[1rem] leading-[var(--leading-relaxed)] sm:text-[1.125rem] opacity-0 animate-fade-in"
-            style={{ animationDelay: '1s' }}
-          >
-            Years of working with poorly designed health technology in clinical settings led me to HCI. Now I design technology in a way that actually works
-            for the people using it.
-          </p>
-
-          <p
-            className="mt-[1.5rem] max-w-[640px] text-[0.875rem] leading-[var(--leading-relaxed)] opacity-0 animate-fade-in"
-            style={{ animationDelay: '1s' }}
-          >
-            Currently completing my{" "}
-            <a
-              href="https://www.hcii.cmu.edu/academics/mhci"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors duration-200 ease hover:text-[var(--color-text-primary)]"
-            >
-              Master of Human-Computer Interaction
-            </a>{" "}
-            at Carnegie Mellon University.
-          </p>
+          <div className="mt-[var(--space-5)] space-y-[var(--space-3)]">
+            <div className="flex items-center gap-2 text-[0.875rem] text-[var(--color-text-muted)]">
+              <MapPin size={16} />
+              <span>Pittsburgh, PA</span>
+            </div>
+            <div className="flex items-center gap-2 text-[0.875rem] text-[var(--color-text-muted)]">
+              <GraduationCap size={16} />
+              <span>Recently completed my Master of Human-Computer Interaction at Carnegie Mellon University.</span>
+            </div>
+            <div className="flex items-center gap-2 text-[0.875rem] text-[var(--color-text-muted)]">
+              <Search size={16} />
+              <span>Seeking opportunities from Fall '26; open to relocating.</span>
+            </div>
+          </div>
         </div>
       </div>
 
