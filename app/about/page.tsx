@@ -95,10 +95,10 @@ export default function AboutPage() {
       >
         <div className="mx-auto w-full max-w-[var(--max-width-content)]">
           <h2 id="creative-heading" className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
-            Creative work
+            Outside the brief
           </h2>
           <p className="mt-[var(--space-4)] max-w-xl text-muted">
-            A selection of personal artwork and visual explorations.
+            When I'm not working, you can usually find me
           </p>
 
           <ul className="mt-[var(--space-8)] grid grid-cols-1 gap-[var(--space-4)] sm:grid-cols-2 lg:grid-cols-3">

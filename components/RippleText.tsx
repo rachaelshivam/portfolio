@@ -87,34 +87,35 @@ export default function RippleText({
   }, [trigger, entryX, entryY]);
 
   return (
-    <div ref={containerRef} className={className} style={{ ...style, cursor: "default", userSelect: "none" }}>
+    <div ref={containerRef} className={className} style={{ ...style, cursor: "default", userSelect: "none", wordWrap: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}>
       {lines.map((line, lineIdx) => (
         <span key={lineIdx} style={{ display: "block" }}>
-          {line.split("").map((char, i) => {
-            if (char === " ") {
-              return (
+          {line.split(" ").map((word, wordIdx) => (
+            <span key={wordIdx} style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+              {word.split("").map((char, i) => {
+                return (
+                  <span
+                    key={i}
+                    data-ripple-char
+                    style={{
+                      display: "inline-block",
+                      transformOrigin: "center bottom",
+                    }}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
+              {wordIdx < line.split(" ").length - 1 && (
                 <span
-                  key={i}
                   data-ripple-char
                   style={{ display: "inline-block", width: "0.3em" }}
                 >
                   &nbsp;
                 </span>
-              );
-            }
-            return (
-              <span
-                key={i}
-                data-ripple-char
-                style={{
-                  display: "inline-block",
-                  transformOrigin: "center bottom",
-                }}
-              >
-                {char}
-              </span>
-            );
-          })}
+              )}
+            </span>
+          ))}
         </span>
       ))}
     </div>

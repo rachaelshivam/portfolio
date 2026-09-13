@@ -79,6 +79,14 @@ export interface PullQuoteSection {
   attribution: string;
 }
 
+export type CarouselSection = {
+  type: "carousel";
+  slides: Array<{
+    src: string;
+    alt: string;
+  }>;
+};
+
 export type CaseStudySection =
   | TextSection
   | ImageSection
@@ -88,7 +96,8 @@ export type CaseStudySection =
   | MetricsSection
   | ThreeColumnSection
   | ImageComparisonSection
-  | PullQuoteSection;
+  | PullQuoteSection
+  | CarouselSection;
 
 export type CaseStudy = {
   slug: string;
@@ -126,7 +135,7 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "bullets",
             items: [
-              "Led product strategy and cross-functional coordination across our team, ARM, and Fivestar (ARM's external development partner)",
+              "Led product strategy and cross-functional coordination across our team, ARM, and Fivestar (ARM's external software development partner)",
               "Drove key scoping decisions including targeting Gen Z/Gen Alpha based on market sizing and a broader environmental analysis",
               "Defined research strategy from planning through synthesis and shaped the product direction for three integrated solutions: a Career Interest Quiz, Career Journey Map, and Career Dashboard",
               "Designed UX improvement screens addressing critical-severity issues identified through heuristic evaluation and usability testing",
@@ -150,15 +159,15 @@ export const caseStudies: CaseStudy[] = [
         type: "three-column",
         columns: [
           {
-            heading: "01",
+            heading: "01.",
             body: "Help ARM understand their current and future users"
           },
           {
-            heading: "02",
+            heading: "02.",
             body: "Grow the userbase for RoboticsCareer.org"
           },
           {
-            heading: "03",
+            heading: "03.",
             body: "Increase the stickiness of the site"
           }
         ]
@@ -176,7 +185,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "image",
-        src: "/images/roboticscareer-segments.jpg",
+        src: "/images/roboticscareer-segments.png",
         alt: "User segmentation diagram",
         caption: "User segmentation diagram"
       },
@@ -207,15 +216,22 @@ export const caseStudies: CaseStudy[] = [
         type: "text",
         category: "Research",
         heading: "Our research produced five insights. Three pointed to systemic problems beyond our reach. Two shaped our design direction.",
+        body: []
+      },
+      {
+        type: "two-column-text",
+        left: {
+          body: "Insight 1: Career identity forms early.\nBy college, most students have already decided on their career path, and younger audiences are more open to new possibilities."
+        },
+        right: {
+          body: "Insight 2: People don't reject the field — they just don't know enough to see themselves in it.\nUsers were open to careers in robotics and manufacturing but struggled to connect the field to their own skills and interests."
+        }
+      },
+      {
+        type: "text",
+        category: "Research",
+        heading: "",
         body: [
-          {
-            type: "paragraph",
-            content: "Insight 1: Career identity forms early. By college, most students have already decided on their career path, and younger audiences are more open to new possibilities."
-          },
-          {
-            type: "paragraph",
-            content: "Insight 2: The barrier into the field isn't a lack of interest, but rather a lack of specificity. At a robotics competition, 41% of high schoolers said 'maybe' when asked if they could see themselves working in the field — not because they weren't interested, but because they couldn't picture what the work actually looks like or connect it to their existing skills and interests."
-          },
           {
             type: "paragraph",
             content: "This led us to narrow our primary audience from Gen Z and Gen Alpha broadly to high schoolers specifically. I drove this scoping decision based on the research: they were the group where interest was highest, openness was greatest, and where intervention could have the most impact before career plans solidified."
@@ -235,7 +251,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Our research had surfaced systemic problems like outdated perceptions of manufacturing that were real but beyond the project's reach. We presented our recommendation to stay focused on what we could ship and measure within the platform, and ARM agreed."
+            content: "Our research had surfaced systemic problems like outdated perceptions of manufacturing that were real but beyond the project's reach. We presented our recommendation to stay focused on the platform: making it work for the people who already land on it with intent, and turning what was a dead-end visit into a reason to keep coming back. ARM were enthusiastic about this direction."
           },
           {
             type: "paragraph",
@@ -249,6 +265,12 @@ export const caseStudies: CaseStudy[] = [
         attribution: "Livia Rice, Senior Director of Communications, ARM Institute"
       },
       {
+        type: "image",
+        src: "/images/roboticscareer-workshop.jpg",
+        alt: "Client workshop with ARM",
+        caption: "Client workshop with ARM"
+      },
+      {
         type: "text",
         category: "Solution",
         heading: "We designed three integrated solutions, each addressing a different stage of the career discovery journey and feeding into the next.",
@@ -257,7 +279,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Solution",
-        heading: "01 Career Interest Quiz: Connecting interests to roles",
+        heading: "01. Career Interest Quiz: Connecting interests to roles",
         body: [
           {
             type: "paragraph",
@@ -268,7 +290,7 @@ export const caseStudies: CaseStudy[] = [
             items: [
               "We chose a narrative format over a traditional questionnaire after testing both, as participants found it more engaging, personal, and trustworthy.",
               "We deliberately kept the quiz on the longer side and refined length through multiple iterations, as testing showed users trusted results more when the quiz felt thorough.",
-              "Results are transparent about how each answer mapped to the match, something users explicitly asked for."
+              "The results are transparent about how each answer mapped to the match, something users explicitly asked for."
             ]
           }
         ]
@@ -282,17 +304,17 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Solution",
-        heading: "02 Career Journey Map: Showing the path forward",
+        heading: "02. Career Journey Map: Showing the path forward",
         body: [
           {
             type: "paragraph",
-            content: "Once a user sets a target role from their quiz results, the journey map shows a customizable path from training through certification, first job, and beyond."
+            content: "After a user selects a target role from their quiz results, the journey map lays out a customizable path: what training they need, what certifications to pursue, and what progression looks like beyond their first job. Each milestone gives users a reason to return to the platform, turning a one-time visit into an ongoing relationship."
           },
           {
             type: "bullets",
             items: [
               "Milestones are structured around training, certification, and progression, giving users a reason to return to the platform at each stage.",
-              "The path continues past first hire with branching options based on user goals (e.g. earning more, moving into a specific role), because our research showed career paths aren't linear, and even specialists might circle back to training."
+              "The map is designed to be flexible rather than linear, so users can loop back into training, branch into adjacent roles, or pursue different progression paths based on their own goals."
             ]
           }
         ]
@@ -306,11 +328,11 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Solution",
-        heading: "03 Career Dashboard: Tracking progress and closing ARM's data gap",
+        heading: "03. Career Dashboard: Tracking progress and closing ARM's data gap",
         body: [
           {
             type: "paragraph",
-            content: "A customizable, widget-based home where users track applications, saved jobs, and training in one place, with a one-tap self-reporting nudge that closes ARM's data gap on applications, enrolment, completions, and hires for the first time."
+            content: "When a user clicks out to apply for a job or enrol in training on an external site, the dashboard logs it. When they return, a one-tap check-in captures what happened — whether they applied, enrolled, completed training, or got hired. For the first time, ARM gets visibility into outcomes that previously disappeared the moment a user left the platform."
           },
           {
             type: "bullets",
@@ -347,7 +369,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Impact",
-        heading: "Our solutions outperformed the existing tool across every measure we tested.",
+        heading: "Our solutions outperformed the existing platform across every measure we tested.",
         body: []
       },
       {
@@ -356,22 +378,22 @@ export const caseStudies: CaseStudy[] = [
           {
             value: "6.67/7",
             label: "Mechanism trust",
-            comparison: "vs 3.00 existing tool"
+            comparison: "vs 3.00 existing quiz"
           },
           {
             value: "7/7",
             label: "New career discovery",
-            comparison: "vs 3.33 existing tool"
+            comparison: "vs 3.33 existing quiz"
           },
           {
             value: "6.67/7",
             label: "Return intent",
-            comparison: "vs 2.67 existing tool"
+            comparison: "vs 2.67 existing quiz"
           },
           {
             value: "100%",
-            label: "Perception measures outperformed",
-            comparison: "vs existing tool"
+            label: "Outcome visibility",
+            comparison: "vs 0% existing platform"
           }
         ]
       },
@@ -382,11 +404,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Because our solutions weren't deployed during the project timeline, I designed testing protocols to demonstrate their value — measuring trust, return intent, and perceived value as proxies for the engagement and outcome metrics ARM needs."
-          },
-          {
-            type: "paragraph",
-            content: "Together, the three solutions are designed to increase engagement and close ARM's data gap — generating the outcome data ARM needs to demonstrate impact to funders for the first time."
+            content: "Because our solutions weren't deployed during the project timeline, I designed testing protocols to demonstrate the quiz's value, measuring trust, return intent, and perceived career discovery against the existing tool. Outcome visibility required no comparison — ARM has no way to track outcomes before the journey map and dashboard."
           },
           {
             type: "paragraph",
@@ -499,7 +517,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "I designed a technology probe — an intentionally open-ended prototype built in Figma so the PhD researcher could easily and quickly modify it during workshops as participants gave feedback. The fidelity needed to be high enough for parcitipants to envision the product, but open enough for them to shape the design rather than just react to it. Proxy usability testing with four users before handoff revealed problems with terminology, iconography, and visual differentiation between user types, which I addressed before the probes reached real users."
+            content: "I designed a technology probe — an intentionally open-ended prototype built in Figma so the PhD researcher could easily and quickly modify it during workshops as participants gave feedback. The fidelity needed to be high enough for parcitipants to envision the product, but open enough for them to shape the design rather than just react to it."
           }
         ]
       },
@@ -526,24 +544,18 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "paragraph",
             content: "Working with the PhD researcher, I landed on five core features driven by the research:"
-          },
-          {
-            type: "bullets",
-            items: [
-              "Health Tracker — gives patients visibility into their own blood sugar and medications, while enabling caregivers and pharmacists to share in monitoring",
-              "Nigerian Recipes — addresses the cultural gap in nutrition guidance for patients managing T2D within a Nigerian dietary context",
-              "My Personal Network — formalises the informal care triad, giving all three groups a private shared space for communication and coordination",
-              "Community Forum — addresses the psychological burden of chronic illness that patients carry, often invisibly, by enabling peer support",
-              "Education — gives pharmacists shareable, accessible materials to support patients during consultations, and patients the tools to better understand their condition"
-            ]
           }
         ]
       },
       {
-        type: "image",
-        src: "/images/okuma-prototype.jpg",
-        alt: "Okuma mobile app prototype screens",
-        caption: "Technology probe prototype designed for co-design workshops"
+        type: "carousel",
+        slides: [
+          { src: "/images/okuma-health-tracker.png", alt: "Health Tracker feature" },
+          { src: "/images/okuma-recipes.png", alt: "Recipes feature" },
+          { src: "/images/okuma-network.png", alt: "Network feature" },
+          { src: "/images/okuma-forum.png", alt: "Forum feature" },
+          { src: "/images/okuma-education.png", alt: "Education feature" }
+        ]
       },
       {
         type: "text",
@@ -611,7 +623,7 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "bullets",
             items: [
-              "Designed and vibecoded the full interactive prototype in React, translating design decisions directly into a working demo",
+              "Designed and vibecoded the full interactive prototype in React using Figma Make and Claude, translating design decisions directly into a working demo",
               "Led consequence scanning to identify and mitigate risks including unfair supplier ranking",
               "Applied FATE principles (fairness, accountability, transparency, explainability) to every design decision, drawing on Microsoft's Responsible AI framework"
             ]
@@ -649,7 +661,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Key Design Decisions",
-        heading: "It was important to me that every design decision reflected responsible AI principles.",
+        heading: "",
         body: [
           {
             type: "paragraph",
@@ -664,32 +676,19 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Before committing to the concept, I led the team through consequence scanning to anticipate risks and design mitigations from the outset. We identified three key risks: over/under-stocking, unfair supplier ranking, and incorrect automated orders. The mitigations I designed for included human-in-the-loop approval for every order, transparent rationale for AI recommendations, manager overrides on supplier selection, and prominent error handling when orders fail."
-          }
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/mise-ai-consequence-scanning.jpg",
-        alt: "Consequence scanning workshop output",
-        caption: "Consequence scanning workshop output"
-      },
-      {
-        type: "text",
-        category: "Key Design Decisions",
-        heading: "I simplified complex model outputs to what managers actually need.",
-        body: [
+            content: "Before committing to the concept, I led the team through consequence scanning to anticipate risks and design mitigations from the outset. We mapped intended and unintended consequences across both positive and negative outcomes. Key risks included over/under-stocking, good suppliers being incorrectly flagged, and over-reliance on certain suppliers due to algorithm dependency."
+          },
           {
             type: "paragraph",
-            content: "The forecasting model produces probability ranges and confidence intervals, but I simplified these to High/Medium/Low demand labels to give managers what they needed at a glance. The same logic applied to supplier data — rather than surfacing everything the model had access to, I kept the interface to three criteria: reliability, delivery time, and price."
+            content: "The mitigations I designed for included human-in-the-loop approval for every order, transparent rationale for AI recommendations, manager overrides on supplier selection, and prominent error handling when orders fail."
           }
         ]
       },
       {
         type: "image",
-        src: "/images/mise-ai-dashboard-labels.jpg",
-        alt: "Dashboard showing High/Medium/Low demand forecast labels",
-        caption: "Simplified demand labels on the dashboard"
+        src: "/images/mise-ai-consequence-scanning.png",
+        alt: "Consequence scanning workshop output",
+        caption: "Key risks identified from the consequence scanning exercise"
       },
       {
         type: "text",
@@ -698,7 +697,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "The agent could have been designed to place orders automatically, but in a high-stakes operational context where a wrong order affects customers, staff, and supplier relationships, automation without oversight felt like the wrong trade-off. Every consequential action requires manager approval — the agent recommends, the manager decides."
+            content: "The agent could have been designed to place orders automatically, but in a high-stakes operational context where a wrong order affects customers, staff, and supplier relationships, automation without oversight felt like the wrong trade-off. Every consequential action requires manager approval. While the agent recommends, it's the manager who decides."
           }
         ]
       },
@@ -728,11 +727,11 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Key Design Decisions",
-        heading: "I made sure every AI action was explained in plain language.",
+        heading: "Managers have visibility at every stage.",
         body: [
           {
             type: "paragraph",
-            content: "Every AI-generated order includes a rationale card showing the agent's reasoning, and the confirmation screen shows outreach status in real time — so the manager always knows what the agent did and why."
+            content: "Before approval, every order includes a rationale card explaining the agent's reasoning. After approval, the confirmation screen shows outreach status in real time."
           }
         ]
       },
@@ -749,7 +748,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "I'd originally designed the agent to contact all suppliers by phone — it felt like the most direct approach. But during a design critique, a peer pointed out that suppliers have their own communication preferences and that a phone call from an AI agent might not be welcome for all of them. I redesigned the agent to use a multimodal approach, contacting each supplier through their preferred method — whether phone, email, or portal. It was a shift in thinking for me: suppliers aren't just endpoints in the system, they're users too."
+            content: "I'd originally designed the ordering flow to show the agent contacting all suppliers by phone — it felt like the most direct approach. But during a design critique, a peer pointed out that suppliers have their own communication preferences and that a phone call from an AI agent might not be welcome for all of them. I redesigned the flow to show the agent using a multimodal approach, contacting each supplier through their preferred method — whether phone, email, or portal."
           }
         ]
       },

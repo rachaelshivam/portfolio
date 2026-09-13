@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FadeUp from "./FadeUp";
+import Carousel from "./Carousel";
 import type {
   CaseStudySection,
   TextBodyBullets,
@@ -11,6 +12,7 @@ import type {
   ThreeColumnSection,
   ImageComparisonSection,
   PullQuoteSection,
+  CarouselSection,
 } from "@/data/caseStudies";
 
 function TextBodyContent({
@@ -24,16 +26,17 @@ function TextBodyContent({
         if (block.type === "paragraph") {
           const insightMatch = block.content.match(/^(Insight \d+:)/);
           if (insightMatch) {
-            const [label, rest] = block.content.split(/: /);
-            const firstSentenceEnd = rest.indexOf('. ');
-            const firstSentence = firstSentenceEnd !== -1 ? rest.substring(0, firstSentenceEnd + 1) : rest;
-            const remainingText = firstSentenceEnd !== -1 ? rest.substring(firstSentenceEnd + 1) : '';
+            const [label, rest] = block.content.split(/:/);
+            const trimmedRest = rest.trimStart();
+            const firstSentenceEnd = trimmedRest.indexOf('. ');
+            const firstSentence = firstSentenceEnd !== -1 ? trimmedRest.substring(0, firstSentenceEnd + 1) : trimmedRest;
+            const remainingText = firstSentenceEnd !== -1 ? trimmedRest.substring(firstSentenceEnd + 1) : '';
             return (
               <p
                 key={index}
                 className="text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]"
               >
-                <span className="font-semibold">{label}</span> <span className="font-semibold">{firstSentence}</span>{remainingText}
+                <span className="font-semibold">{label}:</span> <span className="font-semibold">{firstSentence}</span>{remainingText}
               </p>
             );
           }
@@ -120,7 +123,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className="case-study-section case-study-section--full">
             <figure>
-              <div className="w-full overflow-hidden rounded-xl bg-[var(--color-border)]">
+              <div className="w-full overflow-hidden rounded-xl bg-[var(--color-border)] border border-[#E5E5E5]">
                 <Image
                   src={section.src}
                   alt={section.alt}
@@ -158,7 +161,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
     case "two-column-text":
       return (
         <FadeUp>
-          <section className="case-study-section">
+          <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
             {showCategory && section.category && (
               section.category.toLowerCase().replace(/[.,!?;:]*$/, '') === "what i did" ? (
                 <h2 className="font-bold text-[1.375rem] text-[#212121]">
@@ -183,7 +186,15 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                   </p>
                 )}
                 <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
-                  {section.left.body}
+                  {section.left.body.includes('\n') ? (
+                    <>
+                      <span className="font-semibold">{section.left.body.split('\n')[0]}</span>
+                      <br />
+                      {section.left.body.split('\n')[1]}
+                    </>
+                  ) : (
+                    section.left.body
+                  )}
                 </p>
               </div>
               <div>
@@ -193,7 +204,15 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                   </p>
                 )}
                 <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
-                  {section.right.body}
+                  {section.right.body.includes('\n') ? (
+                    <>
+                      <span className="font-semibold">{section.right.body.split('\n')[0]}</span>
+                      <br />
+                      {section.right.body.split('\n')[1]}
+                    </>
+                  ) : (
+                    section.right.body
+                  )}
                 </p>
               </div>
             </div>
@@ -272,7 +291,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
             <div className="grid gap-[var(--space-6)] md:grid-cols-2">
               <div>
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">Before</p>
-                <div className="mt-[var(--space-3)] w-full overflow-hidden rounded-xl">
+                <div className="mt-[var(--space-3)] w-full overflow-hidden rounded-xl border border-[#E5E5E5]">
                   <Image
                     src={comparisonSection.left.src}
                     alt={comparisonSection.left.alt}
@@ -289,7 +308,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
               </div>
               <div>
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">After</p>
-                <div className="mt-[var(--space-3)] w-full overflow-hidden rounded-xl">
+                <div className="mt-[var(--space-3)] w-full overflow-hidden rounded-xl border border-[#E5E5E5]">
                   <Image
                     src={comparisonSection.right.src}
                     alt={comparisonSection.right.alt}
@@ -314,19 +333,26 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
       return (
         <FadeUp>
           <section className="case-study-section my-[var(--space-12)]">
-            <div className="relative">
-              <span className="absolute -top-4 -left-2 text-[6rem] italic text-[#E5E5E5] leading-none select-none" style={{ fontFamily: 'var(--font-serif)' }}>
-                "
-              </span>
-              <blockquote className="relative z-10 pl-8">
-                <p className="text-[1.625rem] italic font-bold leading-[var(--leading-relaxed)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)' }}>
-                  {pullquoteSection.quote}
+            <div className="text-center">
+              <blockquote>
+                <p className="text-[1.625rem] font-bold leading-[var(--leading-relaxed)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)' }}>
+                  &quot;{pullquoteSection.quote}&quot;
                 </p>
                 <footer className="mt-4 text-[1rem] font-normal text-[var(--color-text-muted)]">
                   — {pullquoteSection.attribution}
                 </footer>
               </blockquote>
             </div>
+          </section>
+        </FadeUp>
+      );
+
+    case "carousel":
+      const carouselSection = section as CarouselSection;
+      return (
+        <FadeUp>
+          <section className="case-study-section">
+            <Carousel slides={carouselSection.slides} />
           </section>
         </FadeUp>
       );

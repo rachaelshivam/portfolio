@@ -92,7 +92,7 @@ export default function CaseStudyCard({
           {tags.length > 0 && (
             <ul className="mt-4 flex flex-wrap gap-2">
               {tags.map((tag) => (
-                <li key={tag} className="px-3 py-1 text-sm border border-[#212121] bg-transparent text-[#212121] rounded-full">
+                <li key={tag} className="px-4 py-1.5 text-sm bg-[#212121] text-[#FDFDFD] font-semibold rounded-full">
                   {tag}
                 </li>
               ))}
