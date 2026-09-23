@@ -123,7 +123,8 @@ export const caseStudies: CaseStudy[] = [
     metadata: [
       { label: "Role", value: "Product Manager" },
       { label: "Timeline", value: "January - July 2026" },
-      { label: "Team", value: "Stephen Chen, Caelan Moglovkin, Kayla Windust, Tian Zhou" }
+      { label: "Team", value: "Stephen Chen, Caelan Moglovkin, Kayla Windust, Tian Zhou" },
+      { label: "Context", value: "MHCI Capstone" }
     ],
     thumbnail: "/images/case-studies/roboticscareer-thumbnail.mp4",
     heroImage: "/images/case-studies/roboticscareer-thumbnail.mp4",
@@ -179,7 +180,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "ARM identified four user segments for RoboticsCareer.org: Gen Z, Gen Alpha, career switchers, and veterans. I led a user segmentation and environmental analysis to identify which would drive the largest impact within the project timeline. This led us to Gen Z and Gen Alpha, an obtainable audience of ~750,000 compared to under 90,000 for the other two."
+            content: "ARM identified four user segments for RoboticsCareer.org: Gen Z, Gen Alpha, career switchers, and veterans. I led user segmentation using TAM/SAM/SOM modeling and environmental analysis to identify which would drive the largest impact within the project timeline. This led us to Gen Z and Gen Alpha, an obtainable audience of ~750,000 compared to under 90,000 for the other two."
           }
         ]
       },
@@ -202,7 +203,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "image",
-        src: "/images/roboticscareer-research.jpg",
+        src: "/images/roboticscareer-research.png",
         alt: "Research methods breakdown",
         caption: "Research methods breakdown"
       },
@@ -612,7 +613,8 @@ export const caseStudies: CaseStudy[] = [
     metadata: [
       { label: "Role", value: "Lead Product Designer" },
       { label: "Timeline", value: "2 weeks (Fall 2025)" },
-      { label: "Team", value: "Aditi Agni, Leo Li, Ram Kaushik Ramalingan, Devisha Tayal" }
+      { label: "Team", value: "Aditi Agni, Leo Li, Ram Kaushik Ramalingan, Devisha Tayal" },
+      { label: "Context", value: "Design of AI Products & Services, CMU" }
     ],
     sections: [
       {
@@ -960,7 +962,8 @@ export const caseStudies: CaseStudy[] = [
     metadata: [
       { label: "Role", value: "Chief Product Officer" },
       { label: "Timeline", value: "January - May 2026" },
-      { label: "Team", value: "Hanlin Cao, Aashna Jiju, Yunwei Li, Rujuta Thombre" }
+      { label: "Team", value: "Hanlin Cao, Aashna Jiju, Yunwei Li, Rujuta Thombre" },
+      { label: "Context", value: "Medical Device Innovation & Realization, CMU" }
     ],
     sections: [
       {

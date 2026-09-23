@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface RippleTextProps {
   lines: string[];
@@ -10,6 +10,8 @@ interface RippleTextProps {
   entryY?: number;
   className?: string;
   style?: React.CSSProperties;
+  /** Apply highlight effect to all lines */
+  highlight?: boolean;
 }
 
 export default function RippleText({
@@ -19,8 +21,25 @@ export default function RippleText({
   entryY,
   className,
   style,
+  highlight,
 }: RippleTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [lineWidths, setLineWidths] = useState<number[]>([]);
+  
+  const measureLine = useCallback((index: number) => (el: HTMLSpanElement | null) => {
+    if (el && highlight) {
+      const rect = el.getBoundingClientRect();
+      setLineWidths(prev => {
+        // Only update if width has changed significantly (avoid infinite loop)
+        if (Math.abs(prev[index] - rect.width) > 1) {
+          const newWidths = [...prev];
+          newWidths[index] = rect.width;
+          return newWidths;
+        }
+        return prev;
+      });
+    }
+  }, [highlight]);
 
   // Inject the ripple keyframe once
   useEffect(() => {
@@ -89,7 +108,40 @@ export default function RippleText({
   return (
     <div ref={containerRef} className={className} style={{ ...style, cursor: "default", userSelect: "none", wordWrap: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}>
       {lines.map((line, lineIdx) => (
-        <span key={lineIdx} style={{ display: "block" }}>
+        <span 
+          key={lineIdx} 
+          ref={measureLine(lineIdx)}
+          style={{ display: "block", position: "relative" }}
+        >
+          {highlight && lineWidths[lineIdx] && (
+            <svg
+              width={lineWidths[lineIdx] + 20}
+              height="100%"
+              viewBox={`0 0 ${lineWidths[lineIdx] + 20} 100`}
+              preserveAspectRatio="none"
+              style={{ position: "absolute", top: "10%", left: -10, height: "80%", zIndex: -1, overflow: "visible" }}
+            >
+              <path
+                d={`M 0,20 
+                   C ${(lineWidths[lineIdx] + 20) * 0.05},15 ${(lineWidths[lineIdx] + 20) * 0.09},25 ${(lineWidths[lineIdx] + 20) * 0.13},18
+                   S ${(lineWidths[lineIdx] + 20) * 0.2},12 ${(lineWidths[lineIdx] + 20) * 0.25},18
+                   S ${(lineWidths[lineIdx] + 20) * 0.35},14 ${(lineWidths[lineIdx] + 20) * 0.4},20
+                   S ${(lineWidths[lineIdx] + 20) * 0.5},12 ${(lineWidths[lineIdx] + 20) * 0.55},18
+                   S ${(lineWidths[lineIdx] + 20) * 0.7},15 ${(lineWidths[lineIdx] + 20) * 0.75},18
+                   S ${(lineWidths[lineIdx] + 20) * 0.85},15 ${(lineWidths[lineIdx] + 20) * 0.9},18
+                   L ${lineWidths[lineIdx] + 20},22
+                   L ${lineWidths[lineIdx] + 20},78
+                   C ${(lineWidths[lineIdx] + 20) * 0.9},83 ${(lineWidths[lineIdx] + 20) * 0.85},73 ${(lineWidths[lineIdx] + 20) * 0.8},78
+                   S ${(lineWidths[lineIdx] + 20) * 0.65},84 ${(lineWidths[lineIdx] + 20) * 0.6},78
+                   S ${(lineWidths[lineIdx] + 20) * 0.45},82 ${(lineWidths[lineIdx] + 20) * 0.4},76
+                   S ${(lineWidths[lineIdx] + 20) * 0.25},84 ${(lineWidths[lineIdx] + 20) * 0.2},78
+                   S ${(lineWidths[lineIdx] + 20) * 0.09},82 ${(lineWidths[lineIdx] + 20) * 0.05},78
+                   L 0,76
+                   Z`}
+                fill="rgba(255, 220, 100, 0.4)"
+              />
+            </svg>
+          )}
           {line.split(" ").map((word, wordIdx) => (
             <span key={wordIdx} style={{ display: "inline-block", whiteSpace: "nowrap" }}>
               {word.split("").map((char, i) => {

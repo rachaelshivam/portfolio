@@ -43,11 +43,11 @@ export default function Nav() {
         <div className="mx-auto flex h-16 w-full max-w-[72rem] items-center justify-between">
           <Link
             href="/"
-            className="nav-logo text-[1.15rem] tracking-tight sm:text-xl"
+            className="nav-logo text-[1.625rem] tracking-tight sm:text-[1.875rem]"
             style={{ fontFamily: 'var(--font-serif)', fontWeight: 600 }}
             onClick={() => setMenuOpen(false)}
           >
-            Rachael Shivam
+            RS<span style={{ color: '#D83775' }}>.</span>
           </Link>
 
           <nav
@@ -56,20 +56,20 @@ export default function Nav() {
           >
             {navLinks.map(({ label, href }) =>
               href.includes("#") ? (
-                <HashLink key={href} href={href} className="nav-link text-[0.95rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
+                <HashLink key={href} href={href} className="nav-link text-[1rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
                   {label}
                 </HashLink>
               ) : (
-                <Link key={href} href={href} className="nav-link text-[0.95rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
+                <Link key={href} href={href} className="nav-link text-[1rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
                   {label}
                 </Link>
               ),
             )}
             <Link href="mailto:rachael@example.com" className="nav-link" aria-label="Email">
-              <Mail size={18} />
+              <Mail size={20} />
             </Link>
             <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                 <rect width="4" height="12" x="2" y="9"/>
                 <circle cx="4" cy="4" r="2"/>
@@ -123,7 +123,7 @@ export default function Nav() {
               {href.includes("#") ? (
                 <HashLink
                   href={href}
-                  className="nav-link block py-[var(--space-3)] text-[0.95rem]"
+                  className="nav-link block py-[var(--space-3)] text-[1rem]"
                   style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
                   onClick={() => setMenuOpen(false)}
                 >
@@ -132,7 +132,7 @@ export default function Nav() {
               ) : (
                 <Link
                   href={href}
-                  className="nav-link block py-[var(--space-3)] text-[0.95rem]"
+                  className="nav-link block py-[var(--space-3)] text-[1rem]"
                   style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
                   onClick={() => setMenuOpen(false)}
                 >
@@ -143,10 +143,10 @@ export default function Nav() {
           ))}
           <div className="flex gap-4 py-[var(--space-3)]">
             <Link href="mailto:rachael@example.com" className="nav-link" aria-label="Email">
-              <Mail size={18} />
+              <Mail size={20} />
             </Link>
             <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                 <rect width="4" height="12" x="2" y="9"/>
                 <circle cx="4" cy="4" r="2"/>

@@ -40,8 +40,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   return (
     <>
-      <article className="px-[var(--space-4)] sm:px-[var(--space-6)]">
-        <header className="mx-auto w-full max-w-[800px] pt-[var(--space-8)]">
+      <article>
+        <header className="mx-auto w-full max-w-[800px] px-[var(--space-4)] sm:px-[var(--space-6)] pt-[var(--space-8)]">
           <div className="text-center">
             <h1 className="text-[clamp(1.25rem,2.5vw,2rem)] leading-[var(--leading-tight)] text-[#212121]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 575 }}>
               {study.title}
@@ -70,7 +70,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </div>
         </header>
 
-        <div className="mx-auto w-full max-w-[800px] pb-[var(--space-10)] pt-[var(--space-9)]">
+        <div className="mx-auto w-full max-w-[800px] px-[var(--space-4)] sm:px-[var(--space-6)] pb-[var(--space-10)] pt-[var(--space-9)]">
           <CaseStudySections sections={study.sections} />
         </div>
       </article>

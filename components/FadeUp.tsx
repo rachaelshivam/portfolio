@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 type FadeUpProps = {
   children: React.ReactNode;
   className?: string;
+  immediate?: boolean; // If true, skip scroll trigger and animate immediately on mount
 };
 
-export default function FadeUp({ children, className = "" }: FadeUpProps) {
+export default function FadeUp({ children, className = "", immediate = false }: FadeUpProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -25,7 +26,7 @@ export default function FadeUp({ children, className = "" }: FadeUpProps) {
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || immediate) {
       setIsVisible(true);
       return;
     }
@@ -53,7 +54,7 @@ export default function FadeUp({ children, className = "" }: FadeUpProps) {
         observer.unobserve(currentRef);
       }
     };
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, immediate]);
 
   const animationStyle = prefersReducedMotion
     ? {}
