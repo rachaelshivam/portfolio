@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import CaseStudySections from "@/components/CaseStudySections";
+import CaseStudySections, { CaseStudyMetadata } from "@/components/CaseStudySections";
 import FadeUp from "@/components/FadeUp";
 import Footer from "@/components/Footer";
 import HeroMedia from "@/components/HeroMedia";
@@ -55,14 +55,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </p>
 
           <FadeUp>
-            <dl className="mt-[var(--space-8)] grid" style={{ gridTemplateColumns: `repeat(${study.metadata.length}, 1fr)` }}>
-              {study.metadata.map(({ label, value }) => (
-                <div key={label}>
-                  <dt className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">{label}</dt>
-                  <dd className="mt-[var(--space-2)] text-[1rem] font-normal text-[#404040]">{value}</dd>
-                </div>
-              ))}
-            </dl>
+            <CaseStudyMetadata metadata={study.metadata} />
           </FadeUp>
 
           <div className="mt-[var(--space-9)]">

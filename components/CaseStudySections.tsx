@@ -2,6 +2,7 @@ import Image from "next/image";
 import FadeUp from "./FadeUp";
 import Carousel from "./Carousel";
 import type {
+  CaseStudy,
   CaseStudySection,
   TextBodyBullets,
   TextBodyParagraph,
@@ -14,6 +15,172 @@ import type {
   PullQuoteSection,
   CarouselSection,
 } from "@/data/caseStudies";
+
+function CaseStudyMetadataItem({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div>
+      <dt className="text-[0.9375rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D]">
+        {label}
+      </dt>
+      <dd className="mt-[var(--space-2)] text-[1rem] font-normal text-[#404040]">
+        {value}
+      </dd>
+    </div>
+  );
+}
+
+export function CaseStudyMetadata({
+  metadata,
+}: {
+  metadata: CaseStudy["metadata"];
+}) {
+  if (metadata.length === 4) {
+    const [fourth] = metadata.slice(3);
+
+    return (
+      <dl className="mt-[var(--space-8)] flex w-full items-start gap-[var(--space-6)]">
+        <div className="grid min-w-0 flex-1 grid-cols-3 gap-[var(--space-6)]">
+          {metadata.slice(0, 3).map(({ label, value }) => (
+            <CaseStudyMetadataItem key={label} label={label} value={value} />
+          ))}
+        </div>
+        <div className="min-w-0 max-w-[12rem]">
+          <CaseStudyMetadataItem label={fourth.label} value={fourth.value} />
+        </div>
+      </dl>
+    );
+  }
+
+  return (
+    <dl
+      className="mt-[var(--space-8)] grid"
+      style={{ gridTemplateColumns: `repeat(${metadata.length}, 1fr)` }}
+    >
+      {metadata.map(({ label, value }) => (
+        <CaseStudyMetadataItem key={label} label={label} value={value} />
+      ))}
+    </dl>
+  );
+}
+
+function normalizeCategory(category: string) {
+  return category.toLowerCase().replace(/[.,!?;:]*$/, "");
+}
+
+function isWhatIDidCategory(category: string) {
+  return normalizeCategory(category) === "what i did";
+}
+
+function isStickySectionCategory(category: string) {
+  return !isWhatIDidCategory(category);
+}
+
+function getTextSectionCategory(section: CaseStudySection): string | null {
+  if (section.type === "text") {
+    return section.category;
+  }
+  if (section.type === "two-column-text") {
+    return section.category ?? null;
+  }
+  return null;
+}
+
+function getShowCategory(sections: CaseStudySection[], index: number): boolean {
+  const currentCategory = getTextSectionCategory(sections[index]);
+  if (currentCategory === null) {
+    return false;
+  }
+
+  let previousCategory: string | null = null;
+  for (let i = index - 1; i >= 0; i--) {
+    if (sections[i].type === "text") {
+      previousCategory = (sections[i] as Extract<CaseStudySection, { type: "text" }>).category;
+      break;
+    }
+  }
+
+  return currentCategory !== previousCategory;
+}
+
+function getPreviousSectionIsHeadingOnly(
+  sections: CaseStudySection[],
+  index: number,
+): boolean {
+  for (let i = index - 1; i >= 0; i--) {
+    if (sections[i].type === "text") {
+      return (sections[i] as Extract<CaseStudySection, { type: "text" }>).body.length === 0;
+    }
+  }
+  return false;
+}
+
+function stickyRegionEndIndex(
+  sections: CaseStudySection[],
+  startIndex: number,
+): number {
+  for (let i = startIndex + 1; i < sections.length; i++) {
+    const category = getTextSectionCategory(sections[i]);
+    if (
+      category &&
+      getShowCategory(sections, i) &&
+      isStickySectionCategory(category)
+    ) {
+      return i;
+    }
+  }
+  return sections.length;
+}
+
+type RenderChunk =
+  | { kind: "sticky-region"; category: string; start: number; end: number }
+  | { kind: "section"; index: number };
+
+function buildRenderChunks(sections: CaseStudySection[]): RenderChunk[] {
+  const chunks: RenderChunk[] = [];
+  let index = 0;
+
+  while (index < sections.length) {
+    const section = sections[index];
+    const category = getTextSectionCategory(section);
+    const showCategory = getShowCategory(sections, index);
+
+    if (
+      showCategory &&
+      category &&
+      isStickySectionCategory(category) &&
+      (section.type === "text" || section.type === "two-column-text")
+    ) {
+      const end = stickyRegionEndIndex(sections, index);
+      chunks.push({ kind: "sticky-region", category, start: index, end });
+      index = end;
+    } else {
+      chunks.push({ kind: "section", index });
+      index += 1;
+    }
+  }
+
+  return chunks;
+}
+
+function CaseStudyStickySectionTitle({ label }: { label: string }) {
+  return (
+    <div className="case-study-sticky-title relative sticky top-16 z-40 -mx-[var(--space-4)] px-[var(--space-4)] sm:-mx-[var(--space-6)] sm:px-[var(--space-6)]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-5 -bottom-5 bg-[rgba(253,253,253,0.8)] backdrop-blur-md"
+      />
+      <p className="relative border-l-[3px] border-[#D83775] py-[var(--space-3)] pl-[calc(var(--space-4)+var(--space-2))] text-[0.9375rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D] sm:pl-[calc(var(--space-6)+var(--space-2))]">
+        {label}
+      </p>
+    </div>
+  );
+}
 
 function TextBodyContent({
   body,
@@ -100,7 +267,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
             {showCategory && (
-              section.category?.toLowerCase().replace(/[.,!?;:]*$/, '') === "what i did" ? (
+              isWhatIDidCategory(section.category) ? (
                 <h2 className="font-bold text-[1.375rem] text-[#212121]">
                   {section.category}
                 </h2>
@@ -163,12 +330,12 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
         <FadeUp>
           <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
             {showCategory && section.category && (
-              section.category.toLowerCase().replace(/[.,!?;:]*$/, '') === "what i did" ? (
+              isWhatIDidCategory(section.category) ? (
                 <h2 className="font-bold text-[1.375rem] text-[#212121]">
                   {section.category}
                 </h2>
               ) : (
-                <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
+                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
                   {section.category}
                 </p>
               )
@@ -359,30 +526,50 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
   }
 }
 
+function renderSectionBlock(
+  sections: CaseStudySection[],
+  index: number,
+  showCategory: boolean,
+) {
+  return (
+    <CaseStudySectionBlock
+      key={index}
+      section={sections[index]}
+      showCategory={showCategory}
+      previousSectionIsHeadingOnly={getPreviousSectionIsHeadingOnly(sections, index)}
+    />
+  );
+}
+
 export default function CaseStudySections({
   sections,
 }: {
   sections: CaseStudySection[];
 }) {
+  const chunks = buildRenderChunks(sections);
+
   return (
     <div className="case-study-sections">
-      {sections.map((section, index) => {
-        // Find the last text section before the current section
-        let previousCategory: string | null = null;
-        let previousSectionIsHeadingOnly = false;
-        for (let i = index - 1; i >= 0; i--) {
-          if (sections[i].type === "text") {
-            previousCategory = (sections[i] as Extract<CaseStudySection, { type: "text" }>).category;
-            previousSectionIsHeadingOnly = (sections[i] as Extract<CaseStudySection, { type: "text" }>).body.length === 0;
-            break;
-          }
+      {chunks.map((chunk) => {
+        if (chunk.kind === "sticky-region") {
+          return (
+            <div key={`region-${chunk.start}`} className="case-study-category-region">
+              <CaseStudyStickySectionTitle label={chunk.category} />
+              <div className="mt-[var(--space-6)] flex flex-col gap-[var(--space-9)] [&_.case-study-section:first-child>h2]:mt-0">
+                {Array.from({ length: chunk.end - chunk.start }, (_, offset) => {
+                  const index = chunk.start + offset;
+                  return renderSectionBlock(sections, index, false);
+                })}
+              </div>
+            </div>
+          );
         }
-        
-        const currentCategory = section.type === "text" ? (section as Extract<CaseStudySection, { type: "text" }>).category : null;
-        const showCategory = currentCategory !== null && currentCategory !== previousCategory;
-        
-        return (
-          <CaseStudySectionBlock key={index} section={section} showCategory={showCategory} previousSectionIsHeadingOnly={previousSectionIsHeadingOnly} />
+
+        const index = chunk.index;
+        return renderSectionBlock(
+          sections,
+          index,
+          getShowCategory(sections, index),
         );
       })}
     </div>

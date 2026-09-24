@@ -4,6 +4,8 @@ import HashLink from "@/components/HashLink";
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import NavLogo from "@/components/NavLogo";
 
 const navLinks = [
   { label: "Work", href: "/#work" },
@@ -14,6 +16,7 @@ const navLinks = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -31,24 +34,34 @@ export default function Nav() {
 
   const showFrost = scrolled || menuOpen;
 
+  const isActiveLink = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/about") return pathname === "/about";
+    return false;
+  };
+
   return (
-    <header
-      className={`site-nav sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-300 ${
-        showFrost
-          ? "bg-[rgba(253,253,253,0.8)] backdrop-blur-md"
-          : "bg-transparent"
-      }`}
-    >
+    <>
+      <style>{`
+        @keyframes ripple {
+          0% { transform: translateY(0) scaleY(1) skewX(0deg); }
+          20% { transform: translateY(-5px) scaleY(1.08) skewX(-2deg); }
+          40% { transform: translateY(0) scaleY(0.95) skewX(1deg); }
+          60% { transform: translateY(3px) scaleY(1.03) skewX(-0.5deg); }
+          80% { transform: translateY(-1px) scaleY(1); }
+          100% { transform: translateY(0) scaleY(1) skewX(0deg); }
+        }
+      `}</style>
+      <header
+        className={`site-nav sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-300 ${
+          showFrost
+            ? "bg-[rgba(253,253,253,0.8)] backdrop-blur-md"
+            : "bg-transparent"
+        }`}
+      >
       <div className="px-[var(--space-4)] sm:px-[var(--space-5)]">
         <div className="mx-auto flex h-16 w-full max-w-[72rem] items-center justify-between">
-          <Link
-            href="/"
-            className="nav-logo text-[1.625rem] tracking-tight sm:text-[1.875rem]"
-            style={{ fontFamily: 'var(--font-serif)', fontWeight: 600 }}
-            onClick={() => setMenuOpen(false)}
-          >
-            RS<span style={{ color: '#D83775' }}>.</span>
-          </Link>
+          <NavLogo onClick={() => setMenuOpen(false)} />
 
           <nav
             aria-label="Primary"
@@ -56,19 +69,19 @@ export default function Nav() {
           >
             {navLinks.map(({ label, href }) =>
               href.includes("#") ? (
-                <HashLink key={href} href={href} className="nav-link text-[1rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
+                <HashLink key={href} href={href} className="nav-link text-[1rem] hover:opacity-70 transition-opacity duration-200" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
                   {label}
                 </HashLink>
               ) : (
-                <Link key={href} href={href} className="nav-link text-[1rem]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}>
+                <Link key={href} href={href} className="nav-link text-[1rem] hover:opacity-70 transition-opacity duration-200" style={{ fontFamily: 'var(--font-serif)', fontWeight: isActiveLink(href) ? 600 : 500 }}>
                   {label}
                 </Link>
               ),
             )}
-            <Link href="mailto:rachael@example.com" className="nav-link" aria-label="Email">
+            <Link href="mailto:rachael@example.com" className="nav-link hover:opacity-70 transition-opacity duration-200" aria-label="Email">
               <Mail size={20} />
             </Link>
-            <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link" aria-label="LinkedIn">
+            <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link hover:opacity-70 transition-opacity duration-200" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                 <rect width="4" height="12" x="2" y="9"/>
@@ -123,7 +136,7 @@ export default function Nav() {
               {href.includes("#") ? (
                 <HashLink
                   href={href}
-                  className="nav-link block py-[var(--space-3)] text-[1rem]"
+                  className="nav-link block py-[var(--space-3)] text-[1rem] hover:opacity-70 transition-opacity duration-200"
                   style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
                   onClick={() => setMenuOpen(false)}
                 >
@@ -132,8 +145,8 @@ export default function Nav() {
               ) : (
                 <Link
                   href={href}
-                  className="nav-link block py-[var(--space-3)] text-[1rem]"
-                  style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
+                  className="nav-link block py-[var(--space-3)] text-[1rem] hover:opacity-70 transition-opacity duration-200"
+                  style={{ fontFamily: 'var(--font-serif)', fontWeight: isActiveLink(href) ? 600 : 500 }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
@@ -142,10 +155,10 @@ export default function Nav() {
             </li>
           ))}
           <div className="flex gap-4 py-[var(--space-3)]">
-            <Link href="mailto:rachael@example.com" className="nav-link" aria-label="Email">
+            <Link href="mailto:rachael@example.com" className="nav-link hover:opacity-70 transition-opacity duration-200" aria-label="Email">
               <Mail size={20} />
             </Link>
-            <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link" aria-label="LinkedIn">
+            <Link href="https://linkedin.com/in/rachaelshivam" className="nav-link hover:opacity-70 transition-opacity duration-200" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                 <rect width="4" height="12" x="2" y="9"/>
@@ -157,5 +170,6 @@ export default function Nav() {
         </div>
       </nav>
     </header>
+    </>
   );
 }

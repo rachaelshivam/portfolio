@@ -80,7 +80,7 @@ export default function CaseStudyCard({
           )}
         </div>
         <div className="flex flex-col justify-center order-2 lg:order-1 py-4">
-          <h3 className="text-[1.5rem] leading-[var(--leading-tight)] text-[var(--color-text-primary)]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 550 }}>
+          <h3 className="text-[1.5rem] leading-[var(--leading-tight)] text-[var(--color-text-primary)] group-hover:text-[#D83775] transition-colors duration-200" style={{ fontFamily: 'var(--font-serif)', fontWeight: 550 }}>
             {title}
           </h3>
           <p className="mt-2 text-[1.125rem] text-[#5D5D5D]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 450 }}>

@@ -46,14 +46,14 @@ export default function Footer() {
             href="https://linkedin.com/in/"
             target="_blank"
             rel="noopener noreferrer"
-            className="footer-link"
+            className="footer-link hover:opacity-70 transition-opacity duration-200"
             aria-label="LinkedIn"
           >
             <LinkedInIcon />
           </a>
           <a
             href="mailto:hello@example.com"
-            className="footer-link"
+            className="footer-link hover:opacity-70 transition-opacity duration-200"
             aria-label="Email"
           >
             <EmailIcon />

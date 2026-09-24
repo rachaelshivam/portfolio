@@ -12,7 +12,7 @@ export default function Publications() {
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <FadeInLeft>
-          <h2 id="publications-heading" className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
+          <h2 id="publications-heading" className="border-l-[3px] border-[#D83775] py-[var(--space-3)] pl-[calc(var(--space-4)+var(--space-2))] text-[0.9375rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D] sm:pl-[calc(var(--space-6)+var(--space-2))]">
             Publications
           </h2>
         </FadeInLeft>
@@ -25,7 +25,7 @@ export default function Publications() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="publication-link block text-[1.5rem] font-normal leading-[var(--leading-snug)]"
+                  className="publication-link block text-[1.5rem] font-normal leading-[var(--leading-snug)] hover:opacity-70 transition-opacity duration-200"
                   style={{ fontFamily: 'var(--font-serif)', fontWeight: 550 }}
                 >
                   {item.title}
