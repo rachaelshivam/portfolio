@@ -117,7 +117,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "roboticscareer",
     title: "RoboticsCareer.org",
     subtitle: "Turning a one-visit platform into a measurable career journey",
-    intro: "RoboticsCareer.org is the ARM Institute's federally funded national platform for connecting people to careers in advanced manufacturing and robotics. The platform serves a broad audience, but low engagement and no outcome data means the ARM Institute can't prove its impact. As Product Manager for a multidisciplinary team of five, I led research and strategy to identify the highest-impact design opportunities. We delivered an ecosystem of three integrated solutions: a career interest quiz, career journey map, and career dashboard.",
+    intro: "RoboticsCareer.org is the ARM Institute's national platform for connecting people to careers in advanced manufacturing and robotics. The platform has engagement and visibility challenges: 87.3% of account holders never return after signing up, and ARM lacks visibility into user outcomes, making it difficult to demonstrate impact to federal funders. As Product Manager for a multidisciplinary team of five, I led research and strategy that shaped a solution ecosystem designed to give users more reasons to return and ARM a way to measure their career journeys.",
     summary: "Led product strategy and research for a federally funded robotics career platform to increase engagement and close a critical outcome data gap. 100% of perception measures outperformed the existing tool, with return intent exceeding 2.5x in design validation.",
     tags: ["Product Management", "UX Research", "Product Strategy"],
     metadata: [
@@ -136,11 +136,11 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "bullets",
             items: [
-              "Led product strategy and cross-functional coordination across our team, ARM, and Fivestar (ARM's external software development partner)",
-              "Drove key scoping decisions including targeting Gen Z/Gen Alpha based on market sizing and a broader environmental analysis",
-              "Defined research strategy from planning through synthesis and shaped the product direction for three integrated solutions: a Career Interest Quiz, Career Journey Map, and Career Dashboard",
-              "Designed UX improvement screens addressing critical-severity issues identified through heuristic evaluation and usability testing",
-              "Framed the value case for ARM, including defining metrics for measuring solution impact"
+              "Led product strategy and cross-functional coordination across our team, the ARM Institute, and Fivestar, ARM's external software development partner",
+              "Defined audience strategy using market sizing and environmental analysis",
+              "Led research from planning through synthesis, translating findings into product direction",
+              "Drove scoping and strategic decisions as research changed our understanding of the problem",
+              "Defined success metrics and the value case for the ARM Institute"
             ]
           }
         ]
@@ -152,7 +152,11 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "RoboticsCareer.org gets people through the door, but doesn't give them much reason to stay. Users browse jobs and training programs but rarely come back. The moment someone clicks on a listing, they're sent to an external site, and ARM loses sight of whether they pursued training, applied, or got hired. Low engagement and no outcome data meant ARM couldn't demonstrate the platform's value to its funders. So, ARM came to us with three core challenges for RoboticsCareer.org:"
+            content: "RoboticsCareer.org helps people discover careers in advanced manufacturing and robotics, but gives them little reason to return. 87.3% of account holders never return after signing up. Additionally, the platform directs users to external sites to pursue jobs, training, and other opportunities, but ARM has no visibility into what happens once they leave—making it difficult to understand the platform's impact and demonstrate its value to federal funders."
+          },
+          {
+            type: "paragraph",
+            content: "ARM came to us with three questions:"
           }
         ]
       },
@@ -161,26 +165,41 @@ export const caseStudies: CaseStudy[] = [
         columns: [
           {
             heading: "01.",
-            body: "Help ARM understand their current and future users"
+            body: "Who are our current and future users?"
           },
           {
             heading: "02.",
-            body: "Grow the userbase for RoboticsCareer.org"
+            body: "How might we grow our userbase?"
           },
           {
             heading: "03.",
-            body: "Increase the stickiness of the site"
+            body: "How might we give people a reason to keep coming back?"
+          }
+        ]
+      },
+            {
+        type: "text",
+        category: "The Challenge",
+        heading: "",
+        body: [
+          {
+            type: "paragraph",
+            content: "These questions gave us a starting point, but ARM encouraged us to follow the research wherever it led. Our challenge was to understand what users actually needed from RoboticsCareer.org and where the platform could have the greatest impact."
           }
         ]
       },
       {
         type: "text",
         category: "Research",
-        heading: "ARM gave us their user groups, and we made a strategic call on where to focus.",
+        heading: "We started with ARM's four user groups and used research to determine where to focus.",
         body: [
           {
             type: "paragraph",
-            content: "ARM identified four user segments for RoboticsCareer.org: Gen Z, Gen Alpha, career switchers, and veterans. I led user segmentation using TAM/SAM/SOM modeling and environmental analysis to identify which would drive the largest impact within the project timeline. This led us to Gen Z and Gen Alpha, an obtainable audience of ~750,000 compared to under 90,000 for the other two."
+            content: "ARM identified four user segments: Gen Z, Gen Alpha, career switchers, and veterans. I led user segmentation using TAM/SAM/SOM modeling and environmental analysis to identify where we could have the greatest impact within the project timeline."
+          },
+          {
+            type: "paragraph",
+            content: "This led us to focus on Gen Z and Gen Alpha, an obtainable audience of ~750,000 compared with fewer than 90,000 for the other two segments."
           }
         ]
       },
@@ -193,11 +212,15 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Research",
-        heading: "I led a mixed-methods research strategy to understand the full ecosystem around a career journey.",
+        heading: "I led a mixed-methods research strategy to understand the ecosystem shaping career journeys.",
         body: [
           {
             type: "paragraph",
-            content: "Across seven methods and 190 participants, we spoke to high schoolers and college students directly, but also to the people who influence their decisions: parents, teachers, and robotics program leaders. We wanted to understand how these groups shape perceptions of the field and engage younger audiences, and to surface barriers and motivators across the full journey, not just at the point of platform interaction."
+            content: "Across seven methods and 190 participants, we spoke to high schoolers and college students directly, but also to the people who influence their decisions: parents, teachers, and robotics program leaders."
+          },
+          {
+            type: "paragraph",
+            content: "We wanted to understand how these groups shape perceptions of the field and engage younger audiences, and to surface barriers and motivators across the full journey, not just at the point of platform interaction."
           }
         ]
       },
@@ -216,13 +239,18 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Research",
-        heading: "Our research produced five insights. Three pointed to systemic problems beyond our reach. Two shaped our design direction.",
-        body: []
+        heading: "Our research surfaced five insights that pointed to two different kinds of opportunity.",
+        body: [
+          {
+            type: "paragraph",
+            content: "Three revealed broader systemic barriers, including outdated perceptions of manufacturing and limited awareness of what careers in the field actually look like. Two pointed to opportunities RoboticsCareer.org could directly address:"
+          }
+        ]
       },
       {
         type: "two-column-text",
         left: {
-          body: "Insight 1: Career identity forms early.\nBy college, most students have already decided on their career path, and younger audiences are more open to new possibilities."
+          body: "Insight 1: Career identity forms early.\nBy college, most students have already decided on their career path, while younger audiences are more open to new possibilities."
         },
         right: {
           body: "Insight 2: People don't reject the field — they just don't know enough to see themselves in it.\nUsers were open to careers in robotics and manufacturing but struggled to connect the field to their own skills and interests."
@@ -235,35 +263,24 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "This led us to narrow our primary audience from Gen Z and Gen Alpha broadly to high schoolers specifically. I drove this scoping decision based on the research: they were the group where interest was highest, openness was greatest, and where intervention could have the most impact before career plans solidified."
+            content: "These findings led us to narrow our primary audience from Gen Z and Gen Alpha broadly to high schoolers. They showed the strongest interest and openness while still being early in their career journeys."
           }
         ]
-      },
-      {
-        type: "image",
-        src: "/images/roboticscareer-audience-narrowing.jpg",
-        alt: "Audience narrowing from college students and high schoolers to high schoolers",
-        caption: "Narrowing our primary audience to high schoolers"
       },
       {
         type: "text",
-        category: "Research",
-        heading: "A client workshop with ARM confirmed our focus.",
+        category: "Client Alignment",
+        heading: "We brought the broader research back to ARM to align on where we could intervene.",
         body: [
           {
             type: "paragraph",
-            content: "Our research had surfaced systemic problems like outdated perceptions of manufacturing that were real but beyond the project's reach. We presented our recommendation to stay focused on the platform: making it work for the people who already land on it with intent, and turning what was a dead-end visit into a reason to keep coming back. ARM were enthusiastic about this direction."
+            content: "The three systemic insights raised a strategic question: Should we broaden our intervention to address these systemic barriers, or focus on what RoboticsCareer.org could directly influence?"
           },
           {
             type: "paragraph",
-            content: "That decision gave us our two guiding questions: How might we turn someone's interest into a real path? And how might we make that path trackable, so ARM can finally see it?"
+            content: "We brought this tension to ARM in a client workshop. Together, we made the decision to focus the project on RoboticsCareer.org: making the platform more useful for people who land on it and giving them reasons to return. The broader systemic barriers were important, but too large to meaningfully address within our project timeline. Focusing on the platform also gave ARM greater control over the intervention and its outcomes."
           }
         ]
-      },
-      {
-        type: "pullquote",
-        quote: "This is the most valuable research I've seen come out of one of these capstone projects.",
-        attribution: "Livia Rice, Senior Director of Communications, ARM Institute"
       },
       {
         type: "image",
@@ -272,10 +289,20 @@ export const caseStudies: CaseStudy[] = [
         caption: "Client workshop with ARM"
       },
       {
+        type: "pullquote",
+        quote: "This is the most valuable research I've seen come out of one of these capstone projects.",
+        attribution: "Livia Rice, Senior Director of Communications, ARM Institute"
+      },
+      {
         type: "text",
         category: "Solution",
-        heading: "We designed three integrated solutions, each addressing a different stage of the career discovery journey and feeding into the next.",
-        body: []
+        heading: "We designed three connected experiences to give users more reasons to return and give ARM a way to measure their career journeys.",
+        body: [
+          {
+            type: "paragraph",
+            content: "Rather than treating RoboticsCareer.org as a directory of jobs and training, we designed a system that supports users from discovering a possible career → understanding the path → taking action → tracking what happens next."
+          }
+        ]
       },
       {
         type: "text",
@@ -284,13 +311,13 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "A scenario-based quiz that uses day-in-the-life questions to connect younger users' existing interests to robotics and manufacturing careers, surfacing multiple ranked roles with actionable next steps rather than a single verdict."
+            content: "A scenario-based quiz connects users' existing interests to robotics and manufacturing careers, surfacing multiple ranked roles and actionable next steps."
           },
           {
             type: "bullets",
             items: [
               "We chose a narrative format over a traditional questionnaire after testing both, as participants found it more engaging, personal, and trustworthy.",
-              "We deliberately kept the quiz on the longer side and refined length through multiple iterations, as testing showed users trusted results more when the quiz felt thorough.",
+              "We kept the quiz longer than we initially expected, refining its length through multiple iterations after testing showed that participants trusted the results more when the quiz felt thorough.",
               "The results are transparent about how each answer mapped to the match, something users explicitly asked for."
             ]
           }
@@ -352,23 +379,6 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "text",
-        category: "Solution",
-        heading: "04 UX Improvements",
-        body: [
-          {
-            type: "paragraph",
-            content: "Our heuristic evaluation and usability testing of the current site catalogued 82 distinct issues, five of them critical. We redesigned the surfaces with the most critical issues — the landing page, sign-up, and job search — each paired with the research rationale behind the change."
-          }
-        ]
-      },
-      {
-        type: "image",
-        src: "/images/roboticscareer-ux.jpg",
-        alt: "Redesigned screens",
-        caption: "Redesigned landing page, sign-up, and job search"
-      },
-      {
-        type: "text",
         category: "Impact",
         heading: "Our solutions outperformed the existing platform across every measure we tested.",
         body: []
@@ -378,12 +388,12 @@ export const caseStudies: CaseStudy[] = [
         metrics: [
           {
             value: "6.67/7",
-            label: "Mechanism trust",
+            label: "Trust in results",
             comparison: "vs 3.00 existing quiz"
           },
           {
             value: "7/7",
-            label: "New career discovery",
+            label: "Career discovery",
             comparison: "vs 3.33 existing quiz"
           },
           {
@@ -394,7 +404,7 @@ export const caseStudies: CaseStudy[] = [
           {
             value: "100%",
             label: "Outcome visibility",
-            comparison: "vs 0% existing platform"
+            comparison: "No existing tracking mechanism"
           }
         ]
       },
@@ -405,11 +415,11 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "Because our solutions weren't deployed during the project timeline, I designed testing protocols to demonstrate the quiz's value, measuring trust, return intent, and perceived career discovery against the existing tool. Outcome visibility required no comparison — ARM has no way to track outcomes before the journey map and dashboard."
+            content: "Because our solutions weren't deployed during the project timeline, I designed testing protocols to demonstrate the quiz's value, measuring trust, return intent, and career discovery against the existing tool. Outcome visibility required no comparison—ARM currently has no way to track outcomes after users leave the platform, which the Journey Map and Dashboard are designed to address."
           },
           {
             type: "paragraph",
-            content: "ARM and Fivestar were enthusiastic following our final presentation. We've handed over all deliverables, implementation guidelines, and documentation. The real test will come with deployment. Our design validation was strong, but live usage will show whether the patterns we saw in testing hold at scale."
+            content: "ARM and Fivestar were enthusiastic following our final presentation. We handed over all deliverables, implementation guidelines, and documentation. The real test will come with deployment: live usage will show whether the patterns we saw in testing hold at scale."
           }
         ]
       },
@@ -420,11 +430,11 @@ export const caseStudies: CaseStudy[] = [
         body: [
           {
             type: "paragraph",
-            content: "This was my first time working as a Product Manager on a team. The hardest adjustment was knowing when to make a call on scope or strategy, and when to step back and defer to my team's expertise."
+            content: "This was my first time working as a Product Manager on a team. The biggest adjustment was finding the right balance between making clear calls on scope and strategy and giving my team the autonomy to lead in their areas of expertise."
           },
           {
             type: "paragraph",
-            content: "Translating our research and design into something ARM could act on, in language that connected to their funding pressures and organizational goals, required a different kind of thinking than I'd practiced before. Part of that was defining the right metrics for measuring impact, because without deployed solutions, the case for our work had to be built on evidence we could generate ourselves."
+            content: "I also learned to think beyond the user when making product decisions. Our research and design had to address user needs while also making sense within ARM's organizational goals, funding pressures, and need to demonstrate impact."
           },
           {
             type: "paragraph",

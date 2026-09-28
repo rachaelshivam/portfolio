@@ -81,6 +81,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
+  letter-spacing: 0.015em;
 }
 
 h1,

@@ -431,16 +431,16 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
     case "three-column":
       return (
         <FadeUp>
-          <section className="case-study-section">
-            <div className="grid gap-[var(--space-6)] md:grid-cols-3">
+          <section className="case-study-section -my-[calc(var(--space-9)-1.5rem)] py-0">
+            <div className="my-[1.5rem] grid gap-[var(--space-6)] md:grid-cols-3">
               {section.columns.map((column, index) => (
                 <div key={index}>
                   {column.heading && (
-                    <p className="text-[2rem] font-bold uppercase tracking-[0.08em] text-[#212121]">
+                    <p className="text-[2rem] font-[500] uppercase tracking-[0.08em] text-[#212121]">
                       {column.heading}
                     </p>
                   )}
-                  <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
+                  <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-[600] text-[#404040]">
                     {column.body}
                   </p>
                 </div>
