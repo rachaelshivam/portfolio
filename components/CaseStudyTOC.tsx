@@ -30,20 +30,17 @@ export default function CaseStudyTOC({ sections }: TOCProps) {
     if (typeof document === 'undefined') return;
 
     const calculatePosition = () => {
-      // Only calculate when at top of page to get correct baseline position
-      if (window.scrollY === 0) {
-        const introParagraph = document.getElementById('intro-paragraph');
-        if (introParagraph) {
-          const paragraphRect = introParagraph.getBoundingClientRect();
-          const lineHeight = parseFloat(getComputedStyle(introParagraph).lineHeight);
-          const fontSize = parseFloat(getComputedStyle(introParagraph).fontSize);
-          
-          // Align with first line: paragraph top + (lineHeight - fontSize) / 2
-          const firstLineOffset = (lineHeight - fontSize) / 2;
-          const targetTop = paragraphRect.top + firstLineOffset;
-          
-          setNavTop(targetTop);
-        }
+      const introParagraph = document.getElementById('intro-paragraph');
+      if (introParagraph) {
+        const paragraphRect = introParagraph.getBoundingClientRect();
+        const lineHeight = parseFloat(getComputedStyle(introParagraph).lineHeight);
+        const fontSize = parseFloat(getComputedStyle(introParagraph).fontSize);
+        
+        // Align with first line: paragraph top + (lineHeight - fontSize) / 2
+        const firstLineOffset = (lineHeight - fontSize) / 2;
+        const targetTop = paragraphRect.top + firstLineOffset;
+        
+        setNavTop(targetTop);
       }
     };
 
@@ -88,7 +85,7 @@ export default function CaseStudyTOC({ sections }: TOCProps) {
     if (typeof document === 'undefined') return;
 
     const handleScroll = () => {
-      const threshold = 140; // Just below top nav
+      const switchLine = window.innerHeight * 0.3; // 30% of viewport height
       
       // Check if at bottom of page
       const isAtBottom = Math.abs((window.innerHeight + window.scrollY) - document.documentElement.scrollHeight) < 2;
@@ -101,12 +98,69 @@ export default function CaseStudyTOC({ sections }: TOCProps) {
       if (isAtBottom && !isShortPage && sections.length > 0) {
         // Use the last section's id
         lastActiveId = sections[sections.length - 1].id;
-      } else {
-        // Find the last section whose top has passed the threshold
-        for (const section of sections) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= threshold) {
-            lastActiveId = section.id;
+      } else if (sections.length > 0) {
+        // Check if first category's first section is still below switch line → Overview is active
+        const firstSection = sections[0];
+        const firstSectionTop = firstSection.getBoundingClientRect().top;
+        
+        if (firstSectionTop > switchLine) {
+          // First section hasn't reached the switch line yet → Overview is active
+          lastActiveId = "overview";
+        } else {
+          // First section has passed switch line → use category start/end logic
+          // Each category's start is the top of its first section
+          // Each category's end is the top of the next category's first section
+          // Last category's end is the bottom of the case study sections container
+          
+          const categoryStarts: { [key: string]: number } = {};
+          const categoryEnds: { [key: string]: number } = {};
+          
+          // Get the case study sections container for the last category's end
+          const sectionsContainer = document.querySelector('.case-study-sections');
+          const containerBottom = sectionsContainer ? sectionsContainer.getBoundingClientRect().bottom : Infinity;
+          
+          for (let i = 0; i < sections.length; i++) {
+            const section = sections[i];
+            const categoryId = section.id;
+            const rect = section.getBoundingClientRect();
+            const top = rect.top;
+            
+            // Store the start (top) of each category's first section
+            if (categoryStarts[categoryId] === undefined) {
+              categoryStarts[categoryId] = top;
+            }
+            
+            // The end of this category is the start of the next category
+            if (i < sections.length - 1) {
+              const nextSection = sections[i + 1];
+              const nextCategoryId = nextSection.id;
+              const nextRect = nextSection.getBoundingClientRect();
+              categoryEnds[categoryId] = nextRect.top;
+            } else {
+              // Last category's end is the container bottom
+              categoryEnds[categoryId] = containerBottom;
+            }
+          }
+          
+          // Find the category whose start is at or above switch line and end is below it
+          let foundActive = false;
+          for (const category of categories) {
+            const id = categoryId(category);
+            const start = categoryStarts[id];
+            const end = categoryEnds[id];
+            
+            if (start !== undefined && end !== undefined) {
+              if (start <= switchLine && end > switchLine) {
+                lastActiveId = id;
+                foundActive = true;
+                break;
+              }
+            }
+          }
+          
+          // If no category matches, use the last category (past all others)
+          if (!foundActive && sections.length > 0) {
+            lastActiveId = sections[sections.length - 1].id;
           }
         }
       }
@@ -133,7 +187,7 @@ export default function CaseStudyTOC({ sections }: TOCProps) {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [categories]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
