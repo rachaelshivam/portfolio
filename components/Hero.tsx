@@ -49,8 +49,8 @@ export default function Hero({ firstCardRef }: HeroProps) {
               lines={["Dentist-turned-", descriptors[descriptorIndex]]}
               trigger={rippleTrigger}
               highlight
-              className="font-bold text-[clamp(2.5rem,6.5vw,4.5rem)] leading-[var(--leading-tight)] tracking-tight text-[#212121]"
-              style={{ fontFamily: 'var(--font-serif)' }}
+              className="font-display font-bold text-[clamp(2.5rem,6.5vw,4.5rem)] leading-[var(--leading-tight)] tracking-tight text-[#212121]"
+              style={{ fontWeight: 700 }}
             />
             <button
               onClick={handleRemix}

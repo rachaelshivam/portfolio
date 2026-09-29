@@ -86,7 +86,7 @@ export default function CaseStudyCard({
           <p className="mt-2 text-[1.125rem] text-[#5D5D5D]" style={{ fontFamily: 'var(--font-serif)', fontWeight: 450 }}>
             {subtitle}
           </p>
-          <p className="mt-3 text-[1rem] leading-[var(--leading-normal)] text-[var(--color-text-body)]">
+          <p className="mt-3 text-[0.9375rem] leading-[var(--leading-normal)] text-[var(--color-text-body)]">
             {summary}
           </p>
           {tags.length > 0 && (

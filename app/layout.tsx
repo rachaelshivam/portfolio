@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Fraunces } from "next/font/google";
 import HashScrollHandler from "@/components/HashScrollHandler";
 import Nav from "@/components/Nav";
 import "./globals.css";
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  axes: ['SOFT', 'WONK', 'opsz'],
+  variable: '--font-fraunces',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`${fraunces.variable} h-full antialiased`} data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

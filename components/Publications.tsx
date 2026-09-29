@@ -12,7 +12,7 @@ export default function Publications() {
     >
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <FadeInLeft>
-          <h2 id="publications-heading" className="border-l-[3px] border-[#D83775] py-[var(--space-3)] pl-[calc(var(--space-4)+var(--space-2))] text-[0.9375rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D] sm:pl-[calc(var(--space-6)+var(--space-2))]">
+          <h2 id="publications-heading" className="py-[var(--space-3)] text-[0.9375rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D]">
             Publications
           </h2>
         </FadeInLeft>

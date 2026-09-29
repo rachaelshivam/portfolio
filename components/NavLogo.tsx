@@ -35,8 +35,8 @@ export default function NavLogo({ onClick }: NavLogoProps) {
       `}</style>
       <Link
         href="/"
-        className="nav-logo text-[1.625rem] tracking-tight sm:text-[1.875rem]"
-        style={{ fontFamily: 'var(--font-serif)', fontWeight: 600 }}
+        className="nav-logo text-[1.3rem] tracking-tight sm:text-[1.5rem] font-display"
+        style={{ fontWeight: 700 }}
         onMouseEnter={handleMouseEnter}
         onClick={onClick}
       >

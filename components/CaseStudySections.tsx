@@ -25,7 +25,7 @@ function CaseStudyMetadataItem({
 }) {
   return (
     <div>
-      <dt className="text-[0.9375rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D]">
+      <dt className="text-[0.875rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D]">
         {label}
       </dt>
       <dd className="mt-[var(--space-2)] text-[1rem] font-normal text-[#404040]">
@@ -89,6 +89,11 @@ function getTextSectionCategory(section: CaseStudySection): string | null {
     return section.category ?? null;
   }
   return null;
+}
+
+// Helper to convert category names to valid HTML IDs
+export function categoryId(category: string): string {
+  return category.toLowerCase().replace(/[^a-z0-9]/g, '-');
 }
 
 function getShowCategory(sections: CaseStudySection[], index: number): boolean {
@@ -170,14 +175,13 @@ function buildRenderChunks(sections: CaseStudySection[]): RenderChunk[] {
 
 function CaseStudyStickySectionTitle({ label }: { label: string }) {
   return (
-    <div className="case-study-sticky-title relative sticky top-16 z-40 -mx-[var(--space-4)] px-[var(--space-4)] sm:-mx-[var(--space-6)] sm:px-[var(--space-6)]">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-5 -bottom-5 bg-[rgba(253,253,253,0.8)] backdrop-blur-md"
-      />
-      <p className="relative border-l-[3px] border-[#D83775] py-[var(--space-3)] pl-[calc(var(--space-4)+var(--space-2))] text-[0.9375rem] font-semibold uppercase tracking-[0.08em] text-[#3D3D3D] sm:pl-[calc(var(--space-6)+var(--space-2))]">
-        {label}
-      </p>
+    <div className="case-study-sticky-title relative -mx-[var(--space-4)] px-[var(--space-4)] sm:-mx-[var(--space-6)] sm:px-[var(--space-6)] mt-[var(--space-12)]">
+      <div className="flex items-center gap-2">
+        <div className="w-[2px] h-[0.875rem] bg-[#D83775]"></div>
+        <p className="text-[0.875rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
+          {label}
+        </p>
+      </div>
     </div>
   );
 }
@@ -201,7 +205,7 @@ function TextBodyContent({
             return (
               <p
                 key={index}
-                className="text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]"
+                className="text-[0.9375rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]"
               >
                 <span className="font-semibold">{label}:</span> <span className="font-semibold">{firstSentence}</span>{remainingText}
               </p>
@@ -210,7 +214,7 @@ function TextBodyContent({
           return (
             <p
               key={index}
-              className="text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]"
+              className="text-[0.9375rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]"
             >
               {block.content}
             </p>
@@ -221,13 +225,13 @@ function TextBodyContent({
           return (
             <div key={index}>
               {block.intro && (
-                <p className="mb-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
+                <p className="mb-[var(--space-3)] text-[0.9375rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
                   {block.intro}
                 </p>
               )}
-              <ul className="list-disc space-y-[var(--space-2)] text-[1rem] text-[#404040] pl-[var(--space-4)]">
+              <ul className="list-disc space-y-[var(--space-2)] text-[0.9375rem] text-[#404040] pl-[var(--space-4)]">
                 {block.items.map((item) => (
-                  <li key={item} className="text-[1rem] leading-[var(--leading-relaxed)]">
+                  <li key={item} className="text-[0.9375rem] leading-[var(--leading-relaxed)]">
                     {item}
                   </li>
                 ))}
@@ -244,9 +248,9 @@ function TextBodyContent({
             {block.columns.map((column) => (
               <div key={column.heading}>
                 <p className="case-study-label">{column.heading}</p>
-                <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-[1rem] text-[#404040]">
+                <ul className="case-study-list mt-[var(--space-3)] space-y-[var(--space-2)] text-[0.9375rem] text-[#404040]">
                   {column.items.map((item) => (
-                    <li key={item} className="text-[1rem] leading-[var(--leading-relaxed)]">
+                    <li key={item} className="text-[0.9375rem] leading-[var(--leading-relaxed)]">
                       {item}
                     </li>
                   ))}
@@ -260,22 +264,23 @@ function TextBodyContent({
   );
 }
 
-function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeadingOnly }: { section: CaseStudySection; showCategory: boolean; previousSectionIsHeadingOnly: boolean }) {
+function CaseStudySectionBlock({ section, showCategory, addTocAttributes, previousSectionIsHeadingOnly }: { section: CaseStudySection; showCategory: boolean; addTocAttributes: boolean; previousSectionIsHeadingOnly: boolean }) {
   switch (section.type) {
     case "text":
       return (
         <FadeUp>
-          <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
+          <section 
+            className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''} ${showCategory ? 'mt-[var(--space-12)]' : ''}`}
+            id={showCategory || addTocAttributes ? (section.category ? categoryId(section.category) : undefined) : undefined}
+            data-toc-section={showCategory || addTocAttributes ? (section.category ? categoryId(section.category) : undefined) : undefined}
+          >
             {showCategory && (
-              isWhatIDidCategory(section.category) ? (
-                <h2 className="font-bold text-[1.375rem] text-[#212121]">
-                  {section.category}
-                </h2>
-              ) : (
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
+              <div className="flex items-center gap-2 mb-[var(--space-3)]">
+                <div className="w-[2px] h-[0.875rem] bg-[#D83775]"></div>
+                <p className="text-[0.875rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                   {section.category}
                 </p>
-              )
+              </div>
             )}
             <h2 className="mt-[var(--space-3)] font-bold text-[1.375rem] text-[#212121]">
               {section.heading}
@@ -328,17 +333,18 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
     case "two-column-text":
       return (
         <FadeUp>
-          <section className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''}`}>
+          <section 
+            className={`case-study-section ${previousSectionIsHeadingOnly ? '-mt-[var(--space-8)]' : ''} ${showCategory ? 'mt-[var(--space-12)]' : ''}`}
+            id={showCategory || addTocAttributes ? (section.category ? categoryId(section.category) : undefined) : undefined}
+            data-toc-section={showCategory || addTocAttributes ? (section.category ? categoryId(section.category) : undefined) : undefined}
+          >
             {showCategory && section.category && (
-              isWhatIDidCategory(section.category) ? (
-                <h2 className="font-bold text-[1.375rem] text-[#212121]">
-                  {section.category}
-                </h2>
-              ) : (
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.08em] text-[#3D3D3D]">
+              <div className="flex items-center gap-2 mb-[var(--space-3)]">
+                <div className="w-[2px] h-[0.875rem] bg-[#D83775]"></div>
+                <p className="text-[0.875rem] font-medium uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                   {section.category}
                 </p>
-              )
+              </div>
             )}
             {section.heading && (
               <h2 className="mt-[var(--space-3)] font-bold text-[1.375rem] text-[#212121]">
@@ -352,7 +358,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                     {section.left.heading}
                   </p>
                 )}
-                <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
+                <p className="mt-[var(--space-3)] text-[0.9375rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
                   {section.left.body.includes('\n') ? (
                     <>
                       <span className="font-semibold">{section.left.body.split('\n')[0]}</span>
@@ -370,7 +376,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                     {section.right.heading}
                   </p>
                 )}
-                <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
+                <p className="mt-[var(--space-3)] text-[0.9375rem] leading-[var(--leading-relaxed)] font-normal text-[#404040]">
                   {section.right.body.includes('\n') ? (
                     <>
                       <span className="font-semibold">{section.right.body.split('\n')[0]}</span>
@@ -440,7 +446,7 @@ function CaseStudySectionBlock({ section, showCategory, previousSectionIsHeading
                       {column.heading}
                     </p>
                   )}
-                  <p className="mt-[var(--space-3)] text-[1rem] leading-[var(--leading-relaxed)] font-[600] text-[#404040]">
+                  <p className="mt-[var(--space-3)] text-[0.9375rem] leading-[var(--leading-relaxed)] font-[600] text-[#404040]">
                     {column.body}
                   </p>
                 </div>
@@ -530,12 +536,14 @@ function renderSectionBlock(
   sections: CaseStudySection[],
   index: number,
   showCategory: boolean,
+  addTocAttributes: boolean = false,
 ) {
   return (
     <CaseStudySectionBlock
       key={index}
       section={sections[index]}
       showCategory={showCategory}
+      addTocAttributes={addTocAttributes}
       previousSectionIsHeadingOnly={getPreviousSectionIsHeadingOnly(sections, index)}
     />
   );
@@ -558,7 +566,8 @@ export default function CaseStudySections({
               <div className="mt-[var(--space-6)] flex flex-col gap-[var(--space-9)] [&_.case-study-section:first-child>h2]:mt-0">
                 {Array.from({ length: chunk.end - chunk.start }, (_, offset) => {
                   const index = chunk.start + offset;
-                  return renderSectionBlock(sections, index, false);
+                  const isFirstInSection = offset === 0;
+                  return renderSectionBlock(sections, index, false, isFirstInSection);
                 })}
               </div>
             </div>
@@ -570,6 +579,7 @@ export default function CaseStudySections({
           sections,
           index,
           getShowCategory(sections, index),
+          false,
         );
       })}
     </div>

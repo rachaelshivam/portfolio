@@ -130,7 +130,7 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "/images/case-studies/roboticscareer-thumbnail.mp4",
     sections: [{
         type: "text",
-        category: "What I did:",
+        category: "What I did",
         heading: "",
         body: [
           {
@@ -629,7 +629,7 @@ export const caseStudies: CaseStudy[] = [
     sections: [
       {
         type: "text",
-        category: "What I did:",
+        category: "What I did",
         heading: "",
         body: [
           {
@@ -655,7 +655,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "text",
-        category: "Understanding the System",
+        category: "The System",
         heading: "I needed to understand what the agent was doing under the hood before I could design for it.",
         body: [
           {
@@ -978,7 +978,7 @@ export const caseStudies: CaseStudy[] = [
     sections: [
       {
         type: "text",
-        category: "What I did:",
+        category: "What I did",
         heading: "",
         body: [
           {
