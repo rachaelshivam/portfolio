@@ -379,6 +379,17 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "text",
+        category: "Solution",
+        heading: "We designed to extend beyond the primary audience",
+        body: [
+          {
+            type: "paragraph",
+            content: "Good product design solves the immediate problem while leaving room to grow. ARM serves multiple user segments, so while we focused our primary audience on high schoolers, we designed the ecosystem to extend beyond them. The Journey Map and Career Dashboard can support users at different career stages, while the quiz framework can be adapted for other segments as ARM's needs evolve."
+          }
+        ]
+      },
+      {
+        type: "text",
         category: "Impact",
         heading: "Our solutions outperformed the existing platform across every measure we tested.",
         body: []
@@ -615,7 +626,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "mise-ai",
     title: "Mise.AI",
     subtitle: "Balancing AI autonomy with human oversight",
-    intro: "Fast-casual restaurants lose around $179,000 per store annually from inventory mismanagement, a problem that existing tools flag but don't fix. Operating on tight margins and lean teams, these restaurants need more than alerts. They need action. As Lead Designer on a team of five, I designed and built the end-to-end interface for an agentic AI system that forecasts demand, ranks suppliers, and places orders, pausing for human-in-the-loop approval before executing. The financial model projected $46,000 in annual savings per store.",
+    intro: "Fast-casual restaurants operate on tight margins, making inventory management a costly operational challenge. Mise.AI is an agentic system designed to forecast demand, rank suppliers, and place orders while keeping managers in control of consequential decisions. As Lead Product Designer on a team of five, I designed and built the end-to-end interactive prototype, focusing on the boundary between AI autonomy and human oversight.",
     summary: "Built the end-to-end interface for an agentic AI inventory system for fast-casual restaurants with human-in-the-loop oversight, making the agent's automation visible, trustworthy, and controllable. Financial model projected $46,000 in annual savings per store.",
     tags: ["AI Design", "Product Design", "Agentic Systems"],
     thumbnail: "/images/case-studies/mise-ai-thumbnail.mp4",
@@ -635,9 +646,9 @@ export const caseStudies: CaseStudy[] = [
           {
             type: "bullets",
             items: [
-              "Designed and vibecoded the full interactive prototype in React using Figma Make and Claude, translating design decisions directly into a working demo",
-              "Led consequence scanning to identify and mitigate risks including unfair supplier ranking",
-              "Applied FATE principles (fairness, accountability, transparency, explainability) to every design decision, drawing on Microsoft's Responsible AI framework"
+              "Led product design across the end-to-end agent experience, from demand forecasting through supplier selection, approval, and order confirmation.",
+              "Designed and vibecoded the interactive prototype in React, using Figma Make and Claude to translate design decisions directly into a working demo.",
+              "Led consequence scanning to identify risks and design mitigations around human oversight, supplier fairness, errors, and algorithmic dependency."
             ]
           }
         ]
@@ -645,22 +656,22 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "The Challenge",
-        heading: "I had to balance making the agent helpful enough to save time with giving managers enough control to trust it.",
+        heading: "The agent had to save managers time without taking decisions away from them.",
         body: [
           {
             type: "paragraph",
-            content: "If the agent automates too much, managers don't trust it. If it asks for approval on every small decision, it's no faster than doing things manually. The design had to find the line — giving the agent enough autonomy to genuinely save time, while making sure a manager always has visibility into what it's doing and the ability to intervene before anything irreversible happens."
+            content: "If the agent automates too much, managers lose visibility and control. If it asks for approval at every step, it adds friction without meaningfully reducing workload. The design challenge was to find the right boundary: where the agent could act autonomously, where it needed to explain itself, and where a manager needed to make the final call."
           }
         ]
       },
       {
         type: "text",
-        category: "The System",
-        heading: "I needed to understand what the agent was doing under the hood before I could design for it.",
+        category: "Understanding the System",
+        heading: "Before designing the interface, I mapped what the agent could actually do.",
         body: [
           {
             type: "paragraph",
-            content: "Mise.AI is built on three modules: a demand forecasting model that predicts ingredient demand 3–7 days out; a supplier ranking model that scores suppliers per order; and a multimodal ordering agent that contacts suppliers via phone, email, or portal and surfaces the result for manager approval. Every screen had to reflect a specific type of agent action, not just a generic AI output."
+            content: "Mise.AI combines three modules: a demand forecasting model that predicts ingredient demand 3–7 days ahead, a supplier ranking model that scores suppliers for each order, and a multimodal ordering agent that contacts suppliers through phone, email, or portal. Understanding these actions was important because the interface needed to make agent behavior visible and controllable, rather than treating AI as a generic recommendation layer."
           }
         ]
       },
@@ -673,26 +684,24 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Key Design Decisions",
-        heading: "",
+        heading: "Defining where the agent needed guardrails.",
         body: [
           {
             type: "paragraph",
-            content: "I drew on Microsoft's Responsible AI framework to guide my thinking around fairness, accountability, transparency, and explainability, because in a system that acts on behalf of a user, getting the interface wrong has real operational consequences."
-          }
-        ]
-      },
-      {
-        type: "text",
-        category: "Key Design Decisions",
-        heading: "I led the team through consequence scanning before building anything.",
-        body: [
-          {
-            type: "paragraph",
-            content: "Before committing to the concept, I led the team through consequence scanning to anticipate risks and design mitigations from the outset. We mapped intended and unintended consequences across both positive and negative outcomes. Key risks included over/under-stocking, good suppliers being incorrectly flagged, and over-reliance on certain suppliers due to algorithm dependency."
+            content: "Before building the interface, I led the team through consequence scanning to identify potential positive and negative outcomes. We identified risks including over- or under-stocking, incorrect supplier recommendations, and over-reliance on particular suppliers."
           },
           {
             type: "paragraph",
-            content: "The mitigations I designed for included human-in-the-loop approval for every order, transparent rationale for AI recommendations, manager overrides on supplier selection, and prominent error handling when orders fail."
+            content: "That led to four core design requirements:"
+          },
+          {
+            type: "bullets",
+            items: [
+              "Human approval before every order is executed.",
+              "Transparent rationale explaining why the agent recommended an action.",
+              "Manager override when the AI's recommendation doesn't fit the manager's context.",
+              "Prominent error handling when the agent cannot complete an action."
+            ]
           }
         ]
       },
@@ -705,7 +714,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Key Design Decisions",
-        heading: "I decided early on that the agent should never act without manager approval.",
+        heading: "Managers stay in control of consequential actions.",
         body: [
           {
             type: "paragraph",
@@ -739,7 +748,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "text",
         category: "Key Design Decisions",
-        heading: "Managers have visibility at every stage.",
+        heading: "Managers need to see why the agent is recommending an action.",
         body: [
           {
             type: "paragraph",

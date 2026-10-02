@@ -12,6 +12,8 @@ interface RippleTextProps {
   style?: React.CSSProperties;
   /** Apply highlight effect to all lines */
   highlight?: boolean;
+  /** Indices of characters to italicize (flat across all lines) */
+  italicIndices?: number[];
 }
 
 export default function RippleText({
@@ -22,9 +24,11 @@ export default function RippleText({
   className,
   style,
   highlight,
+  italicIndices,
 }: RippleTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [lineWidths, setLineWidths] = useState<number[]>([]);
+  const [globalCharIndex, setGlobalCharIndex] = useState(0);
   
   const measureLine = useCallback((index: number) => (el: HTMLSpanElement | null) => {
     if (el && highlight) {
@@ -105,6 +109,7 @@ export default function RippleText({
     });
   }, [trigger, entryX, entryY]);
 
+  let charCounter = 0;
   return (
     <div ref={containerRef} className={className} style={{ ...style, cursor: "default", userSelect: "none", wordWrap: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}>
       {lines.map((line, lineIdx) => (
@@ -145,6 +150,8 @@ export default function RippleText({
           {line.split(" ").map((word, wordIdx) => (
             <span key={wordIdx} style={{ display: "inline-block", whiteSpace: "nowrap" }}>
               {word.split("").map((char, i) => {
+                const isItalic = italicIndices?.includes(charCounter);
+                charCounter++;
                 return (
                   <span
                     key={i}
@@ -152,6 +159,7 @@ export default function RippleText({
                     style={{
                       display: "inline-block",
                       transformOrigin: "center bottom",
+                      fontStyle: isItalic ? 'italic' : 'normal',
                     }}
                   >
                     {char}

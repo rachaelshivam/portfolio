@@ -34,7 +34,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="site-footer px-[var(--space-4)] py-[var(--space-9)] text-center sm:px-[var(--space-6)] sm:py-[var(--space-10)]">
+    <footer className="site-footer mt-auto px-[var(--space-4)] py-[var(--space-9)] text-center sm:px-[var(--space-6)] sm:py-[var(--space-10)]">
       <div className="mx-auto w-full max-w-[var(--max-width-content)]">
         <p className="font-serif text-lg font-medium">Rachael Shivam</p>
         <p className="footer-muted mt-[var(--space-2)] text-sm">

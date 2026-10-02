@@ -18,7 +18,7 @@ export default function Publications() {
         </FadeInLeft>
 
         <FadeUp>
-          <ul className="mt-[var(--space-8)] flex flex-col gap-[var(--space-8)]">
+          <ul className="mt-[var(--space-6)] flex flex-col gap-[var(--space-8)]">
             {publications.map((item) => (
               <li key={item.href} className="publication-item">
                 <a

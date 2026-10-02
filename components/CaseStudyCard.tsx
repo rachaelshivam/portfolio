@@ -64,7 +64,7 @@ export default function CaseStudyCard({
               muted
               loop
               playsInline
-              className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+              className="w-full h-full object-cover"
             />
           ) : (
             !imageError && (
@@ -72,7 +72,7 @@ export default function CaseStudyCard({
                 src={thumbnail}
                 alt={title}
                 fill
-                className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 onError={() => setImageError(true)}
               />
